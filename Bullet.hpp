@@ -1,0 +1,101 @@
+#ifndef BULLET_H
+#define BULLET_H
+
+#include <iostream>
+#include "Thing.hpp"
+#include "Enemy.hpp"
+
+class Bullet : public Thing {
+protected:
+  int _damage;
+  int _lifetime;
+public:
+  virtual void tick();
+  virtual void handleCollision(std::shared_ptr<Thing> other);
+  Bullet(std::string path, sf::Vector2f position, int damage) : Thing(path, position) {
+    _damage = damage;
+  };
+  Bullet(Animation& anim, sf::Vector2f position, int damage) : Thing("", position) {
+    _currentAnimation = anim;
+    _isAnimating = true;
+    _damage = damage;
+  };
+  Bullet(std::string path, sf::Vector2f position, int damage, sf::Vector2f velocity, int lifetime=FRAMERATE/3) : Thing(path, position) {
+    _damage = damage;
+    _velocity = velocity;
+    _lifetime = lifetime;
+    _facing = getUnitVectorOf(_velocity);
+  };
+  Bullet(Animation& anim, sf::Vector2f position, int damage, sf::Vector2f velocity, int lifetime=FRAMERATE/3) : Thing("", position) {
+    _currentAnimation = anim;
+    _isAnimating = true;    
+    _damage = damage;
+    _velocity = velocity;
+    _lifetime = lifetime;
+    _facing = getUnitVectorOf(_velocity);
+  };
+  
+  Bullet(){};
+};
+
+class Rocket : public Bullet {
+protected:
+  sf::Vector2f _direction;
+  double _speed = -5.0;
+  double _blastRadius;
+  double _acceleration;
+public:
+  virtual void tick();
+  virtual void handleCollision(std::shared_ptr<Thing> other);
+  //This is the one most weapons will use.
+  Rocket(sf::Vector2f position, int damage,
+         sf::Vector2f velocity, int lifetime) :  Bullet("rocket-final.png", position, damage, velocity, lifetime) {
+    _blastRadius = 15.0;
+    _acceleration = 1.0;
+    _direction = getUnitVectorOf(velocity);
+  }
+  Rocket(){}
+};
+
+class HostileBullet : public Bullet {
+protected:
+public:
+  virtual void tick();
+  virtual void handleCollision(std::shared_ptr<Thing> other);
+  HostileBullet(std::string path, sf::Vector2f position, int damage,
+                sf::Vector2f velocity, int lifetime=FRAMERATE/3) : Bullet(path, position, damage, velocity, lifetime) {}
+  HostileBullet(Animation& anim, sf::Vector2f position, int damage,
+                sf::Vector2f velocity, int lifetime=FRAMERATE/3) : Bullet(anim, position, damage, velocity, lifetime) {}
+  HostileBullet(){};  
+};
+
+class FriendlyBullet : public Bullet {
+protected:
+public:
+  virtual void tick();
+  virtual void handleCollision(std::shared_ptr<Thing> other);
+  FriendlyBullet(std::string path, sf::Vector2f position, int damage,
+                sf::Vector2f velocity, int lifetime=FRAMERATE/3) : Bullet(path, position, damage, velocity, lifetime) {}
+  FriendlyBullet(){};  
+};
+
+class HostileRocket : public Rocket {
+protected:
+public:
+  virtual void tick();
+  virtual void handleCollision(std::shared_ptr<Thing> other);
+  HostileRocket(){};  
+};
+
+class FriendlyRocket : public Rocket {
+protected:
+public:
+  virtual void tick();
+  virtual void handleCollision(std::shared_ptr<Thing> other);
+  FriendlyRocket(sf::Vector2f position, int damage,
+                 sf::Vector2f velocity, int lifetime) :  Rocket(position, damage, velocity, lifetime) {
+  }  
+  FriendlyRocket(){};  
+};
+
+#endif

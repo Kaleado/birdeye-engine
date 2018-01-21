@@ -1,0 +1,48 @@
+# Weapon Mod List
+
+## Global (whilst-equipped) Mods
+* +X Global movement speed.
+* -X% Global reload delay.
+* -X% Global firing delay.
+* +X% Global damage.
+* +X Max HP.
+* -X% Ability cooldown length.
+
+## Weapon-local (whilst-using) Mods
+* 10% lifesteal.
+* 200% movement speed.
+* 200% magazine size (for _this_ weapon).
+* 50% reload delay (for _this_ weapon).
+* 50% firing delay.
+* Auras (applies effects to enemies close to the player):
+  * Freezing aura (slows enemies).
+  * Burning aura (sets enemies on fire).
+  * Venomous aura (poisons enemies).
+
+## Bullet Mods
+* Fires normal bullets (does not pierce enemies).
+* Fires piercing bullets (pierces through enemies).
+* Fires fireballs (explodes and sets on fire).
+* Fires rockets (explodes in a small radius).
+* Fires a laser (pierces through enemies).
+* Fires a plasma ball (slow-moving projectile that damages enemies around it).
+* Fires icicles (slows enemies).
+* Fires grenades (explodes in a large radius after a small amount of time).
+* Fires sticky grenades (sticks to enemies, then explodes in a small radius).
+* Fires lightning (jumps between multiple enemies).
+
+## Special (weapon-specific) Mods
+* Sniper Rifles:
+  * 200% zoom distance.
+* SMGs:
+  * -50% spread.
+  * +50% spread.
+* Revolvers:
+  * 
+* Pump shotguns:
+  * +2 pellets.
+  * -50% spread.
+  * +50% spread.
+  * +1 shot per pump.
+* Melee:
+  * 

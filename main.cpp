@@ -21,6 +21,7 @@
 HorizontalBar<int> healthBar;
 std::array<WeaponWidget, NUM_WEAPONS> weaponIcon;
 
+//Root input handling function - all other input handling occurs within this function.
 void handleInput(sf::Event event){
   playfield->handleInput(event);
   cursor->handleInput(event);
@@ -32,13 +33,14 @@ void handleInput(sf::Event event){
   }  
 }
 
+//This function initialises all game-logic related state.
 void initialiseGameState(){  
   camera = Camera(sf::Vector2f{-100, -100});
   cursor = std::make_shared<Cursor>("cursor.png");
   playfield = std::make_shared<Playfield>();
-  player = std::make_shared<Player>("player.png", sf::Vector2f{0, 0}, 5.0);
+  player = std::make_shared<Player>("player-down.png", sf::Vector2f{0, 0}, 5.0);
   player->setSprintAbility(std::make_shared<Sprint>(2.0));
-  std::shared_ptr<Enemy> newThing = std::make_shared<Enemy>("placeholder.png", sf::Vector2f{150, 150}, 150, 5.0);
+  std::shared_ptr<Enemy> newThing = std::make_shared<Enemy>("enemy-down.png", sf::Vector2f{150, 150}, 150, 5.0);
   auto smg = std::make_shared<Smg<FriendlyRocket>>(1, 1, 5, 40, 20);
   smg->fillWithMods();
   auto revolver = std::make_shared<Revolver<FriendlyRocket>>(1, 1, 90, 30);
@@ -75,6 +77,7 @@ void initialiseGameState(){
   healthBar = HorizontalBar<int>{[&player](){return player->getCurrentHp();}, [&player](){return player->stats.maxHp;}, {10, 10}, sf::Color::Red, 100, 15};
 }
 
+//This function draws everything on the screen and calls tick() for everything that needs to handle events every frame.
 void frameTick(){
   window.clear(sf::Color::Black);
   camera.setFocusPosition(player->getPosition());  
@@ -93,6 +96,8 @@ void frameTick(){
 
 int main(){
   window.setFramerateLimit(FRAMERATE);
+  //We're using a soft cursor at the moment, but the UI would be a bit
+  //more responsive if we used a hardware-provided cursor.
   window.setMouseCursorVisible(false);
   
   initialiseGameState();  

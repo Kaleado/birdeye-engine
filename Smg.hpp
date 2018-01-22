@@ -38,8 +38,9 @@ void Smg<BulletType>::tick(){
     
     //Fire the bullet.
     double deviation = 180;
-    auto dir = player->getWorldRotation() + 90 + (-0.5 + static_cast<double>(std::rand())/RAND_MAX) * deviation;
-    cursor->kick(dir, 6);
+    //auto dir = player->getWorldRotation() + 90 + (-0.5 + static_cast<double>(std::rand())/RAND_MAX) * deviation;
+    auto dir = player->getWorldRotation() + 180 + (randDouble()*2 - 1) * deviation;
+    //cursor->kick(dir, 6);
     camera.kick(dir, 9);
     auto target = cursor->getWorldPosition();
     auto pos = player->getPosition();

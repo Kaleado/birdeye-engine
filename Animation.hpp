@@ -14,11 +14,22 @@ public:
   //Puts the next frame into a Sprite, returning whether the animation is finished or not.
   //Returns false if the animation is finished, true otherwise.
   bool getNextFrame(sf::Sprite& sprite);
-  bool hasFinished(); 
-  void reset();//Sets the animation back to the start.
-  void pause();//Pauses the animation at the current frame.
-  void resume();//Continues the animation after pausing.
-  void abort();//Sets the animation to be done.
+
+  //Returns whether the animation has finished running.
+  bool hasFinished();
+
+  //Sets the animation back to the start.
+  void reset();
+
+  //Pauses the animation at the current frame.
+  void pause();
+
+  //Continues the animation after pausing.
+  void resume();
+
+  //Sets the animation to be done.
+  void abort();
+  
   Animation(std::vector<std::string> paths, bool isLooping=false, int frameRate=FRAMERATE) : _isLooping{isLooping}, _paths{paths}, _frameRate{frameRate} {
     unsigned int sz = _paths.size();
     _frames = std::vector<sf::Sprite>{sz};
@@ -30,10 +41,16 @@ private:
   bool _isLoaded=false;
   bool _isPaused=false;
   bool _isAborted=false;
+
+  //Loads all of the images associated with the animation.
   int _load();
+  
+  //Gets the number of frames in the animation.
   int _getLength();
+
+  
   int _curFrame=0;
-  int _frameRate;
+  int _frameRate;  
   std::vector<sf::Sprite> _frames;
   std::vector<sf::Texture> _textures;
   std::vector<std::string> _paths;

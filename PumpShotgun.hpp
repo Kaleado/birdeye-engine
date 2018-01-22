@@ -2,7 +2,7 @@
 #define PUMPSHOTGUN_H
 
 /*
-  A shotgun that must be pumped after each shot.
+  A shotgun that must be pumped after each shot with the right mouse button.
  */
 template <typename BulletType>
 class PumpShotgun : public Weapon {
@@ -36,7 +36,7 @@ void PumpShotgun<BulletType>::tick(){
   if(weaponState == WS_FIRING_PRIMARY && _isPumped){
     double deviation = 90;//90 degrees of deviation in the kick of the cursor and screen.
     auto dir = player->getWorldRotation() + (-0.5 + static_cast<double>(std::rand())/RAND_MAX) * deviation;
-    cursor->kick(dir, 60);
+    //cursor->kick(dir, 60);
     camera.kick(dir, 90);
     for(int i = 0; i < _numPellets; ++i){
       //Essentially, we fire pellets to random spots 'near' the mouse (based on the spread).

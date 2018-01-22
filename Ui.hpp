@@ -16,6 +16,8 @@
 class Widget : public Thing {
 protected:
   bool _mouseOver=false;
+
+  //These will be called when the left mouse button is pressed, released, etc.
   virtual void _onLeftClickPress(){}
   virtual void _onLeftClickRelease(){}
   virtual void _onRightClickPress(){}
@@ -25,17 +27,26 @@ protected:
   virtual void _onKeyPress(sf::Event event){}
   virtual void _onKeyRelease(sf::Event event){}
 public:
-  bool isMouseOver();  
-  virtual void tick();//Does game-logic related things every frame.
-  virtual void handleInput(sf::Event event);//Handles and responds to input every frame.
+  //Returns whether the mouse is over this UI element.
+  bool isMouseOver();
+  
+  //Does game-logic related things every frame.
+  virtual void tick();
+  
+  //Handles and responds to input every frame.
+  virtual void handleInput(sf::Event event);
+
+  //Draws the widget on the screen.
   virtual void draw(sf::RenderWindow& window);
+  
   Widget(std::string path, sf::Vector2f position) : Thing(path, position) {};
   Widget(std::string path) : Thing(path) {};
   Widget(){};
 };
 
 /*
-  A horizontal bar on the screen - think something like a health bar.
+  A horizontal bar on the screen, tracking some value vs. its maximum
+  value - think something like a health bar.
  */
 template <typename T>
 class HorizontalBar : public Widget {

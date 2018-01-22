@@ -50,7 +50,7 @@ void SniperRifle<BulletType>::tick(){
 
       double deviation = 5;
       auto dir = player->getWorldRotation() + 180 + (randDouble()*2 - 1) * deviation;
-      cursor->kick(dir, 80);
+      //cursor->kick(dir, 80);
       camera.kick(dir, 80);
 
       cooldown = FRAMERATE/2;

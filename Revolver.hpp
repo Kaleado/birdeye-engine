@@ -39,7 +39,7 @@ void Revolver<BulletType>::tick(){
     double deviation = 5;
     //auto dir = static_cast<double>(std::rand())/RAND_MAX * deviation;
     auto dir = player->getWorldRotation() + 180 + (randDouble()*2 - 1) * deviation;
-    cursor->kick(dir, 37.5);
+    //cursor->kick(dir, 37.5);
     camera.kick(dir, 37.5);
     auto target = cursor->getWorldPosition();
     auto pos = player->getPosition();

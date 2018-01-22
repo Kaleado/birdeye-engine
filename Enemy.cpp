@@ -36,8 +36,61 @@ void Enemy::handleCollision(std::shared_ptr<Thing> other){
   }
 }
 
+void Enemy::_setImageBasedOnRotation(){
+  std::string newPath;
+  //Change sprite based on the eight directions.
+  if(-22.5 < _rotation && _rotation < 22.5){
+    //Right
+    newPath = "enemy-right.png";
+      
+  }
+  else if(22.5 < _rotation && _rotation < 67.5){
+    //Down-right
+    newPath = "enemy-downright.png";
+      
+  }
+  else if(67.5 < _rotation && _rotation < 112.5){
+    //Down
+    newPath = "enemy-down.png";
+      
+  }
+  else if(112.5 < _rotation && _rotation < 157.5){
+    //Down-left
+    newPath = "enemy-downleft.png";
+      
+  }
+  else if(-67.5 < _rotation && _rotation < -22.5){
+    //Up-right
+    newPath = "enemy-upright.png";
+      
+  }
+  else if(-112.5 < _rotation && _rotation < -67.5){
+    //Up
+    newPath = "enemy-up.png";
+      
+  }
+  else if(-157.5 < _rotation && _rotation < -112.5){
+    //Up-left
+    newPath = "enemy-upleft.png";
+      
+  }
+  else {
+    //Left
+    newPath = "enemy-left.png";      
+  }
+  if(_path != newPath){
+    _path = newPath;
+    _isLoaded = false;
+  }  
+}
 
 void Enemy::_whenAggro(){
+  sf::Vector2f localPosition = player->getPosition();
+  float rads = std::atan2(localPosition.y - _position.y, localPosition.x - _position.x);
+  float degrees = rads*180/(3.141592653589793238);
+  _rotation = degrees;
+
+  _setImageBasedOnRotation();
   double dist = _getDistanceFromPlayer();
   double attackRange = 30;  
   if(dist > attackRange){

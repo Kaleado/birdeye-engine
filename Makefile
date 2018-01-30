@@ -1,7 +1,7 @@
 all: sfml-test
 
-sfml-test: Render.o Thing.o Player.o Bullet.o Weapon.o Playfield.o Enemy.o main.o Animation.o Ability.o Cursor.o Camera.o Ui.o Stats.o WeaponMod.o WeaponWidget.o
-	g++ -g -std=c++14 -pthread main.o Render.o Bullet.o Weapon.o Player.o Enemy.o Playfield.o Animation.o Ability.o Cursor.o Ui.o Thing.o Camera.o Stats.o WeaponMod.o WeaponWidget.o -o sfml-test -lsfml-graphics -lsfml-window -lsfml-system
+sfml-test: EnvironmentThing.o Render.o Thing.o Player.o Bullet.o Weapon.o Playfield.o Enemy.o main.o Animation.o Ability.o Cursor.o Camera.o Ui.o Stats.o WeaponMod.o WeaponWidget.o
+	g++ -g -std=c++14 -pthread main.o EnvironmentThing.o Render.o Bullet.o Weapon.o Player.o Enemy.o Playfield.o Animation.o Ability.o Cursor.o Ui.o Thing.o Camera.o Stats.o WeaponMod.o WeaponWidget.o -o sfml-test -lsfml-graphics -lsfml-window -lsfml-system
 
 Cursor.o: Cursor.hpp Cursor.cpp 
 	g++ -g -std=c++14 -pthread -c Cursor.cpp -o Cursor.o
@@ -11,6 +11,9 @@ Stats.o: Stats.hpp Stats.cpp
 
 Thing.o: Thing.hpp Thing.cpp 
 	g++ -g -std=c++14  -pthread -c Thing.cpp -o Thing.o
+
+EnvironmentThing.o: EnvironmentThing.hpp EnvironmentThing.cpp 
+	g++ -g -std=c++14  -pthread -c EnvironmentThing.cpp -o EnvironmentThing.o
 
 Player.o: Thing.hpp Weapon.hpp Player.hpp Player.cpp
 	g++ -g -std=c++14  -pthread -c Player.cpp -o Player.o

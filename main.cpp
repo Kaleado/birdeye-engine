@@ -11,6 +11,7 @@
 #include "Ui.hpp"
 #include "Weapon.hpp"
 #include "WeaponWidget.hpp"
+#include "EnvironmentThing.hpp"
 
 #include "Smg.hpp"
 #include "Revolver.hpp"
@@ -40,6 +41,10 @@ void initialiseGameState(){
   playfield = std::make_shared<Playfield>();
   player = std::make_shared<Player>("player-down.png", sf::Vector2f{0, 0}, 5.0);
   player->setSprintAbility(std::make_shared<Sprint>(2.0));
+
+  std::shared_ptr<EnvironmentThing> tree = std::make_shared<EnvironmentThing>("tree.png", sf::Vector2f{150, 150}, false, false);
+  playfield->addThing(tree);
+  
   std::shared_ptr<Enemy> newThing = std::make_shared<Enemy>("enemy-down.png", sf::Vector2f{150, 150}, 150, 5.0);
   auto smg = std::make_shared<Smg<FriendlyRocket>>(1, 1, 5, 40, 20);
   smg->fillWithMods();

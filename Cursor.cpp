@@ -22,7 +22,7 @@ void Cursor::tick(){
 void Cursor::handleInput(sf::Event event){
   if(event.type == sf::Event::MouseMoved){
     //This is dumb but we need it as a float.
-    auto p = sf::Vector2f(sf::Mouse::getPosition().x, sf::Mouse::getPosition().y);
+    auto p = sf::Vector2f(sf::Mouse::getPosition(window).x, sf::Mouse::getPosition(window).y);
     _position = p;
   }
   
@@ -58,7 +58,7 @@ void Cursor::draw(sf::RenderWindow& window){
   _position += _velocity;
   _sprite.setPosition(_position);
   _sprite.setOrigin(16, 16);
-  sf::Mouse::setPosition(sf::Vector2i(_position.x, _position.y));
+  sf::Mouse::setPosition(sf::Vector2i(_position.x, _position.y), window);
   //Either show the current animation, or display the original sprite for the Thing.
   sf::Sprite animationFrame;
   if(_isAnimating && _currentAnimation.getNextFrame(animationFrame)){

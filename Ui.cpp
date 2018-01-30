@@ -1,7 +1,7 @@
 #include "Ui.hpp"
 
 bool Widget::isMouseOver(){
-  auto vec = sf::Mouse::getPosition();
+  auto vec = sf::Mouse::getPosition(window);
   bool isOver = getBounds().contains(vec.x, vec.y);
   return isOver;
 }

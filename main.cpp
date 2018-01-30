@@ -53,17 +53,17 @@ void initialiseGameState(){
   minigun->fillWithMods();
     
   weaponIcon[0] = WeaponWidget{smg,
-                            {window.getSize().x/2 + SCREEN_GUTTER/2 - WEAPON_ICON_SPACING*2 - WEAPON_ICON_WIDTH*2,
-                             window.getSize().y - WEAPON_ICON_HEIGHT - SCREEN_GUTTER}};
+                               {window.getSize().x/2 + SCREEN_GUTTER/2 - WEAPON_ICON_SPACING*2 - WEAPON_ICON_WIDTH*2,
+                                window.getSize().y - WEAPON_ICON_HEIGHT - SCREEN_GUTTER}};
   weaponIcon[1] = WeaponWidget{revolver,
-                            {window.getSize().x/2 + SCREEN_GUTTER/2 - WEAPON_ICON_SPACING - WEAPON_ICON_WIDTH,
-                             window.getSize().y - WEAPON_ICON_HEIGHT - SCREEN_GUTTER}};
+                               {window.getSize().x/2 + SCREEN_GUTTER/2 - WEAPON_ICON_SPACING - WEAPON_ICON_WIDTH,
+                                window.getSize().y - WEAPON_ICON_HEIGHT - SCREEN_GUTTER}};
   weaponIcon[2] = WeaponWidget{shotgun,
-                            {window.getSize().x/2 + SCREEN_GUTTER/2,
-                             window.getSize().y - WEAPON_ICON_HEIGHT - SCREEN_GUTTER}};
+                               {window.getSize().x/2 + SCREEN_GUTTER/2,
+                                window.getSize().y - WEAPON_ICON_HEIGHT - SCREEN_GUTTER}};
   weaponIcon[3] = WeaponWidget{rifle,
-                            {window.getSize().x/2 + SCREEN_GUTTER/2 + WEAPON_ICON_SPACING + WEAPON_ICON_WIDTH,
-                             window.getSize().y - WEAPON_ICON_HEIGHT - SCREEN_GUTTER}};
+                               {window.getSize().x/2 + SCREEN_GUTTER/2 + WEAPON_ICON_SPACING + WEAPON_ICON_WIDTH,
+                                window.getSize().y - WEAPON_ICON_HEIGHT - SCREEN_GUTTER}};
   weaponIcon[4] = WeaponWidget{minigun,
                                {window.getSize().x/2 + SCREEN_GUTTER/2 + WEAPON_ICON_SPACING*2 + WEAPON_ICON_WIDTH*2,
                                 window.getSize().y - WEAPON_ICON_HEIGHT - SCREEN_GUTTER}};

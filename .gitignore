@@ -31,3 +31,6 @@
 *.out
 *.app
 sfml-test
+
+# Etc.
+TAGS

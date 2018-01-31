@@ -11,7 +11,7 @@
   tree. This can be subclassed to give more complex behaviour to
   things like totems, etc.
  */
-class EnvironmentThing : public Thing {
+class EnvironmentThing : public Thing, public std::enable_shared_from_this<EnvironmentThing> {
 protected:
   //Whether or not the thing can be walked through by player or enemy
   //alike.
@@ -33,7 +33,7 @@ public:
   //Responds to (but does not check for) collisions every
   //frame. Collision logic between enemies and bullets and this object
   //is implemented here.
-  void handleCollision(std::shared_ptr<Thing> other);
+  void handleCollision(std::weak_ptr<Thing> other);
 
   EnvironmentThing(Animation& anim, sf::Vector2f position, bool canShootThrough, bool canWalkThrough) : Thing(anim, position) {
     _canShootThrough = canShootThrough;

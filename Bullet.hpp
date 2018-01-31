@@ -24,7 +24,7 @@ public:
 
   //If you want your bullet to explode or do something when it hits a
   //game object, your subclass should override this!
-  virtual void handleCollision(std::shared_ptr<Thing> other);
+  virtual void handleCollision(std::weak_ptr<Thing> other);
 
   //Sorry for all these constructors.
   Bullet(std::string path, sf::Vector2f position, int damage) : Thing(path, position) {
@@ -62,7 +62,7 @@ protected:
   double _acceleration;
 public:
   virtual void tick();
-  virtual void handleCollision(std::shared_ptr<Thing> other);
+  virtual void handleCollision(std::weak_ptr<Thing> other);
   //This is the constructor most weapons will use.
   Rocket(sf::Vector2f position, int damage,
          sf::Vector2f velocity, int lifetime) :  Bullet("rocket-final.png", position, damage, velocity, lifetime) {
@@ -78,7 +78,7 @@ class HostileBullet : public Bullet {
 protected:
 public:
   virtual void tick();
-  virtual void handleCollision(std::shared_ptr<Thing> other);
+  virtual void handleCollision(std::weak_ptr<Thing> other);
   HostileBullet(std::string path, sf::Vector2f position, int damage,
                 sf::Vector2f velocity, int lifetime=FRAMERATE/3) : Bullet(path, position, damage, velocity, lifetime) {}
   HostileBullet(Animation& anim, sf::Vector2f position, int damage,
@@ -91,7 +91,7 @@ class FriendlyBullet : public Bullet {
 protected:
 public:
   virtual void tick();
-  virtual void handleCollision(std::shared_ptr<Thing> other);
+  virtual void handleCollision(std::weak_ptr<Thing> other);
   FriendlyBullet(std::string path, sf::Vector2f position, int damage,
                 sf::Vector2f velocity, int lifetime=FRAMERATE/3) : Bullet(path, position, damage, velocity, lifetime) {}
   FriendlyBullet(){};  
@@ -102,7 +102,7 @@ class HostileRocket : public Rocket {
 protected:
 public:
   virtual void tick();
-  virtual void handleCollision(std::shared_ptr<Thing> other);
+  virtual void handleCollision(std::weak_ptr<Thing> other);
   HostileRocket(){};  
 };
 
@@ -111,7 +111,7 @@ class FriendlyRocket : public Rocket {
 protected:
 public:
   virtual void tick();
-  virtual void handleCollision(std::shared_ptr<Thing> other);
+  virtual void handleCollision(std::weak_ptr<Thing> other);
   FriendlyRocket(sf::Vector2f position, int damage,
                  sf::Vector2f velocity, int lifetime) :  Rocket(position, damage, velocity, lifetime) {
   }  

@@ -1,13 +1,13 @@
 #include "Bullet.hpp"
 
-void Bullet::handleCollision(std::shared_ptr<Thing> other){
-  std::shared_ptr<Enemy> asEnemy = std::dynamic_pointer_cast<Enemy>(other);
+void Bullet::handleCollision(std::weak_ptr<Thing> other){
+  std::shared_ptr<Enemy> asEnemy = std::dynamic_pointer_cast<Enemy>(other.lock());
   if(asEnemy){
     asEnemy->damage(_damage);
     cull();
   }
   else{
-    std::shared_ptr<Player> asPlayer = std::dynamic_pointer_cast<Player>(other);
+    std::shared_ptr<Player> asPlayer = std::dynamic_pointer_cast<Player>(other.lock());
     if(asPlayer){
       asPlayer->damage(_damage);
       cull();
@@ -21,8 +21,8 @@ void Bullet::tick(){
   if(--_lifetime < 0 || !isOnScreen(*this)){cull();}
 }
 
-void Rocket::handleCollision(std::shared_ptr<Thing> other){
-  std::shared_ptr<Enemy> asEnemy = std::dynamic_pointer_cast<Enemy>(other);
+void Rocket::handleCollision(std::weak_ptr<Thing> other){
+  std::shared_ptr<Enemy> asEnemy = std::dynamic_pointer_cast<Enemy>(other.lock());
   std::shared_ptr<Bullet> explosion = std::make_shared<Bullet>("explosion.png", _position, _damage, sf::Vector2f(0,0), FRAMERATE/2);
   if(asEnemy){
     //asEnemy->damage(_damage);
@@ -30,7 +30,7 @@ void Rocket::handleCollision(std::shared_ptr<Thing> other){
     cull();
   }
   else{
-    std::shared_ptr<Player> asPlayer = std::dynamic_pointer_cast<Player>(other);
+    std::shared_ptr<Player> asPlayer = std::dynamic_pointer_cast<Player>(other.lock());
     if(asPlayer){
       playfield->addThing(explosion);      
       cull();
@@ -51,8 +51,8 @@ void Rocket::tick(){
 }
 
 
-void HostileBullet::handleCollision(std::shared_ptr<Thing> other){
-  std::shared_ptr<Player> asPlayer = std::dynamic_pointer_cast<Player>(other);
+void HostileBullet::handleCollision(std::weak_ptr<Thing> other){
+  std::shared_ptr<Player> asPlayer = std::dynamic_pointer_cast<Player>(other.lock());
   if(asPlayer){
     asPlayer->damage(_damage);
     cull();
@@ -63,8 +63,8 @@ void HostileBullet::tick(){
   Bullet::tick();
 }
 
-void FriendlyBullet::handleCollision(std::shared_ptr<Thing> other){
-  std::shared_ptr<Enemy> asEnemy = std::dynamic_pointer_cast<Enemy>(other);
+void FriendlyBullet::handleCollision(std::weak_ptr<Thing> other){
+  std::shared_ptr<Enemy> asEnemy = std::dynamic_pointer_cast<Enemy>(other.lock());
   if(asEnemy){
     asEnemy->damage(_damage);
     cull();
@@ -75,9 +75,9 @@ void FriendlyBullet::tick(){
   Bullet::tick();
 }
 
-void HostileRocket::handleCollision(std::shared_ptr<Thing> other){
+void HostileRocket::handleCollision(std::weak_ptr<Thing> other){
   std::shared_ptr<HostileBullet> explosion = std::make_shared<HostileBullet>("explosion.png", _position, _damage, sf::Vector2f(0,0), FRAMERATE/2);  
-  std::shared_ptr<Player> asPlayer = std::dynamic_pointer_cast<Player>(other);
+  std::shared_ptr<Player> asPlayer = std::dynamic_pointer_cast<Player>(other.lock());
   if(asPlayer){
     //asPlayer->damage(_damage);
     playfield->addThing(explosion);
@@ -89,9 +89,9 @@ void HostileRocket::tick(){
   Rocket::tick();
 }
 
-void FriendlyRocket::handleCollision(std::shared_ptr<Thing> other){
+void FriendlyRocket::handleCollision(std::weak_ptr<Thing> other){
   std::shared_ptr<FriendlyBullet> explosion = std::make_shared<FriendlyBullet>("explosion.png", _position, _damage, sf::Vector2f(0,0), FRAMERATE/2); 
-  std::shared_ptr<Enemy> asEnemy = std::dynamic_pointer_cast<Enemy>(other);
+  std::shared_ptr<Enemy> asEnemy = std::dynamic_pointer_cast<Enemy>(other.lock());
   if(asEnemy){
     //asEnemy->damage(_damage);
     playfield->addThing(explosion);

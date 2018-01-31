@@ -24,6 +24,10 @@ enum EnemyState { ES_IDLE, ES_AGGRO, ES_DEAD, ES_ATTACKING };
  */
 class Enemy : public Thing {
 public:
+  
+  //Returns the center of the sprite (in world coordinates)
+  sf::Vector2f getWorldCenter();
+    
   //The enemy's current state (described above).
   EnemyState enemyState = ES_IDLE;
   
@@ -36,7 +40,7 @@ public:
   
   //Responds to (but does not check for) collisions every frame. Other
   //contains a pointer to the Thing that was collided with.
-  virtual void handleCollision(std::shared_ptr<Thing> other);
+  virtual void handleCollision(std::weak_ptr<Thing> other);
 
   //Executed when the creature dies.
   virtual void die();
@@ -49,9 +53,6 @@ public:
 protected:
   //Changes the creature's sprite based on the direction they're facing.
   void _setImageBasedOnRotation();
-
-  //Pushes enemies away from one another so they don't crowd in one spot.
-  void _preventOverlapping(std::shared_ptr<Enemy> asEnemy);
 
   //Executed every frame when the creature's state is ES_IDLE.
   virtual void _whenIdle();

@@ -26,19 +26,28 @@ protected:
   sf::Vector2f _velocity;//Self-explanatory.
   double _rotation = 0;//The direction the thing is facing, in _degrees_.
   bool _cullMe = false;//If this is true, this Thing should be culled (i.e. removed permanently) from the playfield.
-  
+
   //Loads the Thing's sprite.
   int _load();
   Animation _currentAnimation;//The current animation being played by the Thing.
 public:
+  
+  //Returns the center of the sprite (in world coordinates)
+  virtual sf::Vector2f getWorldCenter();
+  
+  //Pushes Things away from one another so they don't crowd in one
+  //spot. This accepts a location rather than a Thing pointer so we
+  //can use it to prevent collisions with anything.
+  void preventOverlapping(std::weak_ptr<Thing> otherThing, double strength);  
+  
   //Does game-logic related things every frame. This is the core function that defines the behaviour of the game object.
   virtual void tick();
 
   //Handles and responds to input every frame. The event is the event to respond to.
   virtual void handleInput(sf::Event event);
-
+  
   //Responds to (but does not check for) collisions every frame.
-  virtual void handleCollision(std::shared_ptr<Thing> other);
+  virtual void handleCollision(std::weak_ptr<Thing> other);
 
   //Play an animation in the current Thing.
   void playAnimation(Animation& animation);

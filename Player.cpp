@@ -187,6 +187,8 @@ void Player::giveWeapon(std::shared_ptr<Weapon> weapon){
 }
 
 void Player::tick(){
+  double drag = 0.5;
+  _velocity = {_velocity.x*drag, _velocity.y*drag };
   _curWeapon->tick();
   if(_primaryAbility){_primaryAbility->tick();}
   if(_movementAbility){_movementAbility->tick();}

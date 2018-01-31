@@ -1,16 +1,15 @@
 #include "EnvironmentThing.hpp"
 
-void EnvironmentThing::handleCollision(std::shared_ptr<Thing> other){
-  if(!_canWalkThrough){
-    std::shared_ptr<Enemy> asEnemy = std::dynamic_pointer_cast<Enemy>(other);
-    std::shared_ptr<Player> asPlayer = std::dynamic_pointer_cast<Player>(other);
-    if(asEnemy || asPlayer){
-      //Push them away.
-    }
+void EnvironmentThing::handleCollision(std::weak_ptr<Thing> other){
+  auto otherPtr = other.lock();
+  if(!otherPtr){
+    return;
   }
-  
+  if(!_canWalkThrough){
+    otherPtr->preventOverlapping(shared_from_this(), 6.5);
+  }  
   if(!_canShootThrough){
-    std::shared_ptr<Bullet> asBullet = std::dynamic_pointer_cast<Bullet>(other);
+    std::shared_ptr<Bullet> asBullet = std::dynamic_pointer_cast<Bullet>(otherPtr);
     if(asBullet){
       asBullet->cull();
     }

@@ -1,5 +1,10 @@
 #include "Enemy.hpp"
 
+sf::Vector2f Enemy::getWorldCenter(){
+  return _position;
+}
+
+
 double Enemy::_getDistanceFromPlayer(){
   if(player->isCulled()){
     return std::numeric_limits<double>::infinity();
@@ -17,22 +22,10 @@ void Enemy::_whenIdle(){
   }  
 }
 
-void Enemy::_preventOverlapping(std::shared_ptr<Enemy> asEnemy){
-    //We get the unit vector between the two centers of the enemies -
-    //this will point away from the center of one of the enemies.
-    float pushFactor = 1.0; //The strength of the 'push' out of an enemy there is.
-    sf::Vector2f centerVector = { _position.x - asEnemy->_position.x,
-                                  _position.y - asEnemy->_position.y};
-    float length = std::sqrt(centerVector.x*centerVector.x + centerVector.y*centerVector.y);
-    centerVector = {centerVector.x / length, centerVector.y / length};
-    //We then add this vector to the enemy's current velocity.
-    _velocity += {centerVector.x*pushFactor, centerVector.y*pushFactor};  
-}
-
-void Enemy::handleCollision(std::shared_ptr<Thing> other){
-  std::shared_ptr<Enemy> asEnemy = std::dynamic_pointer_cast<Enemy>(other);
+void Enemy::handleCollision(std::weak_ptr<Thing> other){
+  std::shared_ptr<Enemy> asEnemy = std::dynamic_pointer_cast<Enemy>(other.lock());
   if(asEnemy){
-    _preventOverlapping(asEnemy);
+    preventOverlapping(asEnemy, 1.0);
   }
 }
 

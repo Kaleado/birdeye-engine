@@ -2,6 +2,9 @@
 
 std::shared_ptr<Thing> player;
 
+sf::Vector2f Thing::getWorldCenter(){
+  return {_position.x + getBounds().width/2, _position.y + getBounds().height/2};
+}
 
 sf::Vector2f Thing::getScreenPosition(){
   return sf::Vector2f{_position.x -  camera.getPosition().x, _position.y -  camera.getPosition().y};
@@ -47,6 +50,20 @@ void Thing::draw(sf::RenderWindow& window){
   window.draw(_sprite);
 }
 
+void Thing::preventOverlapping(std::weak_ptr<Thing> otherThing, double strength){
+  //We get the unit vector between the two centers of the enemies -
+  //this will point away from the center of one of the enemies.
+  auto otherPos = otherThing.lock()->getWorldCenter();
+  auto thisCenter = getWorldCenter();
+  double pushFactor = strength; //The strength of the 'push' out of an enemy there is.
+  sf::Vector2f centerVector = { thisCenter.x - otherPos.x,
+                                thisCenter.y - otherPos.y};
+  float length = std::sqrt(centerVector.x*centerVector.x + centerVector.y*centerVector.y);
+  centerVector = {centerVector.x / length, centerVector.y / length};
+  //We then add this vector to the enemy's current velocity.
+  _velocity += {centerVector.x*pushFactor, centerVector.y*pushFactor};  
+}
+
 void Thing::tick(){
   //Do nothing.
 }
@@ -79,7 +96,7 @@ void Thing::handleInput(sf::Event event){
   //Don't handle any events.
 }
 
-void Thing::handleCollision(std::shared_ptr<Thing> other){
+void Thing::handleCollision(std::weak_ptr<Thing> other){
   //Don't handle any collisions.
 }
 

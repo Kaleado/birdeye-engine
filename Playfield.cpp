@@ -6,7 +6,26 @@ void Playfield::addThing(std::shared_ptr<Thing> thing){
   _things.push_back(thing);
 }
 
+void Playfield::_drawBackground(sf::RenderWindow& window){
+  _backgroundSprite.setPosition({-camera.getPosition().x, -camera.getPosition().y});
+  window.draw(_backgroundSprite);
+}
+
+int Playfield::_loadBackground(){
+  if(!_backgroundTexture.loadFromFile(_backgroundPath)){
+    _isLoaded = false;
+    return 1;
+  }
+  _backgroundSprite.setTexture(_backgroundTexture, true);
+  _isLoaded = true;    
+  return 0;
+}
+
 void Playfield::draw(sf::RenderWindow& window){
+  if(!_isLoaded){
+    _loadBackground();
+  }
+  _drawBackground(window);
   for(auto t : _things){
     t->draw(window);
   }  

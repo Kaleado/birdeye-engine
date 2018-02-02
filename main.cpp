@@ -38,7 +38,7 @@ void handleInput(sf::Event event){
 void initialiseGameState(){  
   camera = Camera(sf::Vector2f{-100, -100});
   cursor = std::make_shared<Cursor>("cursor.png");
-  playfield = std::make_shared<Playfield>();
+  playfield = std::make_shared<Playfield>("background1.png");
   player = std::make_shared<Player>("player-down.png", sf::Vector2f{0, 0}, 8.0);
   player->setSprintAbility(std::make_shared<Sprint>(2.0));
 

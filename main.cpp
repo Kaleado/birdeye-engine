@@ -91,9 +91,11 @@ void frameTick(){
   healthBar.draw(window);
   for(int i = 0; i < NUM_WEAPONS; ++i){
     weaponIcon[i].draw(window);
+    cursor->draw(window);
+    cursor->tick();
   }  
   cursor->draw(window);
-  cursor->tick(); 
+  cursor->tick();
   camera.tick();
   window.setActive(true);
   window.display();

@@ -79,11 +79,7 @@ void Enemy::_setImageBasedOnFacing(){
 }
 
 void Enemy::_whenAggro(){
-  sf::Vector2f localPosition = player->getPosition();
-  float rads = std::atan2(localPosition.y - _position.y, localPosition.x - _position.x);
-  float degrees = rads*180/(3.141592653589793238);
-  _rotation = degrees;
-
+  _facing = getUnitVectorBetween(_position, player->getPosition());
   _setImageBasedOnFacing();
   double dist = _getDistanceFromPlayer();
   double attackRange = 30;  

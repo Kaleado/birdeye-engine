@@ -24,47 +24,48 @@ int Player::getCurrentHp(){
   return _curHp;
 }
 
-void Player::_changeImageBasedOnRotation(){
+void Player::_changeImageBasedOnFacing(){
   std::string newPath;
+  float facingDegrees = getVectorAngleDegrees(_facing);
   //Change sprite based on the eight directions.
-  if(-22.5 < _rotation && _rotation < 22.5){
+  if(-22.5 < facingDegrees && facingDegrees < 22.5){
     //Right
     newPath = "player-right.png";
       
   }
-  else if(22.5 < _rotation && _rotation < 67.5){
+  else if(22.5 < facingDegrees && facingDegrees < 67.5){
     //Down-right
     newPath = "player-downright.png";
       
   }
-  else if(67.5 < _rotation && _rotation < 112.5){
+  else if(67.5 < facingDegrees && facingDegrees < 112.5){
     //Down
     newPath = "player-down.png";
       
   }
-  else if(112.5 < _rotation && _rotation < 157.5){
+  else if(112.5 < facingDegrees && facingDegrees < 157.5){
     //Down-left
     newPath = "player-downleft.png";
       
   }
-  else if(-67.5 < _rotation && _rotation < -22.5){
+  else if(-67.5 < facingDegrees && facingDegrees < -22.5){
     //Up-right
     newPath = "player-upright.png";
       
   }
-  else if(-112.5 < _rotation && _rotation < -67.5){
+  else if(-112.5 < facingDegrees && facingDegrees < -67.5){
     //Up
     newPath = "player-up.png";
       
   }
-  else if(-157.5 < _rotation && _rotation < -112.5){
+  else if(-157.5 < facingDegrees && facingDegrees < -112.5){
     //Up-left
     newPath = "player-upleft.png";
       
   }
   else {
     //Left
-    newPath = "player-left.png";      
+    newPath = "player-left.png";
   }
   if(_path != newPath){
     _path = newPath;
@@ -85,11 +86,11 @@ void Player::handleInput(sf::Event event){
 
   if(event.type == sf::Event::MouseMoved){
     _sprite.setOrigin(16, 16);
-    sf::Vector2i localPosition = sf::Vector2i{cursor->getWorldPosition().x, cursor->getWorldPosition().y};
-    float rads = std::atan2(localPosition.y - _position.y, localPosition.x - _position.x);
-    float degrees = rads*180/(3.141592653589793238);
-    _rotation = degrees;
-    _changeImageBasedOnRotation();
+    // float rads = std::atan2(localPosition.y - _position.y, localPosition.x - _position.x);
+    // float degrees = rads*180/(3.141592653589793238);
+    // _rotation = degrees;
+    _facing = getUnitVectorBetween(_position, cursor->getWorldPosition());
+    _changeImageBasedOnFacing();
   }
   
   if(event.type == sf::Event::KeyPressed){

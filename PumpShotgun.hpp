@@ -35,7 +35,9 @@ void PumpShotgun<BulletType>::tick(){
   //Fire the weapon.
   if(weaponState == WS_FIRING_PRIMARY && _isPumped){
     double deviation = 90;//90 degrees of deviation in the kick of the cursor and screen.
-    auto dir = player->getWorldRotation() + (-0.5 + static_cast<double>(std::rand())/RAND_MAX) * deviation;
+    auto facingDegrees = getVectorAngleDegrees(getVectorBetween(player->getPosition(),
+                                                                cursor->getWorldPosition()));
+    auto dir = facingDegrees + (-0.5 + static_cast<double>(std::rand())/RAND_MAX) * deviation;
     //cursor->kick(dir, 60);
     camera.kick(dir, 90);
     for(int i = 0; i < _numPellets; ++i){

@@ -29,40 +29,41 @@ void Enemy::handleCollision(std::weak_ptr<Thing> other){
   }
 }
 
-void Enemy::_setImageBasedOnRotation(){
+void Enemy::_setImageBasedOnFacing(){
   std::string newPath;
+  float facingDegrees = getVectorAngleDegrees(_facing);    
   //Change sprite based on the eight directions.
-  if(-22.5 < _rotation && _rotation < 22.5){
+  if(-22.5 < facingDegrees && facingDegrees < 22.5){
     //Right
     newPath = "enemy-right.png";
       
   }
-  else if(22.5 < _rotation && _rotation < 67.5){
+  else if(22.5 < facingDegrees && facingDegrees < 67.5){
     //Down-right
     newPath = "enemy-downright.png";
       
   }
-  else if(67.5 < _rotation && _rotation < 112.5){
+  else if(67.5 < facingDegrees && facingDegrees < 112.5){
     //Down
     newPath = "enemy-down.png";
       
   }
-  else if(112.5 < _rotation && _rotation < 157.5){
+  else if(112.5 < facingDegrees && facingDegrees < 157.5){
     //Down-left
     newPath = "enemy-downleft.png";
       
   }
-  else if(-67.5 < _rotation && _rotation < -22.5){
+  else if(-67.5 < facingDegrees && facingDegrees < -22.5){
     //Up-right
     newPath = "enemy-upright.png";
       
   }
-  else if(-112.5 < _rotation && _rotation < -67.5){
+  else if(-112.5 < facingDegrees && facingDegrees < -67.5){
     //Up
     newPath = "enemy-up.png";
       
   }
-  else if(-157.5 < _rotation && _rotation < -112.5){
+  else if(-157.5 < facingDegrees && facingDegrees < -112.5){
     //Up-left
     newPath = "enemy-upleft.png";
       
@@ -83,7 +84,7 @@ void Enemy::_whenAggro(){
   float degrees = rads*180/(3.141592653589793238);
   _rotation = degrees;
 
-  _setImageBasedOnRotation();
+  _setImageBasedOnFacing();
   double dist = _getDistanceFromPlayer();
   double attackRange = 30;  
   if(dist > attackRange){
@@ -143,6 +144,7 @@ void Enemy::damage(int amount){
   if(amount > 0){
     auto anim = Animation{{"blood1.png", "blood2.png", "blood3.png", "blood4.png"}, false, FRAMERATE/2};
     auto bloodAnimation = std::make_shared<Thing>(anim, _position);
+    bloodAnimation->setRotation(randDouble() * 360);
     playfield->addThing(bloodAnimation);
   }
   if(enemyState == ES_IDLE){

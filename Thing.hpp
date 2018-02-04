@@ -55,6 +55,12 @@ public:
   //Remove the thing from the playfield.
   void cull();
 
+  //Sets the thing's facing.
+  void setFacing(sf::Vector2f facing);
+
+  //Sets the thing's rotation.
+  void setRotation(double rotation);
+
   //Gets the rotation of the thing.
   float getWorldRotation();
 

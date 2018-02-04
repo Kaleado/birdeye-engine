@@ -84,7 +84,7 @@ public:
   
 private:
   //Changes the creature's sprite based on the direction they're facing.
-  void _changeImageBasedOnRotation();
+  void _changeImageBasedOnFacing();
 
   //Duh.
   void _unequipCurrentWeapon();

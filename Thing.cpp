@@ -2,6 +2,14 @@
 
 std::shared_ptr<Thing> player;
 
+void Thing::setFacing(sf::Vector2f facing){
+  _facing = facing;
+}
+
+void Thing::setRotation(double rotation){
+  _rotation = rotation;
+}
+
 sf::Vector2f Thing::getWorldCenter(){
   return {_position.x + getBounds().width/2, _position.y + getBounds().height/2};
 }
@@ -46,6 +54,7 @@ void Thing::draw(sf::RenderWindow& window){
       return;
     }
   }
+  _sprite.setRotation(_rotation);
   _sprite.setPosition(getScreenPosition());
   window.draw(_sprite);
 }

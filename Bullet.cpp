@@ -39,7 +39,7 @@ void Rocket::handleCollision(std::weak_ptr<Thing> other){
 }
 
 void Rocket::tick(){
-  _facing = getUnitVectorOf(_direction);
+  _rotation = getVectorAngleDegrees(getUnitVectorOf(_direction));
   _sprite.setRotation(getVectorAngleDegrees(_facing));  
   sf::Vector2f newVelocity = _direction;
   newVelocity.x *= _speed;

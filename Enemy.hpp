@@ -50,9 +50,10 @@ public:
     _speed = speed;
   };
   Enemy(){};
+  
 protected:
   //Changes the creature's sprite based on the direction they're facing.
-  void _setImageBasedOnRotation();
+  void _setImageBasedOnFacing();
 
   //Executed every frame when the creature's state is ES_IDLE.
   virtual void _whenIdle();

@@ -49,7 +49,9 @@ void SniperRifle<BulletType>::tick(){
       playfield->addThing(casing);
 
       double deviation = 5;
-      auto dir = player->getWorldRotation() + 180 + (randDouble()*2 - 1) * deviation;
+      auto facingDegrees = getVectorAngleDegrees(getVectorBetween(player->getPosition(),
+                                                                  cursor->getWorldPosition()));
+      auto dir = facingDegrees + 180 + (randDouble()*2 - 1) * deviation;
       //cursor->kick(dir, 80);
       camera.kick(dir, 80);
 

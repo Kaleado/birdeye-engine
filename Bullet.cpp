@@ -79,7 +79,6 @@ void HostileRocket::handleCollision(std::weak_ptr<Thing> other){
   std::shared_ptr<HostileBullet> explosion = std::make_shared<HostileBullet>("explosion.png", _position, _damage, sf::Vector2f(0,0), FRAMERATE/2);  
   std::shared_ptr<Player> asPlayer = std::dynamic_pointer_cast<Player>(other.lock());
   if(asPlayer){
-    //asPlayer->damage(_damage);
     playfield->addThing(explosion);
     cull();
   }
@@ -93,7 +92,6 @@ void FriendlyRocket::handleCollision(std::weak_ptr<Thing> other){
   std::shared_ptr<FriendlyBullet> explosion = std::make_shared<FriendlyBullet>("explosion.png", _position, _damage, sf::Vector2f(0,0), FRAMERATE/2); 
   std::shared_ptr<Enemy> asEnemy = std::dynamic_pointer_cast<Enemy>(other.lock());
   if(asEnemy){
-    //asEnemy->damage(_damage);
     playfield->addThing(explosion);
     cull();
   }

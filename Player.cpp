@@ -76,14 +76,6 @@ void Player::_changeImageBasedOnFacing(){
 void Player::handleInput(sf::Event event){
   double velocity = _baseSpeed * stats.speedMultiplier;
 
-  // if(event.type == sf::Event::MouseMoved){
-  //   _sprite.setOrigin(16, 16);
-  //   sf::Vector2i localPosition = sf::Vector2i{cursor->getWorldPosition().x, cursor->getWorldPosition().y};
-  //   float rads = std::atan2(localPosition.y - _position.y, localPosition.x - _position.x);
-  //   float degrees = rads*180/(3.141592653589793238);
-  //   _sprite.setRotation(degrees + 90);
-  // }
-
   if(event.type == sf::Event::MouseMoved){
     _sprite.setOrigin(16, 16);
     // float rads = std::atan2(localPosition.y - _position.y, localPosition.x - _position.x);

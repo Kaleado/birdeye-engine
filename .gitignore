@@ -34,3 +34,7 @@ sfml-test
 
 # Etc.
 TAGS
+generate-and-upload-docs
+html
+latex
+Doxyfile

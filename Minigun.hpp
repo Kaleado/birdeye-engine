@@ -1,7 +1,7 @@
 #ifndef MINIGUN_H
 #define MINIGUN_H
 
-/*
+/**
   A minigun that slows the player whilst firing, but ramps up in
   firing speed to absurd rates.
  */

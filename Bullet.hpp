@@ -5,7 +5,7 @@
 #include "Thing.hpp"
 #include "Enemy.hpp"
 
-/*
+/**
   A class representing a bullet fired by a gun, _OR AN ATTACK
   ANIMATION_. Use this for melee attacks as well. Important point -
   this represents an UNALIGNED BULLET, that will damage FRIEND AND FOE
@@ -16,14 +16,17 @@
  */
 class Bullet : public Thing {
 protected:
-  int _damage;//Damage dealt by the bullet when it comes into contact with something.
-  int _lifetime;//The number of frames before the bullet is automatically culled.
+  //!Damage dealt by the bullet when it comes into contact with something.
+  int _damage;
+
+  //!The number of frames before the bullet is automatically culled.
+  int _lifetime;
 public:
-  //Executed every frame, but you should know this by now.
+  //!Executed every frame, but you should know this by now.
   virtual void tick();
 
-  //If you want your bullet to explode or do something when it hits a
-  //game object, your subclass should override this!
+  //!If you want your bullet to explode or do something when it hits a
+  //!game object, your subclass should override this!
   virtual void handleCollision(std::weak_ptr<Thing> other);
 
   //Sorry for all these constructors.
@@ -53,7 +56,7 @@ public:
   Bullet(){};
 };
 
-//Represents a rocket.
+//!Represents a rocket.
 class Rocket : public Bullet {
 protected:
   sf::Vector2f _direction;
@@ -63,7 +66,7 @@ protected:
 public:
   virtual void tick();
   virtual void handleCollision(std::weak_ptr<Thing> other);
-  //This is the constructor most weapons will use.
+  //!This is the constructor most weapons will use.
   Rocket(sf::Vector2f position, int damage,
          sf::Vector2f velocity, int lifetime) :  Bullet("rocket-final.png", position, damage, velocity, lifetime) {
     _blastRadius = 15.0;
@@ -73,7 +76,7 @@ public:
   Rocket(){}
 };
 
-//This is for bullets fired by enemies - these bullets will ONLY damage the player.
+//!This is for bullets fired by enemies - these bullets will ONLY damage the player.
 class HostileBullet : public Bullet {
 protected:
 public:
@@ -86,7 +89,7 @@ public:
   HostileBullet(){};  
 };
 
-//This is for bullets fired by the player - these bullets will ONLY damage enemies.
+//!This is for bullets fired by the player - these bullets will ONLY damage enemies.
 class FriendlyBullet : public Bullet {
 protected:
 public:
@@ -97,7 +100,7 @@ public:
   FriendlyBullet(){};  
 };
 
-//As above, but for rockets.
+//!As above, but for rockets.
 class HostileRocket : public Rocket {
 protected:
 public:
@@ -106,7 +109,7 @@ public:
   HostileRocket(){};  
 };
 
-//As above, but for rockets.
+//!As above, but for rockets.
 class FriendlyRocket : public Rocket {
 protected:
 public:

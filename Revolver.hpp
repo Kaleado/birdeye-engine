@@ -1,7 +1,7 @@
 #ifndef REVOLVER_H
 #define REVOLVER_H
 
-/*
+/**
   A powerful revolver with a lengthy trigger pull.
  */
 template <typename BulletType>

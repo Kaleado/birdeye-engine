@@ -10,14 +10,14 @@
 #include "Thing.hpp"
 #include "Cursor.hpp"
 
-/*
+/**
   Class representing a single UI element.
  */
 class Widget : public Thing {
 protected:
   bool _mouseOver=false;
 
-  //These will be called when the left mouse button is pressed, released, etc.
+  //!These will be called when the left mouse button is pressed, released, etc.
   virtual void _onLeftClickPress(){}
   virtual void _onLeftClickRelease(){}
   virtual void _onRightClickPress(){}
@@ -27,16 +27,16 @@ protected:
   virtual void _onKeyPress(sf::Event event){}
   virtual void _onKeyRelease(sf::Event event){}
 public:
-  //Returns whether the mouse is over this UI element.
+  //!Returns whether the mouse is over this UI element.
   bool isMouseOver();
   
-  //Does game-logic related things every frame.
+  //!Does game-logic related things every frame.
   virtual void tick();
   
-  //Handles and responds to input every frame.
+  //!Handles and responds to input every frame.
   virtual void handleInput(sf::Event event);
 
-  //Draws the widget on the screen.
+  //!Draws the widget on the screen.
   virtual void draw(sf::RenderWindow& window);
   
   Widget(std::string path, sf::Vector2f position) : Thing(path, position) {};
@@ -44,7 +44,7 @@ public:
   Widget(){};
 };
 
-/*
+/**
   A horizontal bar on the screen, tracking some value vs. its maximum
   value - think something like a health bar.
  */

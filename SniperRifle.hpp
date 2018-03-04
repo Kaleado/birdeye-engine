@@ -1,7 +1,7 @@
 #ifndef SNIPERRIFLE_H
 #define SNIPERRIFLE_H
 
-/*
+/**
   A semi-automatic sniper rifle that can zoom in to long-distance targets.
  */
 template <typename BulletType>

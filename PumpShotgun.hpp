@@ -1,7 +1,7 @@
 #ifndef PUMPSHOTGUN_H 
 #define PUMPSHOTGUN_H
 
-/*
+/**
   A shotgun that must be pumped after each shot with the right mouse button.
  */
 template <typename BulletType>

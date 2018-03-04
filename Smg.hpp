@@ -3,7 +3,7 @@
 
 #include "Weapon.hpp"
 
-/*
+/**
   A fast-firing, fully-automatic SMG with little recoil.
  */
 template <typename BulletType>

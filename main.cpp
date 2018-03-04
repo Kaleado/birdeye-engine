@@ -22,7 +22,7 @@
 HorizontalBar<int> healthBar;
 std::array<WeaponWidget, NUM_WEAPONS> weaponIcon;
 
-//Root input handling function - all other input handling occurs within this function.
+//!Root input handling function - all other input handling occurs within this function.
 void handleInput(sf::Event event){
   playfield->handleInput(event);
   cursor->handleInput(event);
@@ -34,7 +34,7 @@ void handleInput(sf::Event event){
   }  
 }
 
-//This function initialises all game-logic related state.
+//!This function initialises all game-logic related state.
 void initialiseGameState(){  
   camera = Camera(sf::Vector2f{-100, -100});
   cursor = std::make_shared<Cursor>("cursor.png");
@@ -42,8 +42,10 @@ void initialiseGameState(){
   player = std::make_shared<Player>("player-down.png", sf::Vector2f{0, 0}, 8.0);
   player->setSprintAbility(std::make_shared<Sprint>(2.0));
 
-  std::shared_ptr<EnvironmentThing> tree = std::make_shared<EnvironmentThing>("tree.png", sf::Vector2f{150, 150}, false, false);
+  std::shared_ptr<EnvironmentThing> tree  = std::make_shared<EnvironmentThing>("house-300x100.png", sf::Vector2f{150, 150}, false, false);
+  std::shared_ptr<EnvironmentThing> tree2 = std::make_shared<EnvironmentThing>("house-300x100.png", sf::Vector2f{455, 175}, false, false);
   playfield->addThing(tree);
+  playfield->addThing(tree2);
   
   std::shared_ptr<Enemy> newThing = std::make_shared<Enemy>("enemy-down.png", sf::Vector2f{150, 150}, 150, 5.0);
   auto smg = std::make_shared<Smg<FriendlyRocket>>(1, 1, 5, 40, 20);
@@ -82,7 +84,7 @@ void initialiseGameState(){
   healthBar = HorizontalBar<int>{[&player](){return player->getCurrentHp();}, [&player](){return player->stats.maxHp;}, {10, 10}, sf::Color::Red, 100, 15};
 }
 
-//This function draws everything on the screen and calls tick() for everything that needs to handle events every frame.
+//!This function draws everything on the screen and calls tick() for everything that needs to handle events every frame.
 void frameTick(){
   window.clear(sf::Color::Black);
   camera.setFocusPosition(player->getPosition());  

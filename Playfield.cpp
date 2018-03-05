@@ -2,6 +2,35 @@
 
 std::shared_ptr<Playfield> playfield;
 
+Playfield::Playfield(std::string playfieldPath){
+  std::ifstream fileStrm{playfieldPath};
+  if(!fileStrm.is_open()){
+    std::cerr << "Failed to open file: " << playfieldPath << "\n";
+    return;
+  }
+  //Read line-by-line.
+  std::string line;
+  while(std::getline(fileStrm, line)){
+    std::cout << line << " ";
+    std::istringstream lineStrm{line};
+    std::string command;
+    lineStrm >> command;
+    std::cout << "(" << command << ")\n";
+    //Specifying the background file.
+    if(command == "Background"){
+      lineStrm >> _backgroundPath;
+      std::cout << "\n\n\n\n\n\n\n" << _backgroundPath << "\n\n\n\n\n\n\n";
+    }
+    else if(command == "EnvironmentThing"){
+      std::string thingPath;
+      int x, y;
+      bool shootThrough, walkThrough;
+      lineStrm >> thingPath >> x >> y >> std::boolalpha >> shootThrough >> walkThrough;
+      addThing(std::make_shared<EnvironmentThing>(thingPath, sf::Vector2f{x, y}, shootThrough, walkThrough));
+    }
+  }
+}
+
 void Playfield::addThing(std::shared_ptr<Thing> thing){
   _things.push_back(thing);
 }

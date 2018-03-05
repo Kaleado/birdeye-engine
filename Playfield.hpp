@@ -3,12 +3,15 @@
 
 #include <SFML/Graphics.hpp>
 #include <iostream>
+#include <fstream>
+#include <sstream>
 #include <memory>
 #include <vector>
 #include <algorithm>
 #include "Thing.hpp"
 #include "Enemy.hpp"
 #include "Player.hpp"
+#include "EnvironmentThing.hpp"
 
 /**
   Class representing a game area.
@@ -69,7 +72,10 @@ public:
   void kickCamera(double angleDegrees, double strength);
 
   Playfield(){}
-  Playfield(std::string backgroundPath) : _backgroundPath{backgroundPath} {}
+  //Playfield(std::string backgroundPath) : _backgroundPath{backgroundPath} {}
+
+  //!This constructor loads a playfield from a file.
+  Playfield(std::string playfieldPath);
 
 };
 

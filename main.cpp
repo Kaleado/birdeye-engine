@@ -38,26 +38,33 @@ void handleInput(sf::Event event){
 void initialiseGameState(){  
   camera = Camera(sf::Vector2f{-100, -100});
   cursor = std::make_shared<Cursor>("cursor.png");
-  playfield = std::make_shared<Playfield>("background1.png");
+  // playfield = std::make_shared<Playfield>("background1.png");
+  playfield = std::make_shared<Playfield>("level.plf");
   player = std::make_shared<Player>("player-down.png", sf::Vector2f{0, 0}, 8.0);
   player->setSprintAbility(std::make_shared<Sprint>(2.0));
 
-  std::shared_ptr<EnvironmentThing> tree  = std::make_shared<EnvironmentThing>("house-300x100.png", sf::Vector2f{150, 150}, false, false);
-  std::shared_ptr<EnvironmentThing> tree2 = std::make_shared<EnvironmentThing>("house-300x100.png", sf::Vector2f{455, 175}, false, false);
-  std::shared_ptr<EnvironmentThing> tree3 = std::make_shared<EnvironmentThing>("long-house.png", sf::Vector2f{500, 205}, false, false);
-  std::shared_ptr<EnvironmentThing> tree4 = std::make_shared<EnvironmentThing>("house-addon-1.png", sf::Vector2f{560, 405}, false, false);
-  playfield->addThing(tree);
-  playfield->addThing(tree2);
-  playfield->addThing(tree3);
-  playfield->addThing(tree4);
+  // std::shared_ptr<EnvironmentThing> tree  = std::make_shared<EnvironmentThing>("house-300x100.png", sf::Vector2f{150, 150}, false, false);
+  // std::shared_ptr<EnvironmentThing> tree2 = std::make_shared<EnvironmentThing>("house-300x100.png", sf::Vector2f{455, 175}, false, false);
+  // std::shared_ptr<EnvironmentThing> tree3 = std::make_shared<EnvironmentThing>("long-house.png", sf::Vector2f{500, 205}, false, false);
+  // std::shared_ptr<EnvironmentThing> tree4 = std::make_shared<EnvironmentThing>("house-addon-1.png", sf::Vector2f{1560, 405}, false, false);
+  // std::shared_ptr<EnvironmentThing> tree5  = std::make_shared<EnvironmentThing>("house-300x100.png", sf::Vector2f{1750, 150}, false, false);
+  // std::shared_ptr<EnvironmentThing> tree6 = std::make_shared<EnvironmentThing>("house-300x100.png", sf::Vector2f{1605, 345}, false, false);
+  // std::shared_ptr<EnvironmentThing> tree7 = std::make_shared<EnvironmentThing>("long-house.png", sf::Vector2f{800, 20}, false, false);
+  // std::shared_ptr<EnvironmentThing> tree8 = std::make_shared<EnvironmentThing>("house-addon-1.png", sf::Vector2f{1760, 325}, false, false);
+
+  // playfield->addThing(tree);
+  // playfield->addThing(tree2);
+  // playfield->addThing(tree3);
+  // playfield->addThing(tree4);
+  // playfield->addThing(tree5);
+  // playfield->addThing(tree6);
+  // playfield->addThing(tree7);
+  // playfield->addThing(tree8);
   
-  std::shared_ptr<Enemy> newThing = std::make_shared<Enemy>(
-                                                            std::array<std::string, FACING_MAX>{
-                                                              "enemy-up.png", "enemy-down.png",
-                                                              "enemy-left.png", "enemy-right.png",
-                                                              "enemy-upleft.png", "enemy-upright.png",
-                                                              "enemy-downleft.png", "enemy-downright.png"},
-                                                            sf::Vector2f{200, 200}, 150, 5.0);  auto smg = std::make_shared<Smg<FriendlyRocket>>(1, 1, 5, 40, 20);
+  // std::shared_ptr<Enemy> newThing = std::make_shared<Enemy>("orb.png",
+  //                                                           sf::Vector2f{200, 200}, 150, 5.0);
+
+  auto smg = std::make_shared<Smg<FriendlyRocket>>(1, 1, 5, 40, 20);
   smg->fillWithMods();
   auto revolver = std::make_shared<Revolver<FriendlyRocket>>(1, 1, 90, 30);
   revolver->fillWithMods();
@@ -88,7 +95,7 @@ void initialiseGameState(){
   player->giveWeapon(shotgun);
   player->giveWeapon(rifle);
   player->giveWeapon(minigun);
-  playfield->addThing(newThing);
+  // playfield->addThing(newThing);
   playfield->addThing(player);
   healthBar = HorizontalBar<int>{[&player](){return player->getCurrentHp();}, [&player](){return player->stats.maxHp;}, {10, 10}, sf::Color::Red, 100, 15};
 }

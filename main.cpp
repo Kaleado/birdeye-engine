@@ -44,11 +44,20 @@ void initialiseGameState(){
 
   std::shared_ptr<EnvironmentThing> tree  = std::make_shared<EnvironmentThing>("house-300x100.png", sf::Vector2f{150, 150}, false, false);
   std::shared_ptr<EnvironmentThing> tree2 = std::make_shared<EnvironmentThing>("house-300x100.png", sf::Vector2f{455, 175}, false, false);
+  std::shared_ptr<EnvironmentThing> tree3 = std::make_shared<EnvironmentThing>("long-house.png", sf::Vector2f{500, 205}, false, false);
+  std::shared_ptr<EnvironmentThing> tree4 = std::make_shared<EnvironmentThing>("house-addon-1.png", sf::Vector2f{560, 405}, false, false);
   playfield->addThing(tree);
   playfield->addThing(tree2);
+  playfield->addThing(tree3);
+  playfield->addThing(tree4);
   
-  std::shared_ptr<Enemy> newThing = std::make_shared<Enemy>("enemy-down.png", sf::Vector2f{150, 150}, 150, 5.0);
-  auto smg = std::make_shared<Smg<FriendlyRocket>>(1, 1, 5, 40, 20);
+  std::shared_ptr<Enemy> newThing = std::make_shared<Enemy>(
+                                                            std::array<std::string, FACING_MAX>{
+                                                              "enemy-up.png", "enemy-down.png",
+                                                              "enemy-left.png", "enemy-right.png",
+                                                              "enemy-upleft.png", "enemy-upright.png",
+                                                              "enemy-downleft.png", "enemy-downright.png"},
+                                                            sf::Vector2f{200, 200}, 150, 5.0);  auto smg = std::make_shared<Smg<FriendlyRocket>>(1, 1, 5, 40, 20);
   smg->fillWithMods();
   auto revolver = std::make_shared<Revolver<FriendlyRocket>>(1, 1, 90, 30);
   revolver->fillWithMods();

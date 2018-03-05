@@ -35,42 +35,40 @@ void Enemy::_setImageBasedOnFacing(){
   //Change sprite based on the eight directions.
   if(-22.5 < facingDegrees && facingDegrees < 22.5){
     //Right
-    newPath = "enemy-right.png";
+    newPath = _facingPaths[FACING_RIGHT];
       
   }
   else if(22.5 < facingDegrees && facingDegrees < 67.5){
     //Down-right
-    newPath = "enemy-downright.png";
-      
+    newPath = _facingPaths[FACING_DOWN_RIGHT];      
   }
   else if(67.5 < facingDegrees && facingDegrees < 112.5){
     //Down
-    newPath = "enemy-down.png";
+    newPath = _facingPaths[FACING_DOWN];
       
   }
   else if(112.5 < facingDegrees && facingDegrees < 157.5){
     //Down-left
-    newPath = "enemy-downleft.png";
-      
+    newPath = _facingPaths[FACING_DOWN_LEFT];
   }
   else if(-67.5 < facingDegrees && facingDegrees < -22.5){
     //Up-right
-    newPath = "enemy-upright.png";
+    newPath = _facingPaths[FACING_UP_RIGHT];
       
   }
   else if(-112.5 < facingDegrees && facingDegrees < -67.5){
     //Up
-    newPath = "enemy-up.png";
+    newPath = _facingPaths[FACING_UP];
       
   }
   else if(-157.5 < facingDegrees && facingDegrees < -112.5){
     //Up-left
-    newPath = "enemy-upleft.png";
+    newPath = _facingPaths[FACING_UP_LEFT];
       
   }
   else {
     //Left
-    newPath = "enemy-left.png";      
+    newPath = _facingPaths[FACING_LEFT];
   }
   if(_path != newPath){
     _path = newPath;

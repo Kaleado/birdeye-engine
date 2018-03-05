@@ -50,7 +50,13 @@ void Playfield::tick(){
     for(int i = 0; i < nSpawn; ++i){
       auto xPos = (static_cast<double>(std::rand())/RAND_MAX) * 5000;
       auto yPos = (static_cast<double>(std::rand())/RAND_MAX) * 5000;
-      std::shared_ptr<Enemy> newThing = std::make_shared<Enemy>("enemy-down.png", sf::Vector2f{xPos, yPos}, 150, 5.0);
+      std::shared_ptr<Enemy> newThing = std::make_shared<Enemy>(
+                                                                std::array<std::string, FACING_MAX>{
+                                                                  "enemy-up.png", "enemy-down.png",
+                                                                  "enemy-left.png", "enemy-right.png",
+                                                                  "enemy-upleft.png", "enemy-upright.png",
+                                                                  "enemy-downleft.png", "enemy-downright.png"},
+                                                                sf::Vector2f{xPos, yPos}, 150, 5.0);
       addThing(newThing);
     }
   }

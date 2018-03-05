@@ -7,6 +7,16 @@
 #include "Bullet.hpp"
 #include "Playfield.hpp"
 
+const int FACING_UP         = 0;
+const int FACING_DOWN       = 1;
+const int FACING_LEFT       = 2;
+const int FACING_RIGHT      = 3;
+const int FACING_UP_LEFT    = 4;
+const int FACING_UP_RIGHT   = 5;
+const int FACING_DOWN_LEFT  = 6;
+const int FACING_DOWN_RIGHT = 7;
+const int FACING_MAX        = 8;
+
 /**
   This enum represents the current state of an enemy:
   - ES_IDLE: the enemy has not noticed the player, and is just standing around.
@@ -44,10 +54,20 @@ public:
 
   //!Executed when the creature dies.
   virtual void die();
+  
   Enemy(std::string path, sf::Vector2f position, int maxHp, double speed) : Thing(path, position) {
     _maxHp = maxHp;
     _hp = _maxHp;
     _speed = speed;
+    for(auto i = 0; i < FACING_MAX; ++i){
+      _facingPaths[i] = path;
+    }
+  };
+  Enemy(std::array<std::string, FACING_MAX> facingPaths, sf::Vector2f position, int maxHp, double speed) : Thing(facingPaths[0], position) {
+    _maxHp = maxHp;
+    _hp = _maxHp;
+    _speed = speed;
+    _facingPaths = facingPaths;
   };
   Enemy(){};
   
@@ -75,6 +95,9 @@ protected:
 
   //!Adds a delay between attacking.
   int _attackTimer;
+
+  //!Paths to images to be displayed when the Enemyis facing in different directions.
+  std::array<std::string, FACING_MAX> _facingPaths;
 };
 
 #endif

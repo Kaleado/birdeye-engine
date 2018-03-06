@@ -109,6 +109,9 @@ public:
 
   //!Gets the position of the thing ON THE SCREEN (not the world position).
   sf::Vector2f getScreenPosition();
+
+  //!Sets the _in-world_ position of the thing.
+  void setWorldPosition(sf::Vector2f newPos);
   
   Thing(Animation& anim, sf::Vector2f position) : _path{""}, _position{position} {
     _currentAnimation = anim;

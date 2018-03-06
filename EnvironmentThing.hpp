@@ -20,6 +20,9 @@ protected:
   //!Whether or not bullets pass through the thing, or if they are
   //!culled upon impact.
   bool _canShootThrough=false;
+
+  //!Executed when something collides with the thing.
+  virtual void _whenCollidingWith(std::weak_ptr<Thing> other);
 public:
   //!We make the assumption that most environmental things are just
   //!static features that don't need to do anything. Of course, if you

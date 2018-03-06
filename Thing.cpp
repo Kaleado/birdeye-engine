@@ -18,6 +18,11 @@ sf::Vector2f Thing::getScreenPosition(){
   return sf::Vector2f{_position.x -  camera.getPosition().x, _position.y -  camera.getPosition().y};
 }
 
+void Thing::setWorldPosition(sf::Vector2f newPos){
+  _position = newPos;
+  _sprite.setPosition(getScreenPosition());
+}
+
 int Thing::_load(){
   static int count = 0;
   if(!_isAnimating){

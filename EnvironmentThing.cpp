@@ -13,5 +13,10 @@ void EnvironmentThing::handleCollision(std::weak_ptr<Thing> other){
     if(asBullet){
       asBullet->cull();
     }
-  }  
+  }
+  _whenCollidingWith(other);
+}
+
+void EnvironmentThing::_whenCollidingWith(std::weak_ptr<Thing> other){
+  //Do nothing.
 }

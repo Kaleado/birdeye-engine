@@ -1,7 +1,7 @@
 all: sfml-test
 
-sfml-test: EnvironmentThing.o Render.o Thing.o Player.o Bullet.o Weapon.o Playfield.o Enemy.o main.o Animation.o Ability.o Cursor.o Camera.o Ui.o Stats.o WeaponMod.o WeaponWidget.o EnemyDemon.o EnemyEye.o
-	g++ -g -std=c++14 -pthread main.o EnvironmentThing.o Render.o Bullet.o Weapon.o Player.o Enemy.o Playfield.o Animation.o Ability.o Cursor.o Ui.o Thing.o Camera.o Stats.o WeaponMod.o WeaponWidget.o EnemyDemon.o EnemyEye.o -o sfml-test -lsfml-graphics -lsfml-window -lsfml-system
+sfml-test: EnvironmentThing.o Render.o Thing.o Player.o Bullet.o Weapon.o Playfield.o Enemy.o main.o Animation.o Ability.o Cursor.o Camera.o Ui.o Stats.o WeaponMod.o WeaponWidget.o EnemyDemon.o EnemyEye.o Teleporter.o
+	g++ -g -std=c++14 -pthread main.o EnvironmentThing.o Render.o Bullet.o Weapon.o Player.o Enemy.o Playfield.o Animation.o Ability.o Cursor.o Ui.o Thing.o Camera.o Stats.o WeaponMod.o WeaponWidget.o EnemyDemon.o EnemyEye.o Teleporter.o -o sfml-test -lsfml-graphics -lsfml-window -lsfml-system
 
 Cursor.o: Cursor.hpp Cursor.cpp 
 	g++ -g -std=c++14 -pthread -c Cursor.cpp -o Cursor.o
@@ -29,6 +29,9 @@ Animation.o: Animation.hpp Animation.cpp
 
 Bullet.o: Bullet.hpp Bullet.cpp 
 	g++ -g -std=c++14  -pthread -c Bullet.cpp -o Bullet.o
+
+Teleporter.o: Teleporter.hpp Teleporter.cpp 
+	g++ -g -std=c++14  -pthread -c Teleporter.cpp -o Teleporter.o
 
 Enemy.o: Enemy.hpp Enemy.cpp 
 	g++ -g -std=c++14  -pthread -c Enemy.cpp -o Enemy.o

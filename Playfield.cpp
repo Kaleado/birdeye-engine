@@ -1,6 +1,7 @@
 #include "Playfield.hpp"
 #include "EnemyDemon.hpp"
 #include "EnemyEye.hpp"
+#include "Teleporter.hpp"
 
 std::shared_ptr<Playfield> playfield;
 
@@ -47,6 +48,22 @@ Playfield::Playfield(std::string playfieldPath){
       lineStrm >> x >> y >> maxHp >> speed;
       addThing(std::make_shared<EnemyEye>(sf::Vector2f{x, y}, maxHp, speed));
     }
+    else if(command == "Teleporter"){
+      int x1, y1;
+      std::string path1;
+
+      int x2, y2;
+      std::string path2;
+      
+      lineStrm >> x1 >> y1 >> path1 >> x2 >> y2 >> path2;
+      auto tp1 = std::make_shared<Teleporter>(path1, sf::Vector2f{x1, y1});
+      auto tp2 = std::make_shared<Teleporter>(path2, sf::Vector2f{x2, y2});
+      tp1->setOtherTeleporter(tp2);
+      tp2->setOtherTeleporter(tp1);
+      addThing(tp1);
+      addThing(tp2);
+    }
+    
   }
 }
 

@@ -43,6 +43,7 @@ public:
   
   //!This function is executed every frame, and serves as the main AI
   //!function for the enemy. Calls _whenIdle(), _whenAggro(), etc.
+  //!Don't override this if you can use _whenTick() instead!
   virtual void tick();
 
   //!Deals damage to the enemy.
@@ -75,6 +76,8 @@ protected:
   //!Changes the creature's sprite based on the direction they're facing.
   void _setImageBasedOnFacing();
 
+  //These methods should be overriden for different enemies.
+
   //!Executed every frame when the creature's state is ES_IDLE.
   virtual void _whenIdle();
 
@@ -83,6 +86,15 @@ protected:
   
   //!Executed every frame when the creature's state is ES_ATTACKING.
   virtual void _whenAttacking();
+
+  //!Executed when the creature collides with something - this is for enemy-specific logic.
+  virtual void _whenCollidingWith(std::weak_ptr<Thing> other);
+
+  //!Executed every tick the creature is alive for.
+  virtual void _whenTick();
+
+  //!Executed when the creature dies.
+  virtual void _whenKilled();
 
   //!Does what it says on the tin.
   double _getDistanceFromPlayer();

@@ -8,3 +8,21 @@ EnvironmentThing house-300x100.png 1750 150 false false
 EnvironmentThing house-300x100.png 1605 345 false false
 EnvironmentThing long-house.png 800 20 false false
 EnvironmentThing house-addon-1.png 1760 325 false false
+EnvironmentThing tree.png 2760 325 false false
+EnemyDemon 450 450 100 10.0
+EnemyDemon 460 450 100 10.0
+EnemyDemon 470 450 100 10.0
+EnemyDemon 480 450 100 10.0
+EnemyDemon 490 450 100 10.0
+EnemyDemon 520 450 100 10.0
+EnemyDemon 530 450 100 10.0
+EnemyEye 540 450 100 10.0
+EnemyEye 550 450 100 10.0
+EnemyEye 720 450 100 10.0
+EnemyEye 730 450 100 10.0
+EnemyEye 740 450 100 10.0
+EnemyEye 750 450 100 10.0
+EnemyEye 150 450 100 10.0
+EnemyEye 250 450 100 10.0
+EnemyEye 350 450 100 10.0
+EnemyEye 450 450 100 10.0

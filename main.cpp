@@ -19,6 +19,8 @@
 #include "SniperRifle.hpp"
 #include "Minigun.hpp"
 
+#include "EnemyDemon.hpp"
+
 HorizontalBar<int> healthBar;
 std::array<WeaponWidget, NUM_WEAPONS> weaponIcon;
 

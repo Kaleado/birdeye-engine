@@ -1,11 +1,13 @@
 #include "Playfield.hpp"
+#include "EnemyDemon.hpp"
+#include "EnemyEye.hpp"
 
 std::shared_ptr<Playfield> playfield;
 
 Playfield::Playfield(std::string playfieldPath){
   std::ifstream fileStrm{playfieldPath};
   if(!fileStrm.is_open()){
-    std::cerr << "Failed to open file: " << playfieldPath << "\n";
+    std::cerr << "Failed to open playfield file: " << playfieldPath << "\n";
     return;
   }
   //Read line-by-line.
@@ -16,10 +18,15 @@ Playfield::Playfield(std::string playfieldPath){
     std::string command;
     lineStrm >> command;
     std::cout << "(" << command << ")\n";
+
+    //\\//\\//\\// COMMANDS //\\//\\//\\//
+    
     //Specifying the background file.
-    if(command == "Background"){
+    if(command == "Comment"){
+      //Do nothing.
+    }
+    else if(command == "Background"){
       lineStrm >> _backgroundPath;
-      std::cout << "\n\n\n\n\n\n\n" << _backgroundPath << "\n\n\n\n\n\n\n";
     }
     else if(command == "EnvironmentThing"){
       std::string thingPath;
@@ -27,6 +34,18 @@ Playfield::Playfield(std::string playfieldPath){
       bool shootThrough, walkThrough;
       lineStrm >> thingPath >> x >> y >> std::boolalpha >> shootThrough >> walkThrough;
       addThing(std::make_shared<EnvironmentThing>(thingPath, sf::Vector2f{x, y}, shootThrough, walkThrough));
+    }
+    else if(command == "EnemyDemon"){
+      int x, y, maxHp;
+      double speed;
+      lineStrm >> x >> y >> maxHp >> speed;
+      addThing(std::make_shared<EnemyDemon>(sf::Vector2f{x, y}, maxHp, speed));
+    }
+    else if(command == "EnemyEye"){
+      int x, y, maxHp;
+      double speed;
+      lineStrm >> x >> y >> maxHp >> speed;
+      addThing(std::make_shared<EnemyEye>(sf::Vector2f{x, y}, maxHp, speed));
     }
   }
 }
@@ -72,23 +91,16 @@ std::vector<std::shared_ptr<Thing>> Playfield::_getPossiblyCollidingThings(){
 
 void Playfield::tick(){
   //DEBUGGING
-  static int counter = 0;
-  if(++counter > FRAMERATE){
-    counter = 0;
-    int nSpawn = 10;
-    for(int i = 0; i < nSpawn; ++i){
-      auto xPos = (static_cast<double>(std::rand())/RAND_MAX) * 5000;
-      auto yPos = (static_cast<double>(std::rand())/RAND_MAX) * 5000;
-      std::shared_ptr<Enemy> newThing = std::make_shared<Enemy>(
-                                                                std::array<std::string, FACING_MAX>{
-                                                                  "enemy-up.png", "enemy-down.png",
-                                                                  "enemy-left.png", "enemy-right.png",
-                                                                  "enemy-upleft.png", "enemy-upright.png",
-                                                                  "enemy-downleft.png", "enemy-downright.png"},
-                                                                sf::Vector2f{xPos, yPos}, 150, 5.0);
-      addThing(newThing);
-    }
-  }
+  // static int counter = 0;
+  // if(++counter > FRAMERATE){
+  //   counter = 0;
+  //   int nSpawn = 10;
+  //   for(int i = 0; i < nSpawn; ++i){
+  //     auto xPos = (static_cast<double>(std::rand())/RAND_MAX) * 5000;
+  //     auto yPos = (static_cast<double>(std::rand())/RAND_MAX) * 5000;
+  //     addThing(newThing);
+  //   }
+  // }
   //END DEBUGGING
   
   _cullThings();    

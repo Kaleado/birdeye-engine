@@ -1,7 +1,7 @@
 all: sfml-test
 
-sfml-test: EnvironmentThing.o Render.o Thing.o Player.o Bullet.o Weapon.o Playfield.o Enemy.o main.o Animation.o Ability.o Cursor.o Camera.o Ui.o Stats.o WeaponMod.o WeaponWidget.o
-	g++ -g -std=c++14 -pthread main.o EnvironmentThing.o Render.o Bullet.o Weapon.o Player.o Enemy.o Playfield.o Animation.o Ability.o Cursor.o Ui.o Thing.o Camera.o Stats.o WeaponMod.o WeaponWidget.o -o sfml-test -lsfml-graphics -lsfml-window -lsfml-system
+sfml-test: EnvironmentThing.o Render.o Thing.o Player.o Bullet.o Weapon.o Playfield.o Enemy.o main.o Animation.o Ability.o Cursor.o Camera.o Ui.o Stats.o WeaponMod.o WeaponWidget.o EnemyDemon.o EnemyEye.o
+	g++ -g -std=c++14 -pthread main.o EnvironmentThing.o Render.o Bullet.o Weapon.o Player.o Enemy.o Playfield.o Animation.o Ability.o Cursor.o Ui.o Thing.o Camera.o Stats.o WeaponMod.o WeaponWidget.o EnemyDemon.o EnemyEye.o -o sfml-test -lsfml-graphics -lsfml-window -lsfml-system
 
 Cursor.o: Cursor.hpp Cursor.cpp 
 	g++ -g -std=c++14 -pthread -c Cursor.cpp -o Cursor.o
@@ -32,6 +32,12 @@ Bullet.o: Bullet.hpp Bullet.cpp
 
 Enemy.o: Enemy.hpp Enemy.cpp 
 	g++ -g -std=c++14  -pthread -c Enemy.cpp -o Enemy.o
+
+EnemyDemon.o: EnemyDemon.hpp EnemyDemon.cpp 
+	g++ -g -std=c++14  -pthread -c EnemyDemon.cpp -o EnemyDemon.o
+
+EnemyEye.o: EnemyEye.hpp EnemyEye.cpp 
+	g++ -g -std=c++14  -pthread -c EnemyEye.cpp -o EnemyEye.o
 
 Ability.o: Ability.hpp Ability.cpp 
 	g++ -g -std=c++14  -pthread -c Ability.cpp -o Ability.o

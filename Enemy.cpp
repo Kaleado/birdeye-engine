@@ -4,7 +4,6 @@ sf::Vector2f Enemy::getWorldCenter(){
   return _position;
 }
 
-
 double Enemy::_getDistanceFromPlayer(){
   if(player->isCulled()){
     return std::numeric_limits<double>::infinity();
@@ -15,19 +14,14 @@ double Enemy::_getDistanceFromPlayer(){
   return std::sqrt(dx*dx + dy*dy);  
 }
 
-void Enemy::_whenIdle(){
-  double aggroThreshold = 350;  
-  if(_getDistanceFromPlayer() < aggroThreshold){
-    enemyState = ES_AGGRO;
-  }  
-}
-
 void Enemy::handleCollision(std::weak_ptr<Thing> other){
   std::shared_ptr<Enemy> asEnemy = std::dynamic_pointer_cast<Enemy>(other.lock());
   if(asEnemy){
     preventOverlapping(asEnemy, 1.0);
   }
+  _whenCollidingWith(other);
 }
+
 
 void Enemy::_setImageBasedOnFacing(){
   std::string newPath;
@@ -71,48 +65,33 @@ void Enemy::_setImageBasedOnFacing(){
   }  
 }
 
+void Enemy::die(){
+  _whenKilled();
+  //No on-death effects yet.
+}
+
+void Enemy::_whenIdle(){
+  //Do nothing.
+}
+
 void Enemy::_whenAggro(){
-  _facing = getUnitVectorBetween(_position, player->getPosition());
-  _setImageBasedOnFacing();
-  double dist = _getDistanceFromPlayer();
-  double attackRange = 30;  
-  if(dist > attackRange){
-    auto target = player->getPosition();
-
-    auto unitVector = getUnitVectorBetween(_position, target);
-    
-    float vx = unitVector.x * _speed;
-    float vy = unitVector.y * _speed;
-
-    setXVelocity(vx);
-    setYVelocity(vy);
-  }
-  else {
-    enemyState = ES_ATTACKING;
-  }
-  
+  //Do nothing.
 }
 
 void Enemy::_whenAttacking(){
-  static bool hasAttacked = false;
-  setXVelocity(0);
-  setYVelocity(0);    
-  if(!hasAttacked){
-    _currentAnimation = Animation({"anim0.png", "anim1.png", "anim2.png", "anim1.png", "anim0.png"}, false, 10);
-    _isAnimating = true;
-    auto attackAnimation = Animation({"atk0.png", "atk1.png", "atk2.png", "atk3.png", "atk4.png"}, false, 30);
-    std::shared_ptr<Bullet> attack = std::make_shared<HostileBullet>(attackAnimation, _position, 20, sf::Vector2f(0,0));
-    playfield->addThing(attack);
-    hasAttacked = true;
-  }
-  if(_currentAnimation.hasFinished()){
-    hasAttacked = false;
-    enemyState = ES_AGGRO;
-  }
+  //Do nothing.
 }
 
-void Enemy::die(){
-  //No on-death effects yet.
+void Enemy::_whenTick(){
+  //Do nothing.
+}
+
+void Enemy::_whenKilled(){
+  //Do nothing.
+}
+
+void Enemy::_whenCollidingWith(std::weak_ptr<Thing> other){
+  //Do nothing.
 }
 
 void Enemy::tick(){
@@ -127,6 +106,7 @@ void Enemy::tick(){
   if(enemyState == ES_ATTACKING){
     _whenAttacking();
   }
+  _whenTick();
 }
 
 void Enemy::damage(int amount){

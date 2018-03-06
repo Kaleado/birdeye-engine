@@ -26,7 +26,8 @@ public:
   //!Decrements the cooldown timer.
   void tick();
 
-  //!Sets the other teleporter for this teleporter.
+  //!Sets the other teleporter for this teleporter. You MUST do this
+  //!to get the teleporter to actually do something.
   void setOtherTeleporter(std::shared_ptr<Teleporter> otherTeleporter);
 
   Teleporter(Animation& anim, sf::Vector2f position) : EnvironmentThing(anim, position,

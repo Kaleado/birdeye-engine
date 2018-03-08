@@ -17,7 +17,7 @@ void Bullet::handleCollision(std::weak_ptr<Thing> other){
 
 void Bullet::tick(){
   _facing = getUnitVectorOf(_velocity);
-  _sprite.setRotation(getVectorAngleDegrees(_facing));
+  _rotation = getVectorAngleDegrees(_facing);
   if(--_lifetime < 0 || !isOnScreen(*this)){cull();}
 }
 
@@ -45,7 +45,8 @@ void Rocket::tick(){
   newVelocity.x *= _speed;
   newVelocity.y *= _speed;
   _velocity = newVelocity;
-  if(--_lifetime < 0){cull();
+  if(--_lifetime < 0){
+    cull();
   }
   _speed += _acceleration;
 }

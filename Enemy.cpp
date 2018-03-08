@@ -95,7 +95,7 @@ void Enemy::_whenCollidingWith(std::weak_ptr<Thing> other){
 }
 
 void Enemy::tick(){
-  _sprite.setColor(sf::Color(255 - 255*(static_cast<double>(_hp)/_maxHp), 255 * (static_cast<double>(_hp)/_maxHp), 0));
+  //_sprite.setColor(sf::Color(255 - 255*(static_cast<double>(_hp)/_maxHp), 255 * (static_cast<double>(_hp)/_maxHp), 0));
   if(enemyState == ES_IDLE){
     _whenIdle();
   }

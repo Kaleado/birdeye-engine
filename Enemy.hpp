@@ -47,7 +47,7 @@ public:
   virtual void tick();
 
   //!Deals damage to the enemy.
-  void damage(int amount);
+  virtual void damage(int amount);
   
   //!Responds to (but does not check for) collisions every frame. Other
   //!contains a pointer to the Thing that was collided with.

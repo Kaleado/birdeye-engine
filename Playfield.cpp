@@ -2,6 +2,7 @@
 #include "EnemyDemon.hpp"
 #include "EnemyEye.hpp"
 #include "Teleporter.hpp"
+#include "BreakableThing.hpp"
 
 std::shared_ptr<Playfield> playfield;
 
@@ -35,6 +36,13 @@ Playfield::Playfield(std::string playfieldPath){
       bool shootThrough, walkThrough;
       lineStrm >> thingPath >> x >> y >> std::boolalpha >> shootThrough >> walkThrough;
       addThing(std::make_shared<EnvironmentThing>(thingPath, sf::Vector2f{x, y}, shootThrough, walkThrough));
+    }
+    else if(command == "BreakableThing"){
+      std::string thingPath;
+      int x, y;
+      int hp;
+      lineStrm >> thingPath >> x >> y >> hp;
+      addThing(std::make_shared<BreakableThing>(thingPath, sf::Vector2f{x, y}, hp));
     }
     else if(command == "EnemyDemon"){
       int x, y, maxHp;
@@ -145,12 +153,12 @@ void Playfield::tick(){
   }  
 }
 
-
 void Playfield::_cullThings(){
   //Remove Things that need to be culled.
   int nCulled = 0;
   auto cullPredicate = [&nCulled](std::shared_ptr<Thing> t){
-    nCulled += (t->isCulled() ? 1 : 0);
+    //nCulled += (t->isCulled() ? 1 : 0);
+    if(t == nullptr){return true;}//There are sometimes nullptrs in the array. Not sure why.
     return t->isCulled();
   };
   _things.erase(std::remove_if(_things.begin(), _things.end(), cullPredicate), _things.end());

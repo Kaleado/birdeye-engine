@@ -34,7 +34,7 @@ void handleInput(sf::Event event){
   if(event.type == sf::Event::Closed){
     window.close(); 
   }  
-}
+} 
 
 //!This function initialises all game-logic related state.
 void initialiseGameState(){  

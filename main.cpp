@@ -32,7 +32,7 @@ void handleInput(sf::Event event){
     weaponIcon[i].handleInput(event);
   }  
   if(event.type == sf::Event::Closed){
-    window.close();
+    window.close(); 
   }  
 }
 

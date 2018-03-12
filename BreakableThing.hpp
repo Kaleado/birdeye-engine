@@ -12,6 +12,9 @@ protected:
   virtual void _whenCollidingWith(std::weak_ptr<Thing> other);
 
 public:
+
+  sf::Vector2f getWorldCenter();
+
   //!Deals damage to the breakable thing.
   void damage(int amount);
 

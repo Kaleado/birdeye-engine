@@ -20,7 +20,7 @@
 #include "Minigun.hpp"
 
 #include "EnemyDemon.hpp"
- 
+
 HorizontalBar<int> healthBar;
 std::array<WeaponWidget, NUM_WEAPONS> weaponIcon;
 
@@ -30,14 +30,14 @@ void handleInput(sf::Event event){
   cursor->handleInput(event);
   for(int i = 0; i < NUM_WEAPONS; ++i){
     weaponIcon[i].handleInput(event);
-  }  
+  }
   if(event.type == sf::Event::Closed){
-    window.close(); 
-  }  
-} 
+    window.close();
+  }
+}
 
 //!This function initialises all game-logic related state.
-void initialiseGameState(){  
+void initialiseGameState(){
   camera = Camera(sf::Vector2f{-100, -100});
   cursor = std::make_shared<Cursor>("cursor.png");
   playfield = std::make_shared<Playfield>("level.plf");
@@ -75,7 +75,7 @@ void initialiseGameState(){
   player->giveWeapon(shotgun);
   player->giveWeapon(rifle);
   player->giveWeapon(minigun);
-  
+
   playfield->addThing(player);
   healthBar = HorizontalBar<int>{[&player](){return player->getCurrentHp();}, [&player](){return player->stats.maxHp;}, {10, 10}, sf::Color::Red, 100, 15};
 }
@@ -83,15 +83,15 @@ void initialiseGameState(){
 //!This function draws everything on the screen and calls tick() for everything that needs to handle events every frame.
 void frameTick(){
   window.clear(sf::Color::Black);
-  camera.setFocusPosition(player->getPosition());  
+  camera.setFocusPosition(player->getPosition());
   playfield->tick();
-  playfield->draw(window);  
+  playfield->draw(window);
   healthBar.draw(window);
   for(int i = 0; i < NUM_WEAPONS; ++i){
     weaponIcon[i].draw(window);
     cursor->draw(window);
     cursor->tick();
-  }  
+  }
   cursor->draw(window);
   cursor->tick();
   camera.tick();
@@ -104,8 +104,8 @@ int main(){
   //We're using a soft cursor at the moment, but the UI would be a bit
   //more responsive if we used a hardware-provided cursor.
   window.setMouseCursorVisible(false);
-  
-  initialiseGameState();  
+
+  initialiseGameState();
   while(window.isOpen()){
     sf::Event event;
     while(window.pollEvent(event)){

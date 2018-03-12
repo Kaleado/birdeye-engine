@@ -1,5 +1,9 @@
 #include "BreakableThing.hpp"
 
+sf::Vector2f BreakableThing::getWorldCenter(){
+  return Thing::getWorldCenter();
+}
+
 void BreakableThing::_whenKilled(){
   //Emit particles.
   int numParticles = 8;

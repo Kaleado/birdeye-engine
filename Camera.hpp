@@ -4,6 +4,7 @@
 #include <SFML/Graphics.hpp>
 #include "Render.hpp"
 #include <cmath>
+#include <algorithm>
 
 /**
   Class representing the camera position, viewing the game world.

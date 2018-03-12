@@ -21,32 +21,42 @@ protected:
 
   //!The number of frames before the bullet is automatically culled.
   int _lifetime;
+
+  //!Whether the bullet will harm the player or if it will harm enemies.
+  bool _isFriendly;
 public:
   //!Executed every frame, but you should know this by now.
   virtual void tick();
+
+  //!Returns whether the bullet is friendly or not.
+  bool isFriendly();
 
   //!If you want your bullet to explode or do something when it hits a
   //!game object, your subclass should override this!
   virtual void handleCollision(std::weak_ptr<Thing> other);
 
   //Sorry for all these constructors.
-  Bullet(std::string path, sf::Vector2f position, int damage) : Thing(path, position) {
+  Bullet(bool isFriendly, std::string path, sf::Vector2f position, int damage) : Thing(path, position) {
+    _isFriendly = isFriendly;
     _damage = damage;
   };
-  Bullet(Animation& anim, sf::Vector2f position, int damage) : Thing("", position) {
+  Bullet(bool isFriendly, Animation& anim, sf::Vector2f position, int damage) : Thing("", position) {
+    _isFriendly = isFriendly;
     _currentAnimation = anim;
     _isAnimating = true;
     _damage = damage;
   };
-  Bullet(std::string path, sf::Vector2f position, int damage, sf::Vector2f velocity, int lifetime=FRAMERATE/3) : Thing(path, position) {
+  Bullet(bool isFriendly, std::string path, sf::Vector2f position, int damage, sf::Vector2f velocity, int lifetime=FRAMERATE/3) : Thing(path, position) {
+    _isFriendly = isFriendly;
     _damage = damage;
     _velocity = velocity;
     _lifetime = lifetime;
     _facing = getUnitVectorOf(_velocity);
   };
-  Bullet(Animation& anim, sf::Vector2f position, int damage, sf::Vector2f velocity, int lifetime=FRAMERATE/3) : Thing("", position) {
+  Bullet(bool isFriendly, Animation& anim, sf::Vector2f position, int damage, sf::Vector2f velocity, int lifetime=FRAMERATE/3) : Thing("", position) {
+    _isFriendly = isFriendly;
     _currentAnimation = anim;
-    _isAnimating = true;    
+    _isAnimating = true;
     _damage = damage;
     _velocity = velocity;
     _lifetime = lifetime;
@@ -67,58 +77,13 @@ public:
   virtual void tick();
   virtual void handleCollision(std::weak_ptr<Thing> other);
   //!This is the constructor most weapons will use.
-  Rocket(sf::Vector2f position, int damage,
-         sf::Vector2f velocity, int lifetime) :  Bullet("rocket-final.png", position, damage, velocity, lifetime) {
+  Rocket(bool isFriendly, sf::Vector2f position, int damage,
+         sf::Vector2f velocity, int lifetime) :  Bullet(isFriendly, "rocket-final.png", position, damage, velocity, lifetime) {
     _blastRadius = 15.0;
     _acceleration = 1.0;
     _direction = getUnitVectorOf(velocity);
   }
   Rocket(){}
-};
-
-//!This is for bullets fired by enemies - these bullets will ONLY damage the player.
-class HostileBullet : public Bullet {
-protected:
-public:
-  virtual void tick();
-  virtual void handleCollision(std::weak_ptr<Thing> other);
-  HostileBullet(std::string path, sf::Vector2f position, int damage,
-                sf::Vector2f velocity, int lifetime=FRAMERATE/3) : Bullet(path, position, damage, velocity, lifetime) {}
-  HostileBullet(Animation& anim, sf::Vector2f position, int damage,
-                sf::Vector2f velocity, int lifetime=FRAMERATE/3) : Bullet(anim, position, damage, velocity, lifetime) {}
-  HostileBullet(){};  
-};
-
-//!This is for bullets fired by the player - these bullets will ONLY damage enemies.
-class FriendlyBullet : public Bullet {
-protected:
-public:
-  virtual void tick();
-  virtual void handleCollision(std::weak_ptr<Thing> other);
-  FriendlyBullet(std::string path, sf::Vector2f position, int damage,
-                sf::Vector2f velocity, int lifetime=FRAMERATE/3) : Bullet(path, position, damage, velocity, lifetime) {}
-  FriendlyBullet(){};  
-};
-
-//!As above, but for rockets.
-class HostileRocket : public Rocket {
-protected:
-public:
-  virtual void tick();
-  virtual void handleCollision(std::weak_ptr<Thing> other);
-  HostileRocket(){};  
-};
-
-//!As above, but for rockets.
-class FriendlyRocket : public Rocket {
-protected:
-public:
-  virtual void tick();
-  virtual void handleCollision(std::weak_ptr<Thing> other);
-  FriendlyRocket(sf::Vector2f position, int damage,
-                 sf::Vector2f velocity, int lifetime) :  Rocket(position, damage, velocity, lifetime) {
-  }  
-  FriendlyRocket(){};  
 };
 
 #endif

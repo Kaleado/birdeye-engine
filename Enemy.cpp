@@ -22,10 +22,9 @@ void Enemy::handleCollision(std::weak_ptr<Thing> other){
   _whenCollidingWith(other);
 }
 
-
 void Enemy::_setImageBasedOnFacing(){
   std::string newPath;
-  float facingDegrees = getVectorAngleDegrees(_facing);    
+  float facingDegrees = getVectorAngleDegrees(_facing);
   //Change sprite based on the eight directions.
   if(-22.5 < facingDegrees && facingDegrees < 22.5){
     //Right

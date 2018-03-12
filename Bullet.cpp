@@ -2,17 +2,19 @@
 
 void Bullet::handleCollision(std::weak_ptr<Thing> other){
   std::shared_ptr<Enemy> asEnemy = std::dynamic_pointer_cast<Enemy>(other.lock());
-  if(asEnemy){
+  if(asEnemy && _isFriendly){
     asEnemy->damage(_damage);
     cull();
   }
-  else{
-    std::shared_ptr<Player> asPlayer = std::dynamic_pointer_cast<Player>(other.lock());
-    if(asPlayer){
-      asPlayer->damage(_damage);
-      cull();
-    }
+  std::shared_ptr<Player> asPlayer = std::dynamic_pointer_cast<Player>(other.lock());
+  if(asPlayer && !_isFriendly){
+    asPlayer->damage(_damage);
+    cull();
   }
+}
+
+bool Bullet::isFriendly(){
+  return _isFriendly;
 }
 
 void Bullet::tick(){
@@ -32,7 +34,7 @@ void Rocket::handleCollision(std::weak_ptr<Thing> other){
   else{
     std::shared_ptr<Player> asPlayer = std::dynamic_pointer_cast<Player>(other.lock());
     if(asPlayer){
-      playfield->addThing(explosion);      
+      playfield->addThing(explosion);
       cull();
     }
   }

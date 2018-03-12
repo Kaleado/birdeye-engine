@@ -31,6 +31,7 @@ void Camera::tick(){
   }
   _shakeVelocity = sf::Vector2f((_shakeVelocity.x) * shakeDrag, (_shakeVelocity.y) * shakeDrag);
   _position = sf::Vector2f(_position.x + _velocity.x + _shakeVelocity.x, _position.y + _velocity.y + _shakeVelocity.y);
+  _position = sf::Vector2f(std::max<float>(_position.x, float(0.0)), std::max(_position.y, float(0.0)));
 }
 
 void Camera::handleInput(sf::Event event){

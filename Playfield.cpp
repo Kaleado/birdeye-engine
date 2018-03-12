@@ -107,7 +107,7 @@ void Playfield::draw(sf::RenderWindow& window){
 std::vector<std::shared_ptr<Thing>> Playfield::_getPossiblyCollidingThings(){
   std::vector<std::shared_ptr<Thing>> results;
   for(auto t : _things){
-    if(isOnScreen(*t)){
+    if(/*isOnScreen(*t)*/true){
       results.push_back(t);
     }
   }

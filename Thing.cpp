@@ -37,16 +37,16 @@ int Thing::_load(){
     // std::cout << "Success.\n";
     //END DEBUG
     _sprite.setTexture(_texture, true);
-    _isLoaded = true;    
+    _isLoaded = true;
   }
-  return 0;    
+  return 0;
 }
 
 void Thing::draw(sf::RenderWindow& window){
   _position += _velocity;
-  //Either show the current animation, or display the original sprite for the Thing.  
+  //Either show the current animation, or display the original sprite for the Thing.
   if(_isAnimating){
-    //If animating, get the next frame.    
+    //If animating, get the next frame.
     bool moreFramesToGo = _currentAnimation.getNextFrame(_sprite);
     if(!moreFramesToGo){
       _isAnimating = false;

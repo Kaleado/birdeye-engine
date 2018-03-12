@@ -6,14 +6,14 @@ sf::Vector2f BreakableThing::getWorldCenter(){
 
 void BreakableThing::_whenKilled(){
   //Emit particles.
-  int numParticles = 8;
+  int numParticles = 32;
   std::array<std::string, 3> particleTypes = {
     "wood-chip-1.png",
     "wood-chip-2.png",
     "wood-chip-3.png"
   };
   for(auto i = 0; i < numParticles; ++i){
-    std::shared_ptr<AmmoCasing> particle = std::make_shared<AmmoCasing>(particleTypes[i%particleTypes.size()], _position,
+    std::shared_ptr<AmmoCasing> particle = std::make_shared<AmmoCasing>(particleTypes[i%particleTypes.size()], getWorldCenter(),
                                                                         2.0, 0, randDouble() * -2, 0.5, 0.9, FRAMERATE*3);
     playfield->addThing(particle);
   }

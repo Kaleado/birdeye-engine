@@ -39,13 +39,13 @@ void Revolver<BulletType>::tick(){
     double deviation = 5;
     //auto dir = static_cast<double>(std::rand())/RAND_MAX * deviation;
     auto facingDegrees = getVectorAngleDegrees(getVectorBetween(player->getPosition(),
-                                                                cursor->getWorldPosition()));    
+                                                                cursor->getWorldPosition()));
     auto dir = facingDegrees + 180 + (randDouble()*2 - 1) * deviation;
     //cursor->kick(dir, 37.5);
     camera.kick(dir, 37.5);
     auto target = cursor->getWorldPosition();
     auto pos = player->getPosition();
-    std::shared_ptr<Bullet> bullet = std::make_shared<FriendlyBullet>("bullet-final.png", pos, _shotDamage, sf::Vector2f{0,0}, 180);
+    std::shared_ptr<Bullet> bullet = std::make_shared<Bullet>(true, "bullet-final.png", pos, _shotDamage, sf::Vector2f{0,0}, 180);
     //bullet->setColor(sf::Color(0, 0, 255));
     float opp = target.y - pos.y;
     float adj = target.x - pos.x;
@@ -56,12 +56,12 @@ void Revolver<BulletType>::tick(){
 
     bullet->setXVelocity(vx);
     bullet->setYVelocity(vy);
-    
+
     playfield->addThing(bullet);
     _cockTimer = _cockDelay;
     weaponState = WS_IDLE;
   }
-  
+
 }
 
 

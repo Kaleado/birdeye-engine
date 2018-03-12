@@ -11,7 +11,7 @@ double Enemy::_getDistanceFromPlayer(){
   auto playerPos = player->getPosition();
   double dx = _position.x - playerPos.x;
   double dy = _position.y - playerPos.y;
-  return std::sqrt(dx*dx + dy*dy);  
+  return std::sqrt(dx*dx + dy*dy);
 }
 
 void Enemy::handleCollision(std::weak_ptr<Thing> other){
@@ -28,15 +28,15 @@ void Enemy::_setImageBasedOnFacing(){
   //Change sprite based on the eight directions.
   if(-22.5 < facingDegrees && facingDegrees < 22.5){
     //Right
-    newPath = _facingPaths[FACING_RIGHT];      
+    newPath = _facingPaths[FACING_RIGHT];
   }
   else if(22.5 < facingDegrees && facingDegrees < 67.5){
     //Down-right
-    newPath = _facingPaths[FACING_DOWN_RIGHT];      
+    newPath = _facingPaths[FACING_DOWN_RIGHT];
   }
   else if(67.5 < facingDegrees && facingDegrees < 112.5){
     //Down
-    newPath = _facingPaths[FACING_DOWN];      
+    newPath = _facingPaths[FACING_DOWN];
   }
   else if(112.5 < facingDegrees && facingDegrees < 157.5){
     //Down-left
@@ -44,15 +44,15 @@ void Enemy::_setImageBasedOnFacing(){
   }
   else if(-67.5 < facingDegrees && facingDegrees < -22.5){
     //Up-right
-    newPath = _facingPaths[FACING_UP_RIGHT];      
+    newPath = _facingPaths[FACING_UP_RIGHT];
   }
   else if(-112.5 < facingDegrees && facingDegrees < -67.5){
     //Up
-    newPath = _facingPaths[FACING_UP];      
+    newPath = _facingPaths[FACING_UP];
   }
   else if(-157.5 < facingDegrees && facingDegrees < -112.5){
     //Up-left
-    newPath = _facingPaths[FACING_UP_LEFT];      
+    newPath = _facingPaths[FACING_UP_LEFT];
   }
   else {
     //Left
@@ -61,7 +61,7 @@ void Enemy::_setImageBasedOnFacing(){
   if(_path != newPath){
     _path = newPath;
     _isLoaded = false;
-  }  
+  }
 }
 
 void Enemy::die(){

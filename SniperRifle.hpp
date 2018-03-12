@@ -35,13 +35,13 @@ void SniperRifle<BulletType>::tick(){
     }
     break;
   case WS_FIRING_PRIMARY:
-    if(cooldown <= 0 && _hasReleasedLeftMouse){      
+    if(cooldown <= 0 && _hasReleasedLeftMouse){
       auto target = cursorPos;
       auto playerPos = player->getPosition();
       auto velocityVector = getUnitVectorBetween(playerPos, target);
       velocityVector.x *= _shotVelocity;
       velocityVector.y *= _shotVelocity;
-      std::shared_ptr<Bullet> bullet = std::make_shared<BulletType>(playerPos, _shotDamage,
+      std::shared_ptr<Bullet> bullet = std::make_shared<BulletType>(true, playerPos, _shotDamage,
                                                                     velocityVector, FRAMERATE*5);
       playfield->addThing(bullet);
       //Add a particle (the expelled casing).
@@ -62,11 +62,11 @@ void SniperRifle<BulletType>::tick(){
   case WS_FIRING_SECONDARY:
     _isZooming = true;
     break;
-  case WS_IDLE:  
+  case WS_IDLE:
     _isZooming = false;
     break;
   }
-  
+
   if(_isZooming){
     auto focusPoint = getVectorBetween(player->getPosition(), cursorPos);
     focusPoint.x /= 2;
@@ -78,7 +78,7 @@ void SniperRifle<BulletType>::tick(){
   else{
     camera.setFocusPosition(player->getPosition());
   }
-  
+
 }
 
 template <typename BulletType>

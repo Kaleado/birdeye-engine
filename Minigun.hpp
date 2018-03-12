@@ -32,7 +32,7 @@ public:
 template <typename BulletType>
 void Minigun<BulletType>::tick(){
   static int cooldown = 0;
-  
+
   if(weaponState == WS_STOWED){
     _fireDelay = _maxFireDelay;
     if(_reloadTime > 0 && --_reloadTime == 0){
@@ -46,7 +46,7 @@ void Minigun<BulletType>::tick(){
     auto playerPos = player->getPosition();
     std::shared_ptr<AmmoCasing> casing = std::make_shared<AmmoCasing>("pistol-particle.png", playerPos, 0.5, 0, randDouble() * -5, 0.5, 0.9, FRAMERATE*0.5);
     playfield->addThing(casing);
-    
+
     //Fire the bullet.
     double deviation = 180;
     //auto dir = player->getWorldRotation() + 90 + (-0.5 + static_cast<double>(std::rand())/RAND_MAX) * deviation;
@@ -62,8 +62,8 @@ void Minigun<BulletType>::tick(){
 
     float vx = (adj/hyp)*_shotVelocity + randDouble()*3;
     float vy = (opp/hyp)*_shotVelocity + randDouble()*3;
-    
-    std::shared_ptr<Bullet> bullet = std::make_shared<BulletType>(pos, _shotDamage, sf::Vector2f{vx,vy}, 180);    
+
+    std::shared_ptr<Bullet> bullet = std::make_shared<BulletType>(true, pos, _shotDamage, sf::Vector2f{vx,vy}, 180);
     playfield->addThing(bullet);
     cooldown = _fireDelay;
   }
@@ -71,7 +71,7 @@ void Minigun<BulletType>::tick(){
   if(weaponState == WS_IDLE){
     _fireDelay = _maxFireDelay;
   }
-  
+
 }
 
 

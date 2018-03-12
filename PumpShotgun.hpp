@@ -1,4 +1,4 @@
-#ifndef PUMPSHOTGUN_H 
+#ifndef PUMPSHOTGUN_H
 #define PUMPSHOTGUN_H
 
 /**
@@ -47,7 +47,7 @@ void PumpShotgun<BulletType>::tick(){
       target.x += (static_cast<double>(std::rand())/RAND_MAX)*spread - spread/2;
       target.y += (static_cast<double>(std::rand())/RAND_MAX)*spread - spread/2;
       auto pos = player->getPosition();
-      std::shared_ptr<Bullet> pellet = std::make_shared<FriendlyBullet>("pellet.png", pos, _pelletDamage,
+      std::shared_ptr<Bullet> pellet = std::make_shared<Bullet>(true, "pellet.png", pos, _pelletDamage,
                                                                 sf::Vector2f{0,0},
                                                                 static_cast<int>(FRAMERATE/5 + randDouble()*FRAMERATE/5));
       auto unitVector = getUnitVectorBetween(pos, target);
@@ -56,7 +56,7 @@ void PumpShotgun<BulletType>::tick(){
 
       pellet->setXVelocity(unitVector.x);
       pellet->setYVelocity(unitVector.y);
-      
+
       playfield->addThing(pellet);
 
     }
@@ -69,7 +69,7 @@ void PumpShotgun<BulletType>::tick(){
     auto playerPos = player->getPosition();
     std::shared_ptr<AmmoCasing> casing = std::make_shared<AmmoCasing>("shotgun-particle.png", playerPos, 2.0, 0, randDouble() * -2, 0.5, 0.9, FRAMERATE*3);
     playfield->addThing(casing);
-    
+
     _isPumping = true;
     if(--_pumpTimer <= 0){
       _isPumping = false;
@@ -77,7 +77,7 @@ void PumpShotgun<BulletType>::tick(){
       weaponState = WS_IDLE;
     }
   }
-  
+
 }
 
 #endif

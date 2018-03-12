@@ -35,7 +35,7 @@ void Rocket::handleCollision(std::weak_ptr<Thing> other){
     std::shared_ptr<Player> asPlayer = std::dynamic_pointer_cast<Player>(other.lock());
     if(asPlayer){
       playfield->addThing(explosion);
-      cull();
+      cull(); 
     }
   }
 }

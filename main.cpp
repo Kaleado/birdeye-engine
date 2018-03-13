@@ -98,7 +98,7 @@ void frameTick(){
   window.setActive(true);
   window.display();
 }
-
+ 
 int main(){
   window.setFramerateLimit(FRAMERATE);
   //We're using a soft cursor at the moment, but the UI would be a bit

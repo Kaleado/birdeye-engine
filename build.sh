@@ -1,1 +1,1 @@
-make
+rm *.o; rm ./sfml-testing; make

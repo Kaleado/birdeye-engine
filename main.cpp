@@ -104,7 +104,7 @@ int main(){
   //We're using a soft cursor at the moment, but the UI would be a bit
   //more responsive if we used a hardware-provided cursor.
   window.setMouseCursorVisible(false);
- 
+  
   initialiseGameState();
   while(window.isOpen()){
     sf::Event event;

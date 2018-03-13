@@ -18,7 +18,7 @@
 #include "PumpShotgun.hpp"
 #include "SniperRifle.hpp"
 #include "Minigun.hpp"
- 
+
 #include "EnemyDemon.hpp"
 
 HorizontalBar<int> healthBar;
@@ -116,15 +116,4 @@ int main(){
   }
   return 0;
 }
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
  

@@ -79,7 +79,7 @@ void initialiseGameState(){
   playfield->addThing(player);
   healthBar = HorizontalBar<int>{[&player](){return player->getCurrentHp();}, [&player](){return player->stats.maxHp;}, {10, 10}, sf::Color::Red, 100, 15};
 }
-
+ 
 //!This function draws everything on the screen and calls tick() for everything that needs to handle events every frame.
 void frameTick(){
   window.clear(sf::Color::Black);

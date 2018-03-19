@@ -82,12 +82,11 @@ Playfield::Playfield(std::string playfieldPath){
       addThing(tp1);
       addThing(tp2);
     }
-
   }
 }
 
-int Playfield::getBounds(){
-  _sprite.getLocalBounds();
+sf::FloatRect Playfield::getBounds(){
+  return _backgroundSprite.getLocalBounds();
 }
 
 void Playfield::addThing(std::shared_ptr<Thing> thing){
@@ -105,7 +104,7 @@ int Playfield::_loadBackground(){
     return 1;
   }
   _backgroundSprite.setTexture(_backgroundTexture, true);
-  _isLoaded = true;    
+  _isLoaded = true;
   return 0;
 }
 
@@ -116,7 +115,7 @@ void Playfield::draw(sf::RenderWindow& window){
   _drawBackground(window);
   for(auto t : _things){
     t->draw(window);
-  }  
+  }
 }
 
 std::vector<std::shared_ptr<Thing>> Playfield::_getPossiblyCollidingThings(){
@@ -164,8 +163,8 @@ void Playfield::tick(){
     if(playerColliding){
       player->handleCollision(first);
       first->handleCollision(player);
-    }    
-  }  
+    }
+  }
 }
 
 void Playfield::_cullThings(){

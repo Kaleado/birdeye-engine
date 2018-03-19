@@ -1,6 +1,6 @@
 #include "Render.hpp"
 
-sf::RenderWindow window{sf::VideoMode(1920, 1080), "SFML Testing", sf::Style::Fullscreen};
+sf::RenderWindow window{sf::VideoMode(SCREEN_WIDTH, SCREEN_HEIGHT), "SFML Testing", sf::Style::Fullscreen};
 
 double distanceBetween(sf::Vector2f a, sf::Vector2f b){
   double dx = a.x - b.x;

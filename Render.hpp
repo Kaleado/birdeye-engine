@@ -25,7 +25,8 @@ const int MOD_MENU_MOD_WIDGET_HEIGHT=45;
 
 //!Obvious.
 const int FRAMERATE=60;
-
+const int SCREEN_WIDTH=1920;
+const int SCREEN_HEIGHT=1080;
 //!This is THE window.
 extern sf::RenderWindow window;
 

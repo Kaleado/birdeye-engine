@@ -53,6 +53,9 @@ protected:
   bool _isLoaded=false;
 
 public:
+  //!Gets the boundary of the playfield.
+  sf::FloatRect getBounds();
+
   //!Add a new thing to the playfield.
   void addThing(std::shared_ptr<Thing> thing);
 

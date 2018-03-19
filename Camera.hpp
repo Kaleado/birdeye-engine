@@ -31,11 +31,11 @@ public:
 
   //!Kicks the camera in a given direction (0 degrees is straight to the right).
   void kick(double angleDegrees, double strength);
-  
+
   Camera(sf::Vector2f focusPosition) : _focusPosition{focusPosition} {};
   Camera(){};
 protected:
-  //!Recalculates the camera's acceleration to ensure it always moves back to the focus position.  
+  //!Recalculates the camera's acceleration to ensure it always moves back to the focus position.
   void _recalculateAcceleration();
   sf::Vector2f _focusPosition;
   sf::Vector2f _position;

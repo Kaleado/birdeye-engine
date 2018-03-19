@@ -22,7 +22,7 @@ Playfield::Playfield(std::string playfieldPath){
     lineStrm >> command;
     std::cout << "(" << command << ")\n";
 
-    //\\//\\//\\// COMMANDS //\\//\\//\\//
+    //\\//\\//\\// COMMANDS //\\//\\//\\//a
 
     //Specifying the background file.
     if(command == "Comment"){

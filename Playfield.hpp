@@ -16,12 +16,12 @@
 /**
   Class representing a game area.
  */
-class Playfield {  
+class Playfield {
 protected:
 
   //!Loads the background image for the level.
   int _loadBackground();
-  
+
   //!Draw the background of the level.
   void _drawBackground(sf::RenderWindow& window);
 

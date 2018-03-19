@@ -15,7 +15,7 @@ void Camera::_recalculateAcceleration(){
   float ax = (adj/(hyp));
   float ay = (opp/(hyp));
 
-  _acceleration = sf::Vector2f(ax, ay*2);
+  _acceleration = sf::Vector2f(ax, ay*(SCREEN_WIDTH/SCREEN_HEIGHT + 1));
 }
 
 void Camera::tick(){

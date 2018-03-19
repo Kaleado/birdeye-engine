@@ -20,6 +20,8 @@
 #include "Minigun.hpp"
 
 #include "EnemyDemon.hpp"
+#include "EnemyEye.hpp"
+#include "EnemyLegion.hpp"
 
 HorizontalBar<int> healthBar;
 std::array<WeaponWidget, NUM_WEAPONS> weaponIcon;
@@ -48,7 +50,7 @@ void initialiseGameState(){
   smg->fillWithMods();
   auto revolver = std::make_shared<Revolver<Rocket>>(1, 1, 90, 30);
   revolver->fillWithMods();
-  auto shotgun = std::make_shared<PumpShotgun<Rocket>>(1, 1, 40, 30);
+  auto shotgun = std::make_shared<PumpShotgun<Bullet>>(1, 1, 40, 30);
   shotgun->fillWithMods();
   auto rifle = std::make_shared<SniperRifle<Rocket>>(1, 1, 150, 30);
   rifle->fillWithMods();
@@ -79,7 +81,7 @@ void initialiseGameState(){
   playfield->addThing(player);
   healthBar = HorizontalBar<int>{[&player](){return player->getCurrentHp();}, [&player](){return player->stats.maxHp;}, {10, 10}, sf::Color::Red, 100, 15};
 }
- 
+
 //!This function draws everything on the screen and calls tick() for everything that needs to handle events every frame.
 void frameTick(){
   window.clear(sf::Color::Black);
@@ -98,13 +100,13 @@ void frameTick(){
   window.setActive(true);
   window.display();
 }
- 
+
 int main(){
   window.setFramerateLimit(FRAMERATE);
   //We're using a soft cursor at the moment, but the UI would be a bit
   //more responsive if we used a hardware-provided cursor.
   window.setMouseCursorVisible(false);
-  
+
   initialiseGameState();
   while(window.isOpen()){
     sf::Event event;
@@ -116,4 +118,4 @@ int main(){
   }
   return 0;
 }
- 
+

@@ -42,20 +42,28 @@ void PumpShotgun<BulletType>::tick(){
     camera.kick(dir, 90);
     for(int i = 0; i < _numPellets; ++i){
       //Essentially, we fire pellets to random spots 'near' the mouse (based on the spread).
-      double spread = distanceBetween(player->getPosition(), cursor->getWorldPosition())/3;
+      double spread = 0;
       auto target = cursor->getWorldPosition();
       target.x += (static_cast<double>(std::rand())/RAND_MAX)*spread - spread/2;
       target.y += (static_cast<double>(std::rand())/RAND_MAX)*spread - spread/2;
       auto pos = player->getPosition();
-      std::shared_ptr<Bullet> pellet = std::make_shared<Bullet>(true, "pellet.png", pos, _pelletDamage,
-                                                                sf::Vector2f{0,0},
-                                                                static_cast<int>(FRAMERATE/5 + randDouble()*FRAMERATE/5));
-      auto unitVector = getUnitVectorBetween(pos, target);
-      unitVector.x *= _pelletVelocity + randDouble()*_pelletVelocity/10;;
-      unitVector.y *= _pelletVelocity + randDouble()*_pelletVelocity/10;;
+      //std::shared_ptr<Bullet> bullet = std::make_shared<FriendlyBullet>("bullet-final.png", pos, _shotDamage, sf::Vector2f{0,0}, 180);
+      float opp = target.y - pos.y;
+      float adj = target.x - pos.x;
+      float hyp = std::sqrt(opp*opp + adj*adj);
 
-      pellet->setXVelocity(unitVector.x);
-      pellet->setYVelocity(unitVector.y);
+      float vx = (adj/hyp)*_pelletVelocity + randDouble()*_pelletVelocity/2;
+      float vy = (opp/hyp)*_pelletVelocity + randDouble()*_pelletVelocity/2;
+
+      std::shared_ptr<Bullet> pellet = std::make_shared<BulletType>(true, pos, _pelletDamage, sf::Vector2f{vx,vy},
+                                                                    static_cast<int>(FRAMERATE/5 + randDouble()*FRAMERATE/5));
+
+      // auto unitVector = getUnitVectorBetween(pos, target);
+      // unitVector.x *= _pelletVelocity + randDouble()*_pelletVelocity/10;
+      // unitVector.y *= _pelletVelocity + randDouble()*_pelletVelocity/10;
+
+      // pellet->setXVelocity(unitVector.x);
+      // pellet->setYVelocity(unitVector.y);
 
       playfield->addThing(pellet);
 

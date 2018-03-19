@@ -1,5 +1,13 @@
 #include "Enemy.hpp"
 
+int Enemy::getMaxHp(){
+  return _maxHp;
+}
+
+int Enemy::getHp(){
+  return _hp;
+}
+
 sf::Vector2f Enemy::getWorldCenter(){
   return _position;
 }

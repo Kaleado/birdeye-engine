@@ -29,7 +29,7 @@ public:
   //!want to implement something different, then you would override
   //!this method in a subclass.
   virtual void tick(){}
-  
+
   //!Handles and responds to input every frame.
   virtual void handleInput(sf::Event event){}
 

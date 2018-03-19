@@ -9,16 +9,16 @@ public:
 protected:
   int _attackCooldown=0;
   //int _attackTimer;
-  
+
   //!Executed every frame when the creature's state is ES_IDLE.
   virtual void _whenIdle();
 
   //!Executed every frame when the creature's state is ES_AGGRO.
   virtual void _whenAggro();
-  
+
   //!Executed every frame when the creature's state is ES_ATTACKING.
   virtual void _whenAttacking();
-  
+
 };
 
 #endif

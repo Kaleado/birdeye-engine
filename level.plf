@@ -26,4 +26,5 @@ EnemyEye 150 450 100 10.0
 EnemyEye 250 450 100 10.0
 EnemyEye 350 450 100 10.0
 EnemyEye 450 450 100 10.0
+EnemyLegion 1000 1000 100 8.0
 Teleporter 1500 1500 teleporter.png 1700 1500 teleporter.png

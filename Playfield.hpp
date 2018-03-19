@@ -33,10 +33,10 @@ protected:
 
   //!Culls things that are flagged to be culled.
   void _cullThings();
-  
+
   Camera _camera;
 
-  //!Contains all game objects in the Playfield.  
+  //!Contains all game objects in the Playfield.
   std::vector<std::shared_ptr<Thing>> _things;
 
   //!Used with the sprite below.
@@ -44,14 +44,14 @@ protected:
 
   //!The current sprite (to be displayed) of the level background.
   sf::Sprite _backgroundSprite;
-  
+
   //!The path to the background image for this level.
   std::string _backgroundPath;
-  
+
   //!Whether or not the background and other assets have been loaded
   //!for the level.
   bool _isLoaded=false;
-  
+
 public:
   //!Add a new thing to the playfield.
   void addThing(std::shared_ptr<Thing> thing);

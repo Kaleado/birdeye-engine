@@ -20,12 +20,13 @@ const int FACING_MAX        = 8;
 /**
   This enum represents the current state of an enemy:
   - ES_IDLE: the enemy has not noticed the player, and is just standing around.
-  - ES_AGGO: the enemy has noticed the player.
+  - ES_AGGRO: the enemy has noticed the player.
   - ES_DEAD: the enemy is dead.
   - ES_ATTACKING: the enemy is performing an attack. This state is typically
     replaced with ES_IDLE when the attack animation has completed.
+  - ES_FLEE: the enemy is fleeing - currently only used for EnemyLegion.
  */
-enum EnemyState { ES_IDLE, ES_AGGRO, ES_DEAD, ES_ATTACKING };
+enum EnemyState { ES_IDLE, ES_AGGRO, ES_DEAD, ES_ATTACKING, ES_FLEE };
 
 /**
   This class represents a generic enemy - this enemy currently (as of
@@ -34,13 +35,18 @@ enum EnemyState { ES_IDLE, ES_AGGRO, ES_DEAD, ES_ATTACKING };
  */
 class Enemy : public Thing {
 public:
-  
+  //!Get maximum HP.
+  int getMaxHp();
+
+  //!Get current HP.
+  int getHp();
+
   //!Returns the center of the sprite (in world coordinates)
   sf::Vector2f getWorldCenter();
-    
+
   //!The enemy's current state (described above).
   EnemyState enemyState = ES_IDLE;
-  
+
   //!This function is executed every frame, and serves as the main AI
   //!function for the enemy. Calls _whenIdle(), _whenAggro(), etc.
   //!Don't override this if you can use _whenTick() instead!
@@ -48,14 +54,14 @@ public:
 
   //!Deals damage to the enemy.
   virtual void damage(int amount);
-  
+
   //!Responds to (but does not check for) collisions every frame. Other
   //!contains a pointer to the Thing that was collided with.
   virtual void handleCollision(std::weak_ptr<Thing> other);
 
   //!Executed when the creature dies.
   virtual void die();
-  
+
   Enemy(std::string path, sf::Vector2f position, int maxHp, double speed) : Thing(path, position) {
     _maxHp = maxHp;
     _hp = _maxHp;
@@ -71,7 +77,7 @@ public:
     _facingPaths = facingPaths;
   };
   Enemy(){};
-  
+
 protected:
   //!Changes the creature's sprite based on the direction they're facing.
   void _setImageBasedOnFacing();
@@ -83,7 +89,7 @@ protected:
 
   //!Executed every frame when the creature's state is ES_AGGRO.
   virtual void _whenAggro();
-  
+
   //!Executed every frame when the creature's state is ES_ATTACKING.
   virtual void _whenAttacking();
 
@@ -101,7 +107,7 @@ protected:
 
   //!Enemy stats.
   int _hp, _maxHp;
-  
+
   //!Pixels per frame the enemy can move at.
   double _speed;
 

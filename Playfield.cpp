@@ -1,6 +1,7 @@
 #include "Playfield.hpp"
 #include "EnemyDemon.hpp"
 #include "EnemyEye.hpp"
+#include "EnemyLegion.hpp"
 #include "Teleporter.hpp"
 #include "BreakableThing.hpp"
 
@@ -22,7 +23,7 @@ Playfield::Playfield(std::string playfieldPath){
     std::cout << "(" << command << ")\n";
 
     //\\//\\//\\// COMMANDS //\\//\\//\\//
-    
+
     //Specifying the background file.
     if(command == "Comment"){
       //Do nothing.
@@ -56,13 +57,23 @@ Playfield::Playfield(std::string playfieldPath){
       lineStrm >> x >> y >> maxHp >> speed;
       addThing(std::make_shared<EnemyEye>(sf::Vector2f{x, y}, maxHp, speed));
     }
+    else if(command == "EnemyLegion"){
+      int x, y, maxHp;
+      double speed;
+      lineStrm >> x >> y >> maxHp >> speed;
+      std::array<std::shared_ptr<EnemyLegionSlave>, LEGION_SIZE> slaves;
+      addThing(std::make_shared<EnemyLegion>(sf::Vector2f{x, y}, maxHp, speed, &slaves));
+      for(auto it = (slaves).begin(); it != (slaves).end(); ++it){
+        addThing(*it);
+      }
+    }
     else if(command == "Teleporter"){
       int x1, y1;
       std::string path1;
 
       int x2, y2;
       std::string path2;
-      
+
       lineStrm >> x1 >> y1 >> path1 >> x2 >> y2 >> path2;
       auto tp1 = std::make_shared<Teleporter>(path1, sf::Vector2f{x1, y1});
       auto tp2 = std::make_shared<Teleporter>(path2, sf::Vector2f{x2, y2});
@@ -71,8 +82,12 @@ Playfield::Playfield(std::string playfieldPath){
       addThing(tp1);
       addThing(tp2);
     }
-    
+
   }
+}
+
+int Playfield::getBounds(){
+  _sprite.getLocalBounds();
 }
 
 void Playfield::addThing(std::shared_ptr<Thing> thing){

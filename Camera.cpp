@@ -5,6 +5,7 @@
 Camera camera;
 
 void Camera::_recalculateAcceleration(){
+  //10:25am, Tuesday
   auto target = _focusPosition;
   auto pos = _position;
   float opp = target.y - pos.y;
@@ -14,7 +15,7 @@ void Camera::_recalculateAcceleration(){
   float ax = (adj/(hyp));
   float ay = (opp/(hyp));
 
-  _acceleration = sf::Vector2f(ax, ay);
+  _acceleration = sf::Vector2f(ax, ay*2);
 }
 
 void Camera::tick(){
@@ -24,7 +25,7 @@ void Camera::tick(){
   _recalculateAcceleration();
   auto dx = _position.x - _focusPosition.x;
   auto dy = _position.y - _focusPosition.y;
-  if(std::sqrt(dx*dx + dy*dy) > 100){
+  if(std::sqrt(dx*dx + dy*dy) > 10){
     _velocity = sf::Vector2f((_velocity.x) * drag + _acceleration.x, (_velocity.y) * drag + _acceleration.y);
   }
   else {

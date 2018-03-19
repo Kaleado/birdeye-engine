@@ -152,7 +152,6 @@ sf::FloatRect Thing::getBounds(){
 
 float Thing::getWorldRotation(){
   return _rotation;
-  //return _sprite.getRotation();
 }
 
 void AmmoCasing::tick(){
@@ -177,9 +176,9 @@ void AmmoCasing::tick(){
 
 void AmmoCasing::draw(sf::RenderWindow& window){
   _position += _velocity;
-  //Either show the current animation, or display the original sprite for the Thing.  
+  //Either show the current animation, or display the original sprite for the Thing.
   if(_isAnimating){
-    //If animating, get the next frame.    
+    //If animating, get the next frame.
     bool moreFramesToGo = _currentAnimation.getNextFrame(_sprite);
     if(!moreFramesToGo){
       _isAnimating = false;

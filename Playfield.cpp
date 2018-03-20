@@ -25,7 +25,7 @@ Playfield::Playfield(std::string playfieldPath){
     //\\//\\//\\// COMMANDS //\\//\\//\\//a
 
     //Specifying the background file.
-    if(command == "Comment"){
+    if(command == "#"){
       //Do nothing.
     }
     else if(command == "Background"){
@@ -70,10 +70,8 @@ Playfield::Playfield(std::string playfieldPath){
     else if(command == "Teleporter"){
       int x1, y1;
       std::string path1;
-
       int x2, y2;
       std::string path2;
-
       lineStrm >> x1 >> y1 >> path1 >> x2 >> y2 >> path2;
       auto tp1 = std::make_shared<Teleporter>(path1, sf::Vector2f{x1, y1});
       auto tp2 = std::make_shared<Teleporter>(path2, sf::Vector2f{x2, y2});

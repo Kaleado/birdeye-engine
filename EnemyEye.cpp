@@ -27,21 +27,9 @@ void EnemyEye::_whenAggro(){
   _setImageBasedOnFacing();
   double dist = _getDistanceFromPlayer();
   double attackRange = 500;
-  if(dist > attackRange){
-    auto target = player->getPosition();
-
-    auto unitVector = getUnitVectorBetween(_position, target);
-
-    float vx = unitVector.x * _speed;
-    float vy = unitVector.y * _speed;
-
-    setXVelocity(vx);
-    setYVelocity(vy);
-  }
-  else {
+  if(dist <= attackRange){
     enemyState = ES_ATTACKING;
   }
-
 }
 
 void EnemyEye::_whenIdle(){

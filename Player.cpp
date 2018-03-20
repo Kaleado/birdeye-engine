@@ -101,7 +101,10 @@ void Player::handleInput(sf::Event event){
     if(event.key.code == sf::Keyboard::Q){
       previousWeapon();
     }
-    if(event.key.code == sf::Keyboard::E && _primaryAbility){
+    if(event.key.code == sf::Keyboard::E){
+      nextWeapon();
+    }
+    if(event.key.code == sf::Keyboard::R && _primaryAbility){
       _primaryAbility->release();
     }
     if(event.key.code == sf::Keyboard::Space && _movementAbility){

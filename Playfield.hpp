@@ -18,6 +18,11 @@
  */
 class Playfield {
 protected:
+  //!Loads the overlay image for the level.
+  int _loadOverlay();
+
+  //!Draw the overlay of the level.
+  void _drawOverlay(sf::RenderWindow& window);
 
   //!Loads the background image for the level.
   int _loadBackground();
@@ -38,6 +43,15 @@ protected:
 
   //!Contains all game objects in the Playfield.
   std::vector<std::shared_ptr<Thing>> _things;
+
+  //!Used with the sprite below.
+  sf::Texture _overlayTexture;
+
+  //!The current sprite (to be displayed) as the level overlay (like a filter).
+  sf::Sprite _overlaySprite;
+
+  //!The path to the overlay image for this level.
+  std::string _overlayPath;
 
   //!Used with the sprite below.
   sf::Texture _backgroundTexture;

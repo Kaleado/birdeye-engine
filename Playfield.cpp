@@ -4,6 +4,7 @@
 #include "EnemyLegion.hpp"
 #include "Teleporter.hpp"
 #include "BreakableThing.hpp"
+#include "ThingEntrance.hpp"
 
 std::shared_ptr<Playfield> playfield;
 
@@ -30,6 +31,9 @@ Playfield::Playfield(std::string playfieldPath){
     }
     else if(command == "Background"){
       lineStrm >> _backgroundPath;
+    }
+    else if(command == "Overlay"){
+      lineStrm >> _overlayPath;
     }
     else if(command == "EnvironmentThing"){
       std::string thingPath;
@@ -80,6 +84,14 @@ Playfield::Playfield(std::string playfieldPath){
       addThing(tp1);
       addThing(tp2);
     }
+    else if(command == "Entrance"){
+      int x, y, w, h;
+      std::string levelPath, destMarker;
+      lineStrm >> x >> y >> w >> h >> levelPath >> destMarker;
+      auto ent = std::make_shared<ThingEntrance>(sf::Vector2f{x, y}, sf::Vector2f{w, h}, levelPath, destMarker);
+      addThing(ent);
+    }
+
   }
 }
 
@@ -89,6 +101,21 @@ sf::FloatRect Playfield::getBounds(){
 
 void Playfield::addThing(std::shared_ptr<Thing> thing){
   _things.push_back(thing);
+}
+
+void Playfield::_drawOverlay(sf::RenderWindow& window){
+  _overlaySprite.setPosition({0.0, 0.0});
+  window.draw(_overlaySprite);
+}
+
+int Playfield::_loadOverlay(){
+  if(!_overlayTexture.loadFromFile(_overlayPath)){
+    _isLoaded = false;
+    return 1;
+  }
+  _overlaySprite.setTexture(_overlayTexture, true);
+  _isLoaded = true;
+  return 0;
 }
 
 void Playfield::_drawBackground(sf::RenderWindow& window){
@@ -109,11 +136,13 @@ int Playfield::_loadBackground(){
 void Playfield::draw(sf::RenderWindow& window){
   if(!_isLoaded){
     _loadBackground();
+    _loadOverlay();
   }
   _drawBackground(window);
   for(auto t : _things){
     t->draw(window);
   }
+  _drawOverlay(window);
 }
 
 std::vector<std::shared_ptr<Thing>> Playfield::_getPossiblyCollidingThings(){
@@ -139,8 +168,8 @@ void Playfield::tick(){
   //   }
   // }
   //END DEBUGGING
-  
-  _cullThings();    
+
+  _cullThings();
   //Broad phase collision detection.
   std::vector<std::shared_ptr<Thing>> possibleCollisions = _getPossiblyCollidingThings();
   for(auto t = 0; t < possibleCollisions.size(); t++){

@@ -5,11 +5,11 @@ void EnvironmentThing::handleCollision(std::weak_ptr<Thing> other){
   if(!otherPtr){
     return;
   }
-  if(!_canWalkThrough){
+  std::shared_ptr<Bullet> asBullet = std::dynamic_pointer_cast<Bullet>(otherPtr);
+  if(!_canWalkThrough && !asBullet){
     otherPtr->preventOverlapping(shared_from_this(), 6.5);
   }
   if(!_canShootThrough){
-    std::shared_ptr<Bullet> asBullet = std::dynamic_pointer_cast<Bullet>(otherPtr);
     if(asBullet){
       asBullet->cull();
     }

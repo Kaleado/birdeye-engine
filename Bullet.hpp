@@ -64,7 +64,7 @@ public:
   };
   //!This is the constructor most weapons will use.
   Bullet(bool isFriendly, sf::Vector2f position, int damage,
-         sf::Vector2f velocity, int lifetime) :  Bullet(isFriendly, "bullet.png", position, damage, velocity, lifetime) {
+         sf::Vector2f velocity, int lifetime) :  Bullet(isFriendly, "bullet-final.png", position, damage, velocity, lifetime) {
     _facing = getUnitVectorOf(_velocity);
   }
   Bullet(){};

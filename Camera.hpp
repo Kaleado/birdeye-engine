@@ -26,6 +26,7 @@ public:
 
   //!Sets the _actual_ position of the camera - the camera will return to the focus position after.
   void setPosition(sf::Vector2f pos);
+
   //Duh.
   sf::Vector2f getPosition();
 

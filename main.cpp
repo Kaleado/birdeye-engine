@@ -43,18 +43,18 @@ void initialiseGameState(){
   camera = Camera(sf::Vector2f{-100, -100});
   cursor = std::make_shared<Cursor>("cursor.png");
   playfield = std::make_shared<Playfield>("level.plf");
-  player = std::make_shared<Player>("player-down.png", sf::Vector2f{0, 0}, 8.0);
+  player = std::make_shared<Player>("player-down.png", sf::Vector2f{0, 0}, 6.0);
   player->setSprintAbility(std::make_shared<Sprint>(1.333));
 
-  auto smg = std::make_shared<Smg<Rocket>>(1, 1, 5, 40, 20);
+  auto smg = std::make_shared<Smg<Bullet>>(1, 1, 5, 40, 20);
   smg->fillWithMods();
-  auto revolver = std::make_shared<Revolver<Rocket>>(1, 1, 90, 30);
+  auto revolver = std::make_shared<Revolver<Bullet>>(1, 1, 90, 30);
   revolver->fillWithMods();
   auto shotgun = std::make_shared<PumpShotgun<Bullet>>(1, 1, 40, 30);
   shotgun->fillWithMods();
-  auto rifle = std::make_shared<SniperRifle<Rocket>>(1, 1, 150, 30);
+  auto rifle = std::make_shared<SniperRifle<Bullet>>(1, 1, 150, 30);
   rifle->fillWithMods();
-  auto minigun = std::make_shared<Minigun<Rocket>>(1, 1, 30, 2, 2, 40, 20, 0.5);
+  auto minigun = std::make_shared<Minigun<Bullet>>(1, 1, 30, 2, 2, 40, 20, 0.5);
   minigun->fillWithMods();
 
   weaponIcon[0] = WeaponWidget{smg,

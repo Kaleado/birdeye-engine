@@ -29,7 +29,6 @@ void Rocket::handleCollision(std::weak_ptr<Thing> other){
 
   std::shared_ptr<Bullet> explosion = std::make_shared<Bullet>(_isFriendly, "explosion.png", sf::Vector2f{_position.x - explosionRadius, _position.y - explosionRadius}, _damage, sf::Vector2f(0,0), FRAMERATE/2);
   if(_isFriendly && asEnemy){
-    //asEnemy->damage(_damage);
     playfield->addThing(explosion);
     cull();
   }
@@ -47,7 +46,7 @@ void Rocket::tick(){
   newVelocity.x *= _speed;
   newVelocity.y *= _speed;
   _velocity = newVelocity;
-  if(--_lifetime < 0){
+  if(--_lifetime <= 0){
     cull();
   }
   _speed += _acceleration;

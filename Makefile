@@ -1,7 +1,7 @@
 all: sfml-test
 
-sfml-test: EnvironmentThing.o Render.o Thing.o Player.o Bullet.o Weapon.o Playfield.o Enemy.o main.o Animation.o Ability.o Cursor.o Camera.o Ui.o Stats.o WeaponMod.o WeaponWidget.o EnemyDemon.o EnemyEye.o Teleporter.o BreakableThing.o EnemyLegion.o
-	g++ -g -std=c++14 -pthread main.o EnvironmentThing.o Render.o Bullet.o Weapon.o Player.o Enemy.o Playfield.o Animation.o Ability.o Cursor.o Ui.o Thing.o Camera.o Stats.o WeaponMod.o WeaponWidget.o EnemyDemon.o EnemyEye.o Teleporter.o BreakableThing.o EnemyLegion.o -o sfml-test -lsfml-graphics -lsfml-window -lsfml-system
+sfml-test: EnvironmentThing.o Render.o Thing.o Player.o Bullet.o Weapon.o Playfield.o Enemy.o main.o Animation.o Ability.o Cursor.o Camera.o Ui.o Stats.o WeaponMod.o WeaponWidget.o EnemyDemon.o EnemyEye.o Teleporter.o BreakableThing.o EnemyLegion.o ThingEntrance.o
+	g++ -g -std=c++14 -pthread main.o EnvironmentThing.o Render.o Bullet.o Weapon.o Player.o Enemy.o Playfield.o Animation.o Ability.o Cursor.o Ui.o Thing.o Camera.o Stats.o WeaponMod.o WeaponWidget.o EnemyDemon.o EnemyEye.o Teleporter.o BreakableThing.o EnemyLegion.o ThingEntrance.o -o sfml-test -lsfml-graphics -lsfml-window -lsfml-system
 
 Cursor.o: Cursor.hpp Cursor.cpp 
 	g++ -g -std=c++14 -pthread -c Cursor.cpp -o Cursor.o
@@ -9,7 +9,10 @@ Cursor.o: Cursor.hpp Cursor.cpp
 Stats.o: Stats.hpp Stats.cpp 
 	g++ -g -std=c++14  -pthread -c Stats.cpp -o Stats.o
 
-Thing.o: Thing.hpp Thing.cpp 
+ThingEntrance.o: ThingEntrance.hpp ThingEntrance.cpp 
+	g++ -g -std=c++14  -pthread -c ThingEntrance.cpp -o ThingEntrance.o
+
+Thing.o: Thing.hpp Thing.cpp
 	g++ -g -std=c++14  -pthread -c Thing.cpp -o Thing.o
 
 EnemyLegion.o: EnemyLegion.hpp EnemyLegion.cpp 

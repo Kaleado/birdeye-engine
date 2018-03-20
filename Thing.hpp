@@ -93,7 +93,7 @@ public:
   //!Returns whether the thing is to be imminently culled.
   bool isCulled();
 
-  //!Gets a retangle representing the bounding box (the hitbox) of the thing.
+  //!Gets a rectangle representing the bounding box (the hitbox) of the thing.
   virtual sf::FloatRect getBounds();
 
   //!Draw the thing on the screen.

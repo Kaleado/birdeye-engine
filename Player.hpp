@@ -73,7 +73,7 @@ public:
   //!Inserts a weapon into a particular slot of the weapon bar.
   //!Returns false if the weapon couldn't be inserted (if something was already present in that WeaponWidget), or true if everything was dandy.
   bool insertWeapon(int weaponIndex, std::shared_ptr<Weapon> weapon);
-  
+
   Player(std::string path, sf::Vector2f position, double baseSpeed=5.0) : Thing(path, position) {
     _baseSpeed = baseSpeed;
     for(int i = 0; i < NUM_WEAPONS; ++i){
@@ -81,7 +81,7 @@ public:
     }
   };
   Player(){};
-  
+
 private:
 
   //!Time that the player is invulnerable for.
@@ -109,7 +109,7 @@ private:
 
   //!Player stats.
   int _curHp=100;
-  
+
   //!Maximum number of pixels per frame that the player can move.
   double _baseSpeed;
 };

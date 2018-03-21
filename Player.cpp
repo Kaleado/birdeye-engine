@@ -8,11 +8,10 @@ void Player::die(){
 }
 
 void Player::damage(int amount){
-  static int damageTimer = 0;
-  if(--damageTimer > 0){
+  if(_invulnTime > 0){
     return;
   }
-  damageTimer = FRAMERATE;
+  _invulnTime = FRAMERATE;
   _curHp -= amount;
   if(_curHp <= 0){
     //Handle game over, etc. here.
@@ -31,37 +30,30 @@ void Player::_changeImageBasedOnFacing(){
   if(-22.5 < facingDegrees && facingDegrees < 22.5){
     //Right
     newPath = "player-right.png";
-      
   }
   else if(22.5 < facingDegrees && facingDegrees < 67.5){
     //Down-right
     newPath = "player-downright.png";
-      
   }
   else if(67.5 < facingDegrees && facingDegrees < 112.5){
     //Down
     newPath = "player-down.png";
-      
   }
   else if(112.5 < facingDegrees && facingDegrees < 157.5){
     //Down-left
     newPath = "player-downleft.png";
-      
   }
   else if(-67.5 < facingDegrees && facingDegrees < -22.5){
     //Up-right
     newPath = "player-upright.png";
-      
   }
   else if(-112.5 < facingDegrees && facingDegrees < -67.5){
     //Up
     newPath = "player-up.png";
-      
   }
   else if(-157.5 < facingDegrees && facingDegrees < -112.5){
     //Up-left
     newPath = "player-upleft.png";
-      
   }
   else {
     //Left
@@ -84,7 +76,7 @@ void Player::handleInput(sf::Event event){
     _facing = getUnitVectorBetween(_position, cursor->getWorldPosition());
     _changeImageBasedOnFacing();
   }
-  
+
   if(event.type == sf::Event::KeyPressed){
     if(event.key.code == sf::Keyboard::E && _primaryAbility){
       _primaryAbility->press();
@@ -114,7 +106,7 @@ void Player::handleInput(sf::Event event){
       _sprintAbility->release();
     }
   }
-  
+
   if(event.type == sf::Event::KeyReleased){
     if(event.key.code == sf::Keyboard::W || event.key.code == sf::Keyboard::S){
       this->setYVelocity(0);
@@ -129,15 +121,12 @@ void Player::handleInput(sf::Event event){
   if(sf::Keyboard::isKeyPressed(sf::Keyboard::W)){
     this->setYVelocity(-velocity);
   }
-      
   if(sf::Keyboard::isKeyPressed(sf::Keyboard::A)){
     this->setXVelocity(-velocity);
   }
-      
   if(sf::Keyboard::isKeyPressed(sf::Keyboard::S)){
     this->setYVelocity(velocity);
   }
-      
   if(sf::Keyboard::isKeyPressed(sf::Keyboard::D)){
     this->setXVelocity(velocity);
   }
@@ -183,6 +172,9 @@ void Player::giveWeapon(std::shared_ptr<Weapon> weapon){
 }
 
 void Player::tick(){
+  if(_invulnTime > 0){
+    --_invulnTime;
+  }
   double drag = 0.5;
   _velocity = {_velocity.x*drag, _velocity.y*drag };
   _curWeapon->tick();
@@ -207,7 +199,7 @@ void Player::switchToWeapon(std::shared_ptr<Weapon> newWeapon){
   if(_curWeapon){
     _curWeapon->weaponState = WS_STOWED;
     _curWeapon->onStow();
-  }  
+  }
   _curWeapon = newWeapon;
   if(_curWeapon){
     _curWeapon->weaponState = WS_IDLE;

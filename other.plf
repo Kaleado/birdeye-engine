@@ -39,9 +39,9 @@ EnvironmentThing stone-1.png 2533 244 false false
 EnemyDemon 1828 489 1000 3.0
 EnemyDemon 1850 480 1000 3.0
 EnemyDemon 1840 460 1000 3.0
-EnemyDemon 1800 500 1000 3.0
 
-EnemyDemon 2128 789 1000 3.0
 EnemyDemon 2150 780 1000 3.0
 EnemyDemon 2140 760 1000 3.0
 EnemyDemon 2100 800 1000 3.0
+
+EnemyEye 3033 371 5000 3.0

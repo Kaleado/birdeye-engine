@@ -50,7 +50,7 @@ void initialiseGameState(){
   smg->fillWithMods();
   auto revolver = std::make_shared<Revolver<Bullet>>(1, 1, 90, 30);
   revolver->fillWithMods();
-  auto shotgun = std::make_shared<PumpShotgun<Bullet>>(1, 1, 40, 30);
+  auto shotgun = std::make_shared<PumpShotgun<Bullet>>(1, 1, 80, 50);
   shotgun->fillWithMods();
   auto rifle = std::make_shared<SniperRifle<Bullet>>(1, 1, 150, 30);
   rifle->fillWithMods();

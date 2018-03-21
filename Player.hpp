@@ -83,6 +83,10 @@ public:
   Player(){};
   
 private:
+
+  //!Time that the player is invulnerable for.
+  int _invulnTime=0;
+
   //!Changes the creature's sprite based on the direction they're facing.
   void _changeImageBasedOnFacing();
 

@@ -7,11 +7,11 @@ void EnemyEye::_whenAttacking(){
   if(!hasAttacked){
     _currentAnimation = Animation({"orb-attacking.png", "orb.png", "orb-attacking.png", "orb.png", "orb-attacking.png"}, false, 10);
     _isAnimating = true;
-    auto attackVec = getUnitVectorBetween(getPosition(), player->getPosition());
+    auto attackVec = getUnitVectorBetween(getWorldCenter(), player->getWorldCenter());
     double bulletSpeed = 15.0;
     attackVec.x *= bulletSpeed;
     attackVec.y *= bulletSpeed;
-    std::shared_ptr<Bullet> attack = std::make_shared<Bullet>(false, "laser-crest.png", _position, 20, attackVec);
+    std::shared_ptr<Bullet> attack = std::make_shared<Bullet>(false, "laser-crest.png", getWorldCenter(), 20, attackVec);
     playfield->addThing(attack);
     hasAttacked = true;
   }

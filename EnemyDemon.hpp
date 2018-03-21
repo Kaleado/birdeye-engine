@@ -17,16 +17,24 @@ public:
                                                                      "enemy-downleft.png", "enemy-downright.png"},
                                                                      position, maxHp, speed) { };
   EnemyDemon(){ };
-  
+
 protected:
+  int _leapDelayTimer = FRAMERATE*0.75;
+  int _leapTimer = FRAMERATE*0.5;
+  bool _leaping = false;
+  bool _initiateLeap = false;
+  int _leapCooldown = FRAMERATE*1.5;
+  bool _canLeap = true;
+
+
   //!Does nothing.
   virtual void _whenIdle();
 
   //!Runs towards the player.
   virtual void _whenAggro();
-  
+
   //!Claws at the player.
-  virtual void _whenAttacking();  
+  virtual void _whenAttacking();
 };
 
 #endif

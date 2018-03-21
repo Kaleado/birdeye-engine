@@ -29,6 +29,11 @@ Playfield::Playfield(std::string playfieldPath){
     if(command == "#"){
       //Do nothing.
     }
+    else if(command == "DefaultPlayer"){
+      float x, y;
+      lineStrm >> x >> y;
+      player->setWorldPosition(sf::Vector2f{x, y});
+    }
     else if(command == "Background"){
       lineStrm >> _backgroundPath;
     }
@@ -91,8 +96,23 @@ Playfield::Playfield(std::string playfieldPath){
       auto ent = std::make_shared<ThingEntrance>(sf::Vector2f{x, y}, sf::Vector2f{w, h}, levelPath, destMarker);
       addThing(ent);
     }
+    else if(command == "Marker"){
+      int x, y;
+      std::string markerId;
+      lineStrm >> x >> y >> markerId;
+      auto ent = std::make_shared<ThingMarker>(sf::Vector2f{x, y}, markerId);
+      addThing(ent);
+    }
 
   }
+}
+
+std::shared_ptr<ThingMarker> Playfield::findMarker(std::string id){
+  auto findPred = [id](std::shared_ptr<Thing> t){
+    std::shared_ptr<ThingMarker> asMarker = std::dynamic_pointer_cast<ThingMarker>(t);
+    return asMarker && asMarker->getId() == id;
+  };
+  return std::dynamic_pointer_cast<ThingMarker>(*std::find_if(_things.begin(), _things.end(), findPred));
 }
 
 sf::FloatRect Playfield::getBounds(){

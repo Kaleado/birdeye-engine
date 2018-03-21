@@ -19,27 +19,78 @@ void EnemyDemon::_whenAttacking(){
 }
 
 void EnemyDemon::_whenAggro(){
+
   _facing = getUnitVectorBetween(_position, player->getPosition());
   _setImageBasedOnFacing();
   double dist = _getDistanceFromPlayer();
   double attackRange = 30;
-  if(dist > attackRange){
-    auto target = player->getPosition();
+  double leapRange = 250;
+  double leapSpeed = 14.0;
 
-    auto unitVector = getUnitVectorBetween(_position, target);
-
-    float vx = unitVector.x * _speed;
-    float vy = unitVector.y * _speed;
-
-    setXVelocity(vx);
-    setYVelocity(vy);
+  if(!_canLeap){
+    if(--_leapCooldown <= 0){
+      _canLeap = true;
+      _leapCooldown = FRAMERATE*1.5;
+      _leapDelayTimer = FRAMERATE*0.75;
+      _leapTimer = FRAMERATE*0.5;
+    }
   }
-  else {
+
+  if(_leaping){
+    if(--_leapTimer <= 0 || dist < attackRange){
+      _leaping = false;
+      _canLeap = false;
+    }
+    if(dist < attackRange){
+      enemyState = ES_ATTACKING;
+    }
+    return;
+  }
+
+  auto target = player->getPosition();
+  auto unitVector = getUnitVectorBetween(_position, target);
+
+  if(_initiateLeap){
+    if(--_leapDelayTimer <= 0){
+      _initiateLeap = false;
+      _velocity = {unitVector.x * leapSpeed, unitVector.y * leapSpeed};
+      _leaping = true;
+    }
+  }
+  else if((_canLeap && dist > leapRange) || (!_canLeap && dist > attackRange)){
+    _velocity = {unitVector.x * _speed, unitVector.y * _speed};
+  }
+  else if(_canLeap && dist < leapRange){
+    _initiateLeap = true;
+    _velocity = {0, 0};
+  }
+  else if(dist < attackRange){
     enemyState = ES_ATTACKING;
   }
+
 }
 
 void EnemyDemon::_whenIdle(){
+  static int tick = FRAMERATE*1.5;
+  static sf::Vector2f home = _position;
+  static bool returnHome = false;
+  static bool runOnce = false;
+
+  if(!returnHome && !runOnce){
+    _velocity = {randDouble() * 2 - 1, randDouble() * 2 - 1};
+    runOnce = true;
+  }
+  else if(returnHome && !runOnce){
+    _velocity = getUnitVectorBetween(_position, home);
+    runOnce = true;
+  }
+
+  if(--tick <= 0){
+    returnHome = !returnHome;
+    tick = FRAMERATE*1.5;
+    runOnce = false;
+  }
+
   double aggroThreshold = 650;
   if(_getDistanceFromPlayer() < aggroThreshold){
     enemyState = ES_AGGRO;

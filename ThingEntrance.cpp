@@ -26,6 +26,7 @@ void ThingEntrance::handleCollision(std::weak_ptr<Thing> other){
     playfield = std::make_shared<Playfield>(_playfieldFile);
     playfield->addThing(player);
     //Update position here.
-    player->setWorldPosition({100, 100});
+    auto marker = playfield->findMarker(_destinationMarkerId);
+    player->setWorldPosition(marker->getPosition());
   }
 }

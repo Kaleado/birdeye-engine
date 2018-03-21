@@ -1,5 +1,9 @@
 Background long-path.png
 Overlay overlay.png
+DefaultPlayer 432 330
+
+# Markers
+Marker 432 330 entry
 
 # Environmental things.
 EnvironmentThing house-final-4.png 30 300 false false
@@ -8,7 +12,7 @@ EnvironmentThing house-final-1.png 50 750 false false
 EnvironmentThing tree_01b.png 350 750 false false
 EnvironmentThing well.png 547 677 true false
 EnvironmentThing house-final-4.png 398 31 false false
-EnvironmentThing barrel.png 700 250 false false
+EnvironmentThing barrel.png 600 250 false false
 EnvironmentThing house-final-3-scaled.png 629 118 false false
 EnvironmentThing house-final-1.png 850 750 false false
 EnvironmentThing tree_01a.png 1095 596 false false
@@ -23,21 +27,21 @@ EnvironmentThing house-final-1.png 1140 100 false false
 EnvironmentThing tree_01b.png 1767 906 false false
 EnvironmentThing house-final-4.png 1500 910 false false
 EnvironmentThing tree_01b.png 1300 800 false false
-EnvironmentThing barrel.png 1887 394 false false
-EnvironmentThing barrel.png 1877 392 false false
-EnvironmentThing barrel.png 1880 385 false false
 EnvironmentThing house-final-3-scaled.png 2247 209 false false
 EnvironmentThing tree_01b.png 2000 700 false false
 EnvironmentThing tree_01a.png 2859 140 false false
 EnvironmentThing tree_01b.png 2559 140 false false
+EnvironmentThing tree_01a.png 192 82 false false
+EnvironmentThing rock-1.png 809 336 false false
+EnvironmentThing stone-1.png 2533 244 false false
 
 # Enemies.
-EnemyDemon 1828 489 1000 8.0
-EnemyDemon 1850 480 1000 8.0
-EnemyDemon 1840 460 1000 8.0
-EnemyDemon 1800 500 1000 8.0
+EnemyDemon 1828 489 1000 3.0
+EnemyDemon 1850 480 1000 3.0
+EnemyDemon 1840 460 1000 3.0
+EnemyDemon 1800 500 1000 3.0
 
-EnemyDemon 2128 789 1000 8.0
-EnemyDemon 2150 780 1000 8.0
-EnemyDemon 2140 760 1000 8.0
-EnemyDemon 2100 800 1000 8.0
+EnemyDemon 2128 789 1000 3.0
+EnemyDemon 2150 780 1000 3.0
+EnemyDemon 2140 760 1000 3.0
+EnemyDemon 2100 800 1000 3.0

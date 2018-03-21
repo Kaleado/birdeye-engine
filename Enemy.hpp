@@ -2,7 +2,7 @@
 #define ENEMY_H
 
 #include <cmath>
-#include "Thing.hpp" 
+#include "Thing.hpp"
 #include "Player.hpp"
 #include "Bullet.hpp"
 #include "Playfield.hpp"

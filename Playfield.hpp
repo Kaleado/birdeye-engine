@@ -13,6 +13,8 @@
 #include "Player.hpp"
 #include "EnvironmentThing.hpp"
 
+class ThingMarker;
+
 /**
   Class representing a game area.
  */
@@ -67,6 +69,9 @@ protected:
   bool _isLoaded=false;
 
 public:
+  //!Finds a marker containing the given ID. This assumes that the marker exists.
+  std::shared_ptr<ThingMarker> findMarker(std::string id);
+
   //!Gets the boundary of the playfield.
   sf::FloatRect getBounds();
 

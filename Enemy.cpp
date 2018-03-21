@@ -9,7 +9,7 @@ int Enemy::getHp(){
 }
 
 sf::Vector2f Enemy::getWorldCenter(){
-  return _position;
+  return {_position.x + getBounds().width/2, _position.y + getBounds().height/2};
 }
 
 double Enemy::_getDistanceFromPlayer(){

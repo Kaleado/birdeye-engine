@@ -35,25 +35,25 @@ void PumpShotgun<BulletType>::tick(){
   //Fire the weapon.
   if(weaponState == WS_FIRING_PRIMARY && _isPumped){
     double deviation = 90;//90 degrees of deviation in the kick of the cursor and screen.
-    auto facingDegrees = getVectorAngleDegrees(getVectorBetween(player->getPosition(),
+    auto facingDegrees = getVectorAngleDegrees(getVectorBetween(player->getWorldCenter(),
                                                                 cursor->getWorldPosition()));
-    auto dir = facingDegrees + (-0.5 + static_cast<double>(std::rand())/RAND_MAX) * deviation;
+    auto dir = facingDegrees + (-0.5 + randDouble()) * deviation;
     //cursor->kick(dir, 60);
     camera.kick(dir, 90);
     for(int i = 0; i < _numPellets; ++i){
       //Essentially, we fire pellets to random spots 'near' the mouse (based on the spread).
-      double spread = 0;
+      double spread = 256;
       auto target = cursor->getWorldPosition();
-      target.x += (static_cast<double>(std::rand())/RAND_MAX)*spread - spread/2;
-      target.y += (static_cast<double>(std::rand())/RAND_MAX)*spread - spread/2;
-      auto pos = player->getPosition();
+      target.x += randDouble()*spread - spread;
+      target.y += randDouble()*spread - spread;
+      auto pos = player->getWorldCenter();
       //std::shared_ptr<Bullet> bullet = std::make_shared<FriendlyBullet>("bullet-final.png", pos, _shotDamage, sf::Vector2f{0,0}, 180);
       float opp = target.y - pos.y;
       float adj = target.x - pos.x;
       float hyp = std::sqrt(opp*opp + adj*adj);
 
-      float vx = (adj/hyp)*_pelletVelocity + randDouble()*_pelletVelocity/2;
-      float vy = (opp/hyp)*_pelletVelocity + randDouble()*_pelletVelocity/2;
+      float vx = (adj/hyp)*_pelletVelocity + randDouble()*_pelletVelocity/5;
+      float vy = (opp/hyp)*_pelletVelocity + randDouble()*_pelletVelocity/5;
 
       std::shared_ptr<Bullet> pellet = std::make_shared<BulletType>(true, pos, _pelletDamage, sf::Vector2f{vx,vy},
                                                                     static_cast<int>(FRAMERATE/5 + randDouble()*FRAMERATE/5));

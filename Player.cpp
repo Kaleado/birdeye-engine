@@ -207,7 +207,6 @@ void Player::switchToWeapon(std::shared_ptr<Weapon> newWeapon){
   }
 }
 
-
 void Player::nextWeapon(){
   _curWeaponIndex = ++_curWeaponIndex % NUM_WEAPONS;
   while(_weapons[_curWeaponIndex] == nullptr){
@@ -215,6 +214,7 @@ void Player::nextWeapon(){
   }
   switchToWeapon(_weapons[_curWeaponIndex]);
 }
+
 void Player::previousWeapon(){
   _curWeaponIndex = (--_curWeaponIndex < 0 ? NUM_WEAPONS - 1 : _curWeaponIndex) % NUM_WEAPONS;
   while(_weapons[_curWeaponIndex] == nullptr){

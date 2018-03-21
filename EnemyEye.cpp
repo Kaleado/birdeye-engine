@@ -11,14 +11,14 @@ void EnemyEye::_whenAttacking(){
     double bulletSpeed = 15.0;
     attackVec.x *= bulletSpeed;
     attackVec.y *= bulletSpeed;
-    std::shared_ptr<Bullet> attack = std::make_shared<Bullet>(false, "laser-crest.png", getWorldCenter(), 20, attackVec);
+    std::shared_ptr<Bullet> attack = std::make_shared<Bullet>(false, "laser-crest.png", getWorldCenter(), 40, attackVec);
     playfield->addThing(attack);
     hasAttacked = true;
   }
   else if(--_attackCooldown <= 0){
     hasAttacked = false;
     enemyState = ES_AGGRO;
-    _attackCooldown = FRAMERATE/3;
+    _attackCooldown = FRAMERATE*1.2;
   }
 }
 

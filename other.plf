@@ -32,13 +32,12 @@ EnvironmentThing tree_01a.png 2859 140 false false
 EnvironmentThing tree_01b.png 2559 140 false false
 
 # Enemies.
+EnemyDemon 1828 489 1000 8.0
+EnemyDemon 1850 480 1000 8.0
+EnemyDemon 1840 460 1000 8.0
+EnemyDemon 1800 500 1000 8.0
 
-EnemyDemon 1828 489 500 8.0
-EnemyDemon 1850 480 500 8.0
-EnemyDemon 1840 460 500 8.0
-EnemyDemon 1800 500 500 8.0
-
-EnemyDemon 2128 789 500 8.0
-EnemyDemon 2150 780 500 8.0
-EnemyDemon 2140 760 500 8.0
-EnemyDemon 2100 800 500 8.0
+EnemyDemon 2128 789 1000 8.0
+EnemyDemon 2150 780 1000 8.0
+EnemyDemon 2140 760 1000 8.0
+EnemyDemon 2100 800 1000 8.0

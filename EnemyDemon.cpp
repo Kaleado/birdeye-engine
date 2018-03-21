@@ -40,7 +40,7 @@ void EnemyDemon::_whenAggro(){
 }
 
 void EnemyDemon::_whenIdle(){
-  double aggroThreshold = 350;
+  double aggroThreshold = 650;
   if(_getDistanceFromPlayer() < aggroThreshold){
     enemyState = ES_AGGRO;
   }

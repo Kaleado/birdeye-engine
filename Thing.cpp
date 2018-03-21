@@ -66,24 +66,30 @@ void Thing::draw(sf::RenderWindow& window){
 
 void Thing::preventOverlapping(std::weak_ptr<Thing> otherThing, double strength){
   auto otherBounds = otherThing.lock()->getBounds();
-  // if(std::floor(_velocity.x) == 0 && std::floor(_velocity.y) == 0){
-    //We get the unit vector between the two centers of the enemies -
-    //this will point away from the center of one of the enemies.
-    auto otherPos = otherThing.lock()->getWorldCenter();
-    auto thisCenter = getWorldCenter();
-    double pushFactor = strength; //The strength of the 'push' out of an enemy there is.
-    sf::Vector2f centerVector = { thisCenter.x - otherPos.x,
-                                  thisCenter.y - otherPos.y};
-    float length = std::sqrt(centerVector.x*centerVector.x + centerVector.y*centerVector.y);
-    centerVector = {centerVector.x / length, centerVector.y / length};
-    //We then add this vector to the enemy's current velocity.
-    while(getBounds().intersects(otherBounds)){
-      std::cout << _velocity.x << " " << _velocity.y << "\n";
-      _position += centerVector;
-      _sprite.setPosition(getScreenPosition());
-    }
+  //We get the unit vector between the two centers of the enemies -
+  //this will point away from the center of one of the enemies.
+  auto otherPos  = otherThing.lock()->getWorldCenter();
+  auto otherPos2 = otherThing.lock()->getPosition();
+  auto thisCenter = getWorldCenter();
+  double pushFactor = strength; //The strength of the 'push' out of an enemy there is.
+  sf::Vector2f centerVector = { thisCenter.x - otherPos.x,
+                                thisCenter.y - otherPos.y};
+  float length = std::sqrt(centerVector.x*centerVector.x + centerVector.y*centerVector.y);
+  centerVector = {centerVector.x / length, centerVector.y / length};
+  //Two cases: horizontally, vertically.
+  //Vertically.
+  if(_position.y <= otherPos2.y || _position.y >= otherPos2.y + otherBounds.height){
+    centerVector.x = 0;
+  }
+  else if(_position.x <= otherPos2.x || _position.x >= otherPos2.x + otherBounds.width){
+    centerVector.y = 0;
+  }
+  //We then add this vector to the enemy's current velocity.
+  while(getBounds().intersects(otherBounds)){
+    _position += centerVector;
+    _sprite.setPosition(getScreenPosition());
+  }
 }
-
 
 void Thing::tick(){
   //Do nothing.

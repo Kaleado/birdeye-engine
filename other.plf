@@ -5,6 +5,13 @@ DefaultPlayer 432 330
 # Markers
 Marker 432 330 entry
 
+
+# Top border trees
+EnvironmentThing tree_01a.png -100 -100 false false
+EnvironmentThing tree_01b.png 100 -100 false false
+EnvironmentThing tree_01a.png 300 -100 false false
+EnvironmentThing tree_01b.png 648 -100 false false
+
 # Environmental things.
 EnvironmentThing house-final-4.png 30 300 false false
 EnvironmentThing house-final-3-scaled.png 30 600 false false
@@ -34,6 +41,26 @@ EnvironmentThing tree_01b.png 2559 140 false false
 EnvironmentThing tree_01a.png 192 82 false false
 EnvironmentThing rock-1.png 809 336 false false
 EnvironmentThing stone-1.png 2533 244 false false
+EnvironmentThing house-final-3-scaled.png 2993 663 false false
+EnvironmentThing house-final-1.png 2893 942 false false
+EnvironmentThing house-final-4.png 2739 948 false false
+EnvironmentThing house-final-4.png 648 873 false false
+EnvironmentThing house-final-1.png 1904 240 false false
+EnvironmentThing tree_01a.png 2104 140 false false
+EnvironmentThing tree_01b.png 2993 863 false false
+
+# Bottom border trees
+EnvironmentThing tree_01a.png 648 1035 false false
+EnvironmentThing tree_01b.png 848 1030 false false
+EnvironmentThing tree_01a.png 1248 1035 false false
+EnvironmentThing tree_01a.png 1448 1035 false false
+EnvironmentThing tree_01b.png 1648 1035 false false
+EnvironmentThing tree_01a.png 1748 1035 false false
+EnvironmentThing tree_01b.png 1800 1035 false false
+EnvironmentThing tree_01a.png 1908 1035 false false
+EnvironmentThing tree_01b.png 1980 1035 false false
+EnvironmentThing tree_01a.png 2208 1035 false false
+EnvironmentThing tree_01b.png 2280 1035 false false
 
 # Enemies.
 EnemyDemon 1828 489 1000 3.0

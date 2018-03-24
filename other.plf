@@ -49,6 +49,23 @@ EnvironmentThing house-final-1.png 1904 240 false false
 EnvironmentThing tree_01a.png 2104 140 false false
 EnvironmentThing tree_01b.png 2993 863 false false
 
+# Right border trees
+EnvironmentThing tree_01a.png 3700 0 false false
+EnvironmentThing tree_01b.png 3700 150 false false
+EnvironmentThing tree_01a.png 3700 200 false false
+EnvironmentThing tree_01a.png 3700 250 false false
+EnvironmentThing tree_01b.png 3700 290 false false
+EnvironmentThing tree_01a.png 3700 350 false false
+EnvironmentThing tree_01b.png 3700 600 false false
+EnvironmentThing tree_01a.png 3700 680 false false
+EnvironmentThing tree_01b.png 3700 750 false false
+EnvironmentThing tree_01a.png 3700 810 false false
+EnvironmentThing tree_01b.png 3700 930 false false
+EnvironmentThing tree_01b.png 3700 1000 false false
+EnvironmentThing tree_01a.png 3700 1035 false false
+EnvironmentThing tree_01b.png 3700 1100 false false
+
+
 # Bottom border trees
 EnvironmentThing tree_01a.png 648 1035 false false
 EnvironmentThing tree_01b.png 848 1030 false false

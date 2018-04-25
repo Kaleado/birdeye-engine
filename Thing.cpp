@@ -76,7 +76,6 @@ void Thing::preventOverlapping(std::weak_ptr<Thing> otherThing, double strength)
   auto otherPos  = otherThing.lock()->getHitboxWorldCenter();
   sf::Vector2f otherPos2 = {otherThing.lock()->getBounds().left, otherThing.lock()->getBounds().top};
   auto thisCenter = getHitboxWorldCenter();
-  //double pushFactor = strength; //The strength of the 'push' out of an enemy there is.
   sf::Vector2f centerVector = { thisCenter.x - otherPos.x,
                                 thisCenter.y - otherPos.y};
   float length = std::sqrt(centerVector.x*centerVector.x + centerVector.y*centerVector.y);

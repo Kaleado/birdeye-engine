@@ -5,7 +5,6 @@ DefaultPlayer 432 330
 # Markers
 Marker 432 330 entry
 
-
 # Top border trees
 EnvironmentThing tree_01a.png -100 -100 false false
 EnvironmentThing tree_01b.png 100 -100 false false
@@ -15,22 +14,22 @@ EnvironmentThing tree_01b.png 648 -100 false false
 # Environmental things.
 EnvironmentThing house-final-4.png 30 300 0 172 236 90 false false
 EnvironmentThing house-final-3-scaled.png 30 600 50 131 230 70 false false
-EnvironmentThing house-final-1.png 50 750 9 122 110 60 false false
+EnvironmentThing house-final-1.png 50 750 9 122 185 72 false false
 EnvironmentThing tree_01b.png 350 750 93 206 91 72 false false
 EnvironmentThing well.png 547 677 0 0 102 63 true false
 EnvironmentThing house-final-4.png 398 31 0 172 236 90 false false
 EnvironmentThing barrel.png 600 250 0 26 29 20 false false
 EnvironmentThing house-final-3-scaled.png 629 118 50 131 230 70 false false
-EnvironmentThing house-final-1.png 850 750 9 122 110 60 false false
+EnvironmentThing house-final-1.png 850 750 9 122 185 72 false false
 EnvironmentThing tree_01a.png 1095 596 125 277 35 28 false false
 EnvironmentThing house-final-4.png 2501 558 0 172 236 90 false false
 EnvironmentThing house-final-5.png 2413 38 14 132 277 91 false false
 EnvironmentThing rubble-vertical.png 2850 519 0 0 88 123 false false
-EnvironmentThing house-final-1.png 2800 319 9 122 110 60 false false
+EnvironmentThing house-final-1.png 2800 319 9 122 185 72 false false
 EnvironmentThing house-final-3-scaled.png 2400 819 50 131 230 70 false false
 EnvironmentThing lake-bottom.png 1200 -200 0 0 1000 442 true false
 EnvironmentThing house-final-5.png 1340 100 14 132 277 91 false false
-EnvironmentThing house-final-1.png 1140 100 9 122 110 60 false false
+EnvironmentThing house-final-1.png 1140 100 9 122 185 72 false false
 EnvironmentThing tree_01b.png 1767 906 93 206 91 72 false false
 EnvironmentThing house-final-4.png 1500 910 0 172 236 90 false false
 EnvironmentThing tree_01b.png 1300 800 93 206 91 72 false false
@@ -41,11 +40,11 @@ EnvironmentThing tree_01b.png 2559 140 93 206 91 72 false false
 EnvironmentThing tree_01a.png 192 82 125 277 35 28 false false
 EnvironmentThing rock-1.png 809 336 0 0 53 49 false false
 EnvironmentThing stone-1.png 2533 244 0 0 19 20 false false
-EnvironmentThing house-final-1.png 3093 663 9 122 110 60 false false
-EnvironmentThing house-final-1.png 2893 942 9 122 110 60 false false
+EnvironmentThing house-final-1.png 3093 663 9 122 185 72 false false
+EnvironmentThing house-final-1.png 2893 942 9 122 185 72 false false
 EnvironmentThing house-final-4.png 2739 948 0 172 236 90 false false
 EnvironmentThing house-final-4.png 648 873 0 172 236 90 false false
-EnvironmentThing house-final-1.png 1904 240 9 122 110 60 false false
+EnvironmentThing house-final-1.png 1904 240 9 122 185 72 false false
 EnvironmentThing tree_01a.png 2104 140 125 277 35 28 false false
 EnvironmentThing tree_01b.png 2993 863 93 206 91 72 false false
 
@@ -64,7 +63,6 @@ EnvironmentThing tree_01b.png 3700 930 93 206 91 72 false false
 EnvironmentThing tree_01b.png 3700 1000 93 206 91 72 false false
 EnvironmentThing tree_01a.png 3700 1035 125 277 35 28 false false
 EnvironmentThing tree_01b.png 3700 1100 93 206 91 72 false false
-
 
 # Bottom border trees
 EnvironmentThing tree_01a.png 648 1035 125 277 35 28 false false

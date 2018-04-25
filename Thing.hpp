@@ -64,6 +64,9 @@ public:
   //!Returns the center of the sprite (in world coordinates)
   virtual sf::Vector2f getWorldCenter();
 
+  //!Returns the center of the hitbox (in world coordinates)
+  virtual sf::Vector2f getHitboxWorldCenter();
+
   //!Pushes Things away from one another so they don't crowd in one
   //!spot. This accepts a location rather than a Thing pointer so we
   //!can use it to prevent collisions with anything.

@@ -37,16 +37,19 @@ public:
 
   //Sorry for all these constructors.
   Bullet(bool isFriendly, std::string path, sf::Vector2f position, int damage) : Thing(path, position) {
+    _name = "Bullet";
     _isFriendly = isFriendly;
     _damage = damage;
   };
   Bullet(bool isFriendly, Animation& anim, sf::Vector2f position, int damage) : Thing("", position) {
+    _name = "Bullet";
     _isFriendly = isFriendly;
     _currentAnimation = anim;
     _isAnimating = true;
     _damage = damage;
   };
   Bullet(bool isFriendly, std::string path, sf::Vector2f position, int damage, sf::Vector2f velocity, int lifetime=FRAMERATE/3) : Thing(path, position) {
+    _name = "Bullet";
     _isFriendly = isFriendly;
     _damage = damage;
     _velocity = velocity;
@@ -54,6 +57,7 @@ public:
     _facing = getUnitVectorOf(_velocity);
   };
   Bullet(bool isFriendly, Animation& anim, sf::Vector2f position, int damage, sf::Vector2f velocity, int lifetime=FRAMERATE/3) : Thing("", position) {
+    _name = "Bullet";
     _isFriendly = isFriendly;
     _currentAnimation = anim;
     _isAnimating = true;
@@ -65,6 +69,7 @@ public:
   //!This is the constructor most weapons will use.
   Bullet(bool isFriendly, sf::Vector2f position, int damage,
          sf::Vector2f velocity, int lifetime) :  Bullet(isFriendly, "bullet-final.png", position, damage, velocity, lifetime) {
+    _name = "Bullet";
     _facing = getUnitVectorOf(_velocity);
   }
   Bullet(){};
@@ -83,6 +88,7 @@ public:
   //!This is the constructor most weapons will use.
   Rocket(bool isFriendly, sf::Vector2f position, int damage,
          sf::Vector2f velocity, int lifetime) :  Bullet(isFriendly, "rocket-final.png", position, damage, velocity, lifetime) {
+    _name = "Rocket";
     _blastRadius = 15.0;
     _acceleration = 1.0;
     _direction = getUnitVectorOf(velocity);

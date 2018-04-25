@@ -15,6 +15,9 @@
  */
 class Thing {
 protected:
+  //!The name for this thing.
+  std::string _name;
+
   //!The path to the Thing's original sprite.
   std::string _path;
 
@@ -53,6 +56,9 @@ protected:
 
   //!The current animation being played by the Thing.
   Animation _currentAnimation;
+
+  //!The hitbox of the Thing if it were at (0,0).
+  sf::FloatRect _hitboxAtZeroZero;
 public:
 
   //!Returns the center of the sprite (in world coordinates)
@@ -113,12 +119,19 @@ public:
   //!Sets the _in-world_ position of the thing.
   void setWorldPosition(sf::Vector2f newPos);
 
-  Thing(Animation& anim, sf::Vector2f position) : _path{""}, _position{position} {
+  //! hitboxAtZeroZero is where the hitbox would be at position (0,0).
+  Thing(Animation& anim, sf::Vector2f position, sf::FloatRect hitboxAtZeroZero) : _path{""}, _position{position}, _hitboxAtZeroZero{hitboxAtZeroZero} {
     _currentAnimation = anim;
     _isAnimating = true;
   };
-  Thing(std::string path, sf::Vector2f position) : _path{path}, _position{position} {};
-  Thing(std::string path) : _path{path} {};
+  //! hitboxAtZeroZero is where the hitbox would be at position (0,0).
+  Thing(std::string path, sf::Vector2f position, sf::FloatRect hitboxAtZeroZero) : _path{path}, _position{position}, _hitboxAtZeroZero{hitboxAtZeroZero} { };
+  Thing(Animation& anim, sf::Vector2f position) : _path{""}, _position{position}, _hitboxAtZeroZero{0,0,0,0} {
+    _currentAnimation = anim;
+    _isAnimating = true;
+  };
+  Thing(std::string path, sf::Vector2f position) : _path{path}, _position{position}, _hitboxAtZeroZero{0,0,0,0} {};
+  Thing(std::string path) : _path{path}, _position{0,0}, _hitboxAtZeroZero{0,0,0,0} {};
   Thing(){};
 };
 
@@ -138,6 +151,13 @@ public:
   Particle(Animation& anim, sf::Vector2f position) : Thing(anim, position) {};
 };
 
+//!Represents an animation that plays and then vanishes.
+class EphemeralAnimation : public Particle {
+protected:
+public:
+  virtual void tick();
+};
+
 //!Represents an ammo casing particle expelled by a gun.
 class AmmoCasing : public Particle {
 private:
@@ -151,6 +171,7 @@ public:
   virtual void draw(sf::RenderWindow& window);
   AmmoCasing(std::string path, sf::Vector2f position, double dx,
              double z, double dz, double az, double bounciness, int lifetime) : Particle(path, position) {
+    _name = "AmmoCasing";
     _velocity.x = dx;
     _z = z;
     _dz = dz;
@@ -160,6 +181,7 @@ public:
   };
   AmmoCasing(Animation& anim, sf::Vector2f position, double dx,
              double z, double dz, double az, double bounciness, int lifetime) : Particle(anim, position) {
+    _name = "AmmoCasing";
     _velocity.x = dx;
     _z = z;
     _dz = dz;

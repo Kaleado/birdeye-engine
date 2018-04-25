@@ -41,7 +41,7 @@ public:
      Sets the animation to be done.
   */
   void abort();
-  
+
   Animation(std::vector<std::string> paths, bool isLooping=false, int frameRate=FRAMERATE) : _isLooping{isLooping}, _paths{paths}, _frameRate{frameRate} {
     unsigned int sz = _paths.size();
     _frames = std::vector<sf::Sprite>{sz};
@@ -49,7 +49,7 @@ public:
   };
   Animation(){};
 private:
-  bool _isLooping;  
+  bool _isLooping;
   bool _isLoaded=false;
   bool _isPaused=false;
   bool _isAborted=false;
@@ -58,15 +58,14 @@ private:
      Loads all of the images associated with the animation.
   */
   int _load();
-  
+
   /**
      Gets the number of frames in the animation.
   */
   int _getLength();
 
-  
   int _curFrame=0;
-  int _frameRate;  
+  int _frameRate;
   std::vector<sf::Sprite> _frames;
   std::vector<sf::Texture> _textures;
   std::vector<std::string> _paths;

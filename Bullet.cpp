@@ -5,11 +5,13 @@ void Bullet::handleCollision(std::weak_ptr<Thing> other){
   if(asEnemy && _isFriendly){
     asEnemy->damage(_damage);
     cull();
+    return;
   }
   std::shared_ptr<Player> asPlayer = std::dynamic_pointer_cast<Player>(other.lock());
   if(asPlayer && !_isFriendly){
     asPlayer->damage(_damage);
     cull();
+    return;
   }
 }
 

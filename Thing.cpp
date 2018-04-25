@@ -131,7 +131,9 @@ sf::Vector2f Thing::getPosition(){
   return _position;
 }
 sf::FloatRect Thing::getBounds(){
-  return _sprite.getGlobalBounds();
+  sf::FloatRect r = sf::FloatRect{_hitboxAtZeroZero.left + getScreenPosition().x, _hitboxAtZeroZero.top + getScreenPosition().y, _hitboxAtZeroZero.width, _hitboxAtZeroZero.height};
+  //std::cout << r.left << " " << r.top << " " << r.width << " " << r.height << "\n";
+  return r;
 }
 
 float Thing::getWorldRotation(){

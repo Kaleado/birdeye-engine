@@ -74,7 +74,7 @@ public:
   //!Returns false if the weapon couldn't be inserted (if something was already present in that WeaponWidget), or true if everything was dandy.
   bool insertWeapon(int weaponIndex, std::shared_ptr<Weapon> weapon);
 
-  Player(std::string path, sf::Vector2f position, double baseSpeed=5.0) : Thing(path, position) {
+  Player(std::string path, sf::Vector2f position, double baseSpeed, sf::FloatRect hitboxAtZeroZero) : Thing(path, position, hitboxAtZeroZero) {
     _baseSpeed = baseSpeed;
     for(int i = 0; i < NUM_WEAPONS; ++i){
       _weapons[i] = nullptr;

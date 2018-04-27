@@ -34,18 +34,6 @@ public:
   virtual void handleCollision(std::weak_ptr<Thing> other);
 
   //Sorry for all these constructors.
-  Bullet(bool isFriendly, std::string path, sf::Vector2f position, int damage) : Thing(path, position) {
-    _name = "Bullet";
-    _isFriendly = isFriendly;
-    _damage = damage;
-  };
-  Bullet(bool isFriendly, Animation& anim, sf::Vector2f position, int damage) : Thing("", position) {
-    _name = "Bullet";
-    _isFriendly = isFriendly;
-    _currentAnimation = anim;
-    _isAnimating = true;
-    _damage = damage;
-  };
   Bullet(bool isFriendly, std::string path, sf::Vector2f position, int damage, sf::Vector2f velocity, int lifetime=FRAMERATE/3) : Thing(path, position) {
     _name = "Bullet";
     _isFriendly = isFriendly;

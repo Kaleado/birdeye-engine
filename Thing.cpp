@@ -88,7 +88,6 @@ void Thing::preventOverlapping(std::weak_ptr<Thing> otherThing, double strength)
   else if(thisCenter.x <= otherPos2.x || thisCenter.x >= otherPos2.x + otherBounds.width){
     centerVector.y = 0;
   }
-  if(centerVector.y != 0 && centerVector.x != 0){std::cerr << "FUCK FUCK FUCK\n";}
   //We then add this vector to the enemy's current velocity.
   while(getBounds().intersects(otherBounds)){
     _position += centerVector;

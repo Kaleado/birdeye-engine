@@ -1,0 +1,1147 @@
+	background1.png	7423
+[bΩ	tree.png	7
+?	background1.png	2289
+@1 	_tree_02.zip	8298
+$	background1.png	7425
+$	background1.png	19215
+$	EnemyDemon.o	80
+$	EnemyDemon.o	93
+$	EnemyDemon.o	96
+$	_tree_02.zip	192
+$	_tree_03.zip	118
+$	_tree_02.zip	184
+$RI	long-path.png	19372
+$ºÀf’HVã	background1.png	40715
+$ﬂ	background1.png	37043
+$Ò	background1.png	11622
+;è‰#ä†E(÷#fÖ	background1.png	36534
+@	background1.png	8070
+@	house-final-3.png	42
+@	_tree_02.zip	201
+@	tree.png	9
+@ó	background1.png	8498
+@5	Animation.o	66
+@`F	_tree_02.zip	4738
+@®$	background1.png	18996
+A	background1.png	19017
+A	Camera.o	636
+AñG	_tree_02.zip	8812
+ABILITY_H	Ability.hpp	2
+ANIMATION_H	Animation.hpp	2
+Ability	Ability.hpp	24
+Ability::_cooldownCountdown	Ability.hpp	35
+Ability::_cooldownLength	Ability.hpp	36
+Ability::abilityState	Ability.hpp	37
+AbilityState	Ability.hpp	14
+AbilityState::AS_COOLDOWN	Ability.hpp	14
+AbilityState::AS_PRESSED	Ability.hpp	14
+AbilityState::AS_READY	Ability.hpp	14
+AbilityState::AS_RELEASED	Ability.hpp	14
+Ae	EnemyLegion.o	1204
+AmmoCasing	Thing.hpp	167
+AmmoCasing::AmmoCasing	Thing.hpp	/^  AmmoCasing(std::string path, sf::Vector2f positi/
+AmmoCasing::AmmoCasing	Thing.hpp	/^  AmmoCasing(Animation& anim, sf::Vector2f positio/
+AmmoCasing::_az	Thing.hpp	172
+AmmoCasing::_bounciness	Thing.hpp	173
+AmmoCasing::_dz	Thing.hpp	171
+AmmoCasing::_lifetime	Thing.hpp	169
+AmmoCasing::_z	Thing.hpp	170
+AmmoCasing::draw	Thing.cpp	/^void AmmoCasing::draw(sf::RenderWindow& window){$/
+AmmoCasing::tick	Thing.cpp	/^void AmmoCasing::tick(){$/
+Animation	Animation.hpp	12
+Animation::Animation	Animation.hpp	/^  Animation(std::vector<std::string> paths, bool i/
+Animation::Animation	Animation.hpp	/^  Animation(){};$/
+Animation::_curFrame	Animation.hpp	67
+Animation::_frameRate	Animation.hpp	68
+Animation::_frames	Animation.hpp	69
+Animation::_getLength	Animation.cpp	/^int Animation::_getLength(){$/
+Animation::_isAborted	Animation.hpp	55
+Animation::_isLoaded	Animation.hpp	53
+Animation::_isLooping	Animation.hpp	52
+Animation::_isPaused	Animation.hpp	54
+Animation::_load	Animation.cpp	/^int Animation::_load(){$/
+Animation::_paths	Animation.hpp	45
+Animation::_paths	Animation.hpp	71
+Animation::_textures	Animation.hpp	70
+Animation::abort	Animation.cpp	/^void Animation::abort(){$/
+Animation::getNextFrame	Animation.cpp	/^bool Animation::getNextFrame(sf::Sprite& sprite){$/
+Animation::hasFinished	Animation.cpp	/^bool Animation::hasFinished(){$/
+Animation::pause	Animation.cpp	/^void Animation::pause(){$/
+Animation::reset	Animation.cpp	/^void Animation::reset(){$/
+Ao	house-final-3.png	185
+A›uÇ	_tree_02.zip	5644
+AÂÊƒËÊ	house-final-2.png	16
+B	background1.png	39043
+B	EnemyLegion.o	317
+B	_tree_02.zip	8826
+B	_tree_03.zip	3
+B	WeaponWidget.o	2461
+BÄ	background1.png	15232
+B	well.png	6
+B#9∑m√Ú	background1.png	40490
+B0	background1.png	36878
+B2ÛIL‡ŸLCè£y	long-path.png	17531
+BB	house-final-1.png	124
+BGC	long-path.png	19381
+BREAKABLE_THING_H	BreakableThing.hpp	2
+BULLET_H	Bullet.hpp	2
+Bkp	long-path.png	18227
+BreakableThing	BreakableThing.hpp	6
+BreakableThing::BreakableThing	BreakableThing.cpp	/^BreakableThing::BreakableThing(std::string path, s/
+BreakableThing::BreakableThing	BreakableThing.hpp	/^  BreakableThing(){}$/
+BreakableThing::_whenCollidingWith	BreakableThing.cpp	/^void BreakableThing::_whenCollidingWith(std::weak_/
+BreakableThing::_whenKilled	BreakableThing.cpp	/^void BreakableThing::_whenKilled(){$/
+BreakableThing::damage	BreakableThing.cpp	/^void BreakableThing::damage(int amount){$/
+BreakableThing::getWorldCenter	BreakableThing.cpp	/^sf::Vector2f BreakableThing::getWorldCenter(){$/
+BreakableThing::handleCollision	BreakableThing.cpp	/^void BreakableThing::handleCollision(std::weak_ptr/
+Bt—Ëe	tree.png	64
+Bullet	Bullet.hpp	17
+Bullet::Bullet	Bullet.hpp	/^  Bullet(bool isFriendly, std::string path, sf::Ve/
+Bullet::Bullet	Bullet.hpp	/^  Bullet(bool isFriendly, Animation& anim, sf::Vec/
+Bullet::Bullet	Bullet.hpp	/^  Bullet(bool isFriendly, std::string path, sf::Ve/
+Bullet::Bullet	Bullet.hpp	/^  Bullet(bool isFriendly, Animation& anim, sf::Vec/
+Bullet::Bullet	Bullet.hpp	/^  Bullet(bool isFriendly, sf::Vector2f position, i/
+Bullet::Bullet	Bullet.hpp	/^  Bullet(){};$/
+Bullet::_damage	Bullet.hpp	20
+Bullet::_isFriendly	Bullet.hpp	26
+Bullet::_lifetime	Bullet.hpp	23
+Bullet::getBounds	Bullet.cpp	/^sf::FloatRect Bullet::getBounds(){$/
+Bullet::handleCollision	Bullet.cpp	/^void Bullet::handleCollision(std::weak_ptr<Thing> /
+Bullet::isFriendly	Bullet.cpp	/^bool Bullet::isFriendly(){$/
+Bullet::tick	Bullet.cpp	/^void Bullet::tick(){$/
+Bzl	house-final-5.png	10
+Bµ	_tree_02.zip	8772
+B„	_tree_02.zip	7127
+C	house-final-3.png	11
+C	_tree_02.zip	4123
+C	_tree_04.zip	3
+CAMERA_H	Camera.hpp	2
+CURSOR_H	Cursor.hpp	2
+Camera	Camera.hpp	12
+Camera::Camera	Camera.hpp	/^  Camera(sf::Vector2f focusPosition) : _focusPosit/
+Camera::Camera	Camera.hpp	/^  Camera(){};$/
+Camera::_acceleration	Camera.hpp	48
+Camera::_focusPosition	Camera.hpp	41
+Camera::_position	Camera.hpp	42
+Camera::_recalculateAcceleration	Camera.cpp	/^void Camera::_recalculateAcceleration(){$/
+Camera::_shakeVelocity	Camera.hpp	47
+Camera::_velocity	Camera.hpp	43
+Camera::getFocusPosition	Camera.cpp	/^sf::Vector2f Camera::getFocusPosition(){$/
+Camera::getPosition	Camera.cpp	/^sf::Vector2f Camera::getPosition(){$/
+Camera::handleInput	Camera.cpp	/^void Camera::handleInput(sf::Event event){$/
+Camera::kick	Camera.cpp	/^void Camera::kick(double angleDegrees, double stre/
+Camera::setFocusPosition	Camera.cpp	/^void Camera::setFocusPosition(sf::Vector2f pos){$/
+Camera::setPosition	Camera.cpp	/^void Camera::setPosition(sf::Vector2f pos){$/
+Camera::tick	Camera.cpp	/^void Camera::tick(){$/
+CastTimeAbility	Ability.hpp	101
+CastTimeAbility::_castTimeCountdown	Ability.hpp	112
+CastTimeAbility::_castTimeLength	Ability.hpp	113
+CastTimeAbility::press	Ability.cpp	/^void CastTimeAbility::press(){$/
+CastTimeAbility::release	Ability.cpp	/^void CastTimeAbility::release(){$/
+CastTimeAbility::tick	Ability.cpp	/^void CastTimeAbility::tick(){$/
+ChanneledAbility	Ability.hpp	62
+ChanneledAbility::_channelCountdown	Ability.hpp	74
+ChanneledAbility::_channelLength	Ability.hpp	75
+ChanneledAbility::press	Ability.cpp	/^void ChanneledAbility::press(){$/
+ChanneledAbility::release	Ability.cpp	/^void ChanneledAbility::release(){$/
+ChanneledAbility::tick	Ability.cpp	/^void ChanneledAbility::tick(){$/
+Cursor	Cursor.hpp	11
+Cursor::Cursor	Cursor.hpp	/^  Cursor(std::string path) : Thing(path) {}$/
+Cursor::_drag	Cursor.hpp	37
+Cursor::_onLeftPressed	Cursor.hpp	/^  virtual void _onLeftPressed(sf::Vector2f pos){};/
+Cursor::_onLeftReleased	Cursor.hpp	/^  virtual void _onLeftReleased(sf::Vector2f pos){}/
+Cursor::_onRightPressed	Cursor.hpp	/^  virtual void _onRightPressed(sf::Vector2f pos){}/
+Cursor::_onRightReleased	Cursor.hpp	/^  virtual void _onRightReleased(sf::Vector2f pos){/
+Cursor::draw	Cursor.cpp	/^void Cursor::draw(sf::RenderWindow& window){$/
+Cursor::getWorldPosition	Cursor.cpp	/^sf::Vector2f Cursor::getWorldPosition(){$/
+Cursor::handleInput	Cursor.cpp	/^void Cursor::handleInput(sf::Event event){$/
+Cursor::kick	Cursor.cpp	/^void Cursor::kick(double angleDegrees, double stre/
+Cursor::moveToScreenPosition	Cursor.cpp	/^void Cursor::moveToScreenPosition(sf::Vector2f pos/
+Cursor::moveToWorldPosition	Cursor.cpp	/^void Cursor::moveToWorldPosition(sf::Vector2f pos)/
+Cursor::tick	Cursor.cpp	/^void Cursor::tick(){$/
+C≠	_tree_04.zip	4624
+CæP‡…«	house-final-2.png	53
+C◊u8	long-path.png	17583
+D	background1.png	16347
+D	background1.png	19236
+D	_tree_02.zip	9508
+D0ç	player-left.png	5
+D4	_tree_02.zip	4117
+DRóÿñi„	background1.png	11799
+Dk®	long-path.png	17615
+DyŸÃ4	background1.png	32366
+DÃ	rubble-vertical.png	24
+D–ô	background1.png	6871
+DÍ	background1.png	15225
+E$ü	background1.png	36898
+ENydI	long-path.png	14233
+ENEMY_DEMON_H	EnemyDemon.hpp	2
+ENEMY_EYE_H	EnemyEye.hpp	2
+ENEMY_H	Enemy.hpp	2
+ENEMY_LEGION_H	EnemyLegion.hpp	2
+ENVIRONMENT_THING_H	EnvironmentThing.hpp	2
+Efm	_tree_02.zip	9495
+Enemy	Enemy.hpp	36
+Enemy::Enemy	Enemy.hpp	/^  Enemy(std::string path, sf::Vector2f position, i/
+Enemy::Enemy	Enemy.hpp	/^  Enemy(std::array<std::string, FACING_MAX> facing/
+Enemy::Enemy	Enemy.hpp	/^  Enemy(std::string path, sf::Vector2f position, i/
+Enemy::Enemy	Enemy.hpp	/^  Enemy(std::array<std::string, FACING_MAX> facing/
+Enemy::Enemy	Enemy.hpp	/^  Enemy(){};$/
+Enemy::_attackTimer	Enemy.hpp	122
+Enemy::_facingPaths	Enemy.hpp	125
+Enemy::_getDistanceFromPlayer	Enemy.cpp	/^double Enemy::_getDistanceFromPlayer(){$/
+Enemy::_hp	Enemy.hpp	116
+Enemy::_maxHp	Enemy.hpp	116
+Enemy::_setImageBasedOnFacing	Enemy.cpp	/^void Enemy::_setImageBasedOnFacing(){$/
+Enemy::_speed	Enemy.hpp	119
+Enemy::_whenAggro	Enemy.cpp	/^void Enemy::_whenAggro(){$/
+Enemy::_whenAttacking	Enemy.cpp	/^void Enemy::_whenAttacking(){$/
+Enemy::_whenCollidingWith	Enemy.cpp	/^void Enemy::_whenCollidingWith(std::weak_ptr<Thing/
+Enemy::_whenIdle	Enemy.cpp	/^void Enemy::_whenIdle(){$/
+Enemy::_whenKilled	Enemy.cpp	/^void Enemy::_whenKilled(){$/
+Enemy::_whenTick	Enemy.cpp	/^void Enemy::_whenTick(){$/
+Enemy::damage	Enemy.cpp	/^void Enemy::damage(int amount){$/
+Enemy::die	Enemy.cpp	/^void Enemy::die(){$/
+Enemy::enemyState	Enemy.hpp	48
+Enemy::getHp	Enemy.cpp	/^int Enemy::getHp(){$/
+Enemy::getMaxHp	Enemy.cpp	/^int Enemy::getMaxHp(){$/
+Enemy::getWorldCenter	Enemy.cpp	/^sf::Vector2f Enemy::getWorldCenter(){$/
+Enemy::handleCollision	Enemy.cpp	/^void Enemy::handleCollision(std::weak_ptr<Thing> o/
+Enemy::std::array	Enemy.hpp	125
+Enemy::tick	Enemy.cpp	/^void Enemy::tick(){$/
+EnemyDemon	EnemyDemon.hpp	10
+EnemyDemon::EnemyDemon	EnemyDemon.hpp	/^  EnemyDemon(sf::Vector2f position, int maxHp, dou/
+EnemyDemon::EnemyDemon	EnemyDemon.hpp	/^  EnemyDemon(){ };$/
+EnemyDemon::_canLeap	EnemyDemon.hpp	28
+EnemyDemon::_initiateLeap	EnemyDemon.hpp	26
+EnemyDemon::_leapCooldown	EnemyDemon.hpp	27
+EnemyDemon::_leapDelayTimer	EnemyDemon.hpp	23
+EnemyDemon::_leapTimer	EnemyDemon.hpp	24
+EnemyDemon::_leaping	EnemyDemon.hpp	25
+EnemyDemon::_whenAggro	EnemyDemon.cpp	/^void EnemyDemon::_whenAggro(){$/
+EnemyDemon::_whenAttacking	EnemyDemon.cpp	/^void EnemyDemon::_whenAttacking(){$/
+EnemyDemon::_whenIdle	EnemyDemon.cpp	/^void EnemyDemon::_whenIdle(){$/
+EnemyEye	EnemyEye.hpp	6
+EnemyEye::EnemyEye	EnemyEye.hpp	/^  EnemyEye(sf::Vector2f position, int maxHp, doubl/
+EnemyEye::_attackCooldown	EnemyEye.hpp	11
+EnemyEye::_whenAggro	EnemyEye.cpp	/^void EnemyEye::_whenAggro(){$/
+EnemyEye::_whenAttacking	EnemyEye.cpp	/^void EnemyEye::_whenAttacking(){$/
+EnemyEye::_whenIdle	EnemyEye.cpp	/^void EnemyEye::_whenIdle(){$/
+EnemyLegion	EnemyLegion.hpp	14
+EnemyLegion::EnemyLegion	EnemyLegion.cpp	/^EnemyLegion::EnemyLegion(sf::Vector2f position, in/
+EnemyLegion::_fleeCountdown	EnemyLegion.hpp	35
+EnemyLegion::_getAverageHealth	EnemyLegion.cpp	/^int EnemyLegion::_getAverageHealth(){$/
+EnemyLegion::_nextFlee	EnemyLegion.hpp	38
+EnemyLegion::_slaves	EnemyLegion.hpp	43
+EnemyLegion::_whenAggro	EnemyLegion.cpp	/^void EnemyLegion::_whenAggro(){$/
+EnemyLegion::_whenIdle	EnemyLegion.cpp	/^void EnemyLegion::_whenIdle(){$/
+EnemyLegion::_whenTick	EnemyLegion.cpp	/^void EnemyLegion::_whenTick(){$/
+EnemyLegion::cull	EnemyLegion.cpp	/^void EnemyLegion::cull(){$/
+EnemyLegion::damage	EnemyLegion.cpp	/^void EnemyLegion::damage(int amount){$/
+EnemyLegion::draw	EnemyLegion.cpp	/^void EnemyLegion::draw(sf::RenderWindow& window){$/
+EnemyLegion::getBounds	EnemyLegion.cpp	/^sf::FloatRect EnemyLegion::getBounds(){$/
+EnemyLegion::std::array	EnemyLegion.hpp	43
+EnemyLegionSlave	EnemyLegion.hpp	64
+EnemyLegionSlave::EnemyLegionSlave	EnemyLegion.hpp	/^  EnemyLegionSlave(sf::Vector2f position, int maxH/
+EnemyLegionSlave::_attackCooldown	EnemyLegion.hpp	74
+EnemyLegionSlave::_parent	EnemyLegion.hpp	73
+EnemyLegionSlave::_whenAggro	EnemyLegion.cpp	/^void EnemyLegionSlave::_whenAggro(){$/
+EnemyLegionSlave::_whenAttacking	EnemyLegion.cpp	/^void EnemyLegionSlave::_whenAttacking(){$/
+EnemyLegionSlave::_whenIdle	EnemyLegion.cpp	/^void EnemyLegionSlave::_whenIdle(){$/
+EnemyLegionSlave::_whenTick	EnemyLegion.cpp	/^void EnemyLegionSlave::_whenTick(){$/
+EnemyState	Enemy.hpp	29
+EnemyState::ES_AGGRO	Enemy.hpp	29
+EnemyState::ES_ATTACKING	Enemy.hpp	29
+EnemyState::ES_DEAD	Enemy.hpp	29
+EnemyState::ES_FLEE	Enemy.hpp	29
+EnemyState::ES_IDLE	Enemy.hpp	29
+EnvironmentThing	EnvironmentThing.hpp	14
+EnvironmentThing::EnvironmentThing	EnvironmentThing.hpp	/^  EnvironmentThing(Animation& anim, sf::Vector2f p/
+EnvironmentThing::EnvironmentThing	EnvironmentThing.hpp	/^  EnvironmentThing(std::string path, sf::Vector2f /
+EnvironmentThing::EnvironmentThing	EnvironmentThing.hpp	/^  EnvironmentThing(std::string path, bool canShoot/
+EnvironmentThing::EnvironmentThing	EnvironmentThing.hpp	/^  EnvironmentThing(Animation& anim, sf::Vector2f p/
+EnvironmentThing::EnvironmentThing	EnvironmentThing.hpp	/^  EnvironmentThing(std::string path, sf::Vector2f /
+EnvironmentThing::EnvironmentThing	EnvironmentThing.hpp	/^  EnvironmentThing(std::string path, bool canShoot/
+EnvironmentThing::EnvironmentThing	EnvironmentThing.hpp	/^  EnvironmentThing() : Thing() {}$/
+EnvironmentThing::_canShootThrough	EnvironmentThing.hpp	22
+EnvironmentThing::_canWalkThrough	EnvironmentThing.hpp	18
+EnvironmentThing::_whenCollidingWith	EnvironmentThing.cpp	/^void EnvironmentThing::_whenCollidingWith(std::wea/
+EnvironmentThing::handleCollision	EnvironmentThing.cpp	/^void EnvironmentThing::handleCollision(std::weak_p/
+EnvironmentThing::handleInput	EnvironmentThing.hpp	/^  virtual void handleInput(sf::Event event){}$/
+EnvironmentThing::tick	EnvironmentThing.hpp	/^  virtual void tick(){}$/
+Eo	background1.png	11629
+EphemeralAnimation	Thing.hpp	158
+EphemeralAnimation::EphemeralAnimation	Thing.hpp	/^  EphemeralAnimation(Animation& anim, sf::Vector2f/
+EphemeralAnimation::draw	Thing.cpp	/^void EphemeralAnimation::draw(sf::RenderWindow& wi/
+EphemeralAnimation::tick	Thing.cpp	/^void EphemeralAnimation::tick(){$/
+Eº7J1äJÔ	background1.png	36855
+E—	rubble-vertical.png	16
+F	background1.png	13555
+F	long-path.png	18253
+FACING_DOWN	Enemy.hpp	11
+FACING_DOWN_LEFT	Enemy.hpp	16
+FACING_DOWN_RIGHT	Enemy.hpp	17
+FACING_LEFT	Enemy.hpp	12
+FACING_MAX	Enemy.hpp	18
+FACING_RIGHT	Enemy.hpp	13
+FACING_UP	Enemy.hpp	10
+FACING_UP_LEFT	Enemy.hpp	14
+FACING_UP_RIGHT	Enemy.hpp	15
+FFÇv	_tree_02.zip	4175
+FG˜	background1.png	40708
+FRAMERATE	Render.hpp	27
+Fm	_tree_04.zip	6
+Fï™H©	_tree_02.zip	4738
+F∆º∫∏	background1.png	6869
+F‚	long-path.png	18227
+G	_tree_02.zip	4108
+GE	background1.png	1844
+GlobalMovementSpeed	WeaponMod.hpp	46
+GlobalMovementSpeed::GlobalMovementSpeed	WeaponMod.hpp	/^  GlobalMovementSpeed(std::shared_ptr<Weapon> weap/
+GlobalMovementSpeed::_multiplier	WeaponMod.hpp	58
+GlobalMovementSpeed::whenAcquired	WeaponMod.cpp	/^void GlobalMovementSpeed::whenAcquired(){$/
+GlobalMovementSpeed::whenRemoved	WeaponMod.cpp	/^void GlobalMovementSpeed::whenRemoved(){$/
+G∫p	_tree_02.zip	231
+Gﬂv	long-path.png	18272
+H	background1.png	6990
+H	background1.png	11457
+H	background1.png	32406
+H	_tree_02.zip	6719
+Hôôd2	background1.png	11631
+HXıY	_tree_03.zip	118
+HSﬂñ¶	_tree_02.zip	4074
+H_π	_tree_02.zip	9490
+Hk	background1.png	19108
+HoldAbility	Ability.hpp	41
+HoldAbility::_activate	Ability.hpp	/^  virtual void _activate(){};$/
+HoldAbility::_deactivate	Ability.hpp	/^  virtual void _deactivate(){};$/
+HoldAbility::_isHeld	Ability.hpp	55
+HoldAbility::_whileActive	Ability.hpp	/^  virtual void _whileActive(){};$/
+HoldAbility::press	Ability.cpp	/^void HoldAbility::press(){$/
+HoldAbility::release	Ability.cpp	/^void HoldAbility::release(){$/
+HoldAbility::tick	Ability.cpp	/^void HoldAbility::tick(){$/
+HorizontalBar	Ui.hpp	52
+HorizontalBar::HorizontalBar	Ui.hpp	/^  HorizontalBar(std::function<T()> curVal, std::fu/
+HorizontalBar::HorizontalBar	Ui.hpp	/^  HorizontalBar(){}$/
+HorizontalBar::_color	Ui.hpp	58
+HorizontalBar::_height	Ui.hpp	56
+HorizontalBar::_width	Ui.hpp	57
+H∂…	_tree_02.zip	9498
+HÌ	background1.png	36898
+H¯	background1.png	20217
+I	rock.png	9
+IIt	background1.png	1714
+IS	house-final-3-scaled.png	/^∂m3ùN†Êsπ˜TÀ≈óRyÜÃ„$3uM™JÜøvÿÓ¸ƒ<Ó¶q-æπÖ-/
+IÃπ	_tree_02.zip	4393
+I⁄i	overlay.png	4
+IÒF∏å	background1.png	6874
+J	background1.png	15611
+J	rubble-vertical.png	16
+J	background1.png	19283
+J≥Sûc3C	background1.png	8498
+Jªö	background1.png	15246
+JÃÕ	house-final-2.png	53
+JÌ˚¨Z˘	_tree_02.zip	8585
+J¯v	background1.png	20221
+K	Ability.o	303
+K	background1.png	16347
+K2i`	background1.png	16332
+KwáQ	tree_01a.png	80
+K≈Î01l≠	background1.png	20508
+L	background1.png	40644
+L	enemy-downright.png	4
+L	house-final-1.png	4
+LEGION_SIZE	EnemyLegion.hpp	7
+LG	background1.png	7811
+Ld˝W¶r	background1.png	7834
+LÇa_xjW	_tree_02.zip	9507
+Lß	long-path.png	18257
+M	background1.png	15227
+M	long-path.png	25047
+M3jÂ	background1.png	42694
+MEÏ	background1.png	11656
+MINIGUN_H	Minigun.hpp	2
+MO	WeaponWidget.o	2042
+MODTREE_H	ModTree.hpp	2
+MOD_MENU_COMMON_RELATIVE_Y_POS	Render.hpp	17
+MOD_MENU_EPIC_RELATIVE_Y_POS	Render.hpp	20
+MOD_MENU_HEIGHT	Render.hpp	16
+MOD_MENU_ICON_SPACING	Render.hpp	22
+MOD_MENU_LEGENDARY_RELATIVE_Y_POS	Render.hpp	21
+MOD_MENU_MOD_WIDGET_HEIGHT	Render.hpp	24
+MOD_MENU_MOD_WIDGET_WIDTH	Render.hpp	23
+MOD_MENU_RARE_RELATIVE_Y_POS	Render.hpp	19
+MOD_MENU_UNCOMMON_RELATIVE_Y_POS	Render.hpp	18
+MOD_MENU_WIDTH	Render.hpp	15
+MhÔ”	background1.png	36895
+Minigun	Minigun.hpp	9
+Minigun::Minigun	Minigun.hpp	/^  Minigun(int maxAmmo, int reloadTime, int maxFire/
+Minigun::_fireDelay	Minigun.hpp	11
+Minigun::_fireDelayDecreaseRate	Minigun.hpp	14
+Minigun::_maxFireDelay	Minigun.hpp	13
+Minigun::_minFireDelay	Minigun.hpp	12
+Minigun::_shotDamage	Minigun.hpp	15
+Minigun::_shotVelocity	Minigun.hpp	16
+Minigun::_speedMultiplier	Minigun.hpp	17
+Mmain.cpp	main.cpp	/^int main(){$/
+ModQuality	Weapon.hpp	18
+ModQuality::MQ_COMMON	Weapon.hpp	18
+ModQuality::MQ_EPIC	Weapon.hpp	18
+ModQuality::MQ_LEGENDARY	Weapon.hpp	18
+ModQuality::MQ_RARE	Weapon.hpp	18
+ModQuality::MQ_UNCOMMONM	Weapon.hpp	18
+ModQuality::MQ_UNDEFINED	Weapon.hpp	18
+ModTree	Weapon.hpp	37
+ModTree::ModTree	Weapon.hpp	/^  ModTree(){}$/
+ModTree::ModTree	Weapon.hpp	/^  ModTree(std::map<ModQuality, std::vector<std::sh/
+ModTree::_isLocked	Weapon.hpp	43
+ModTree::_mods	Weapon.hpp	46
+ModTree::_nextToChoose	Weapon.hpp	40
+ModTree::getAvailableMods	Weapon.cpp	/^std::vector<std::shared_ptr<WeaponMod>>& ModTree::/
+ModTree::getModsOfQuality	Weapon.cpp	/^std::vector<std::shared_ptr<WeaponMod>>& ModTree::/
+ModTree::isLocked	Weapon.cpp	/^bool ModTree::isLocked(){$/
+ModTree::lock	Weapon.cpp	/^void ModTree::lock(){$/
+ModTree::reset	Weapon.cpp	/^void ModTree::reset(){$/
+ModTree::std::map	Weapon.hpp	46
+ModTree::unlock	Weapon.cpp	/^void ModTree::unlock(){$/
+ModWidget	WeaponWidget.hpp	12
+ModWidget::ModWidget	WeaponWidget.hpp	/^  ModWidget(std::string path, sf::Vector2f positio/
+ModWidget::_acquireMod	WeaponWidget.cpp	/^void ModWidget::_acquireMod(){$/
+ModWidget::_mod	WeaponWidget.hpp	15
+ModWidget::_onLeftClickRelease	WeaponWidget.cpp	/^void ModWidget::_onLeftClickRelease(){$/
+ModWidget::_weapon	WeaponWidget.hpp	18
+MÅ	background1.png	7833
+MñÓ	overlay.png	90
+M°÷ä	background1.png	19274
+M◊xÆ	long-path.png	19365
+M›3	long-path.png	19381
+MÊd„5	background1.png	5979
+N	house-final-5.png	5
+N	long-path.png	17583
+N	sfml-test	4930
+NLÀ	house-final-5.png	13
+NUM_WEAPONS	Player.hpp	11
+NepÀZå£∂rò	background1.png	2288
+Nä	_tree_02.zip	9507
+N±	background1.png	11606
+N“˜r`MJ˜≈b6òTˇ¨#Õ¢X¸g∂ò	background1.png	20237
+NÈ…Y@_	long-path.png	25047
+O	background1.png	19018
+O	Camera.o	918
+O	house-final-2.png	4
+O	_tree_02.zip	4119
+O	tree_01a.png	5
+ODT	_tree_02.zip	8726
+OXZ‹	lake-bottom.png	6
+Ofƒ	long-path.png	14270
+OlD	house-final-3.png	11
+Oã	background1.png	19013
+Oﬂ	long-path.png	12476
+P	background1.png	15232
+P	enemy-down.png	6
+P	long-path.png	14246
+P	_tree_02.zip	180
+P∆	background1.png	6027
+PLAYER_H	Player.hpp	2
+PLAYFIELD_H	Playfield.hpp	2
+PNG	blood3.png	1
+PNG	house-addon-1.png	1
+PNG	lake-bottom.png	1
+PNG	modmenu.png	1
+PUMPSHOTGUN_H	PumpShotgun.hpp	2
+Particle	Thing.hpp	148
+Particle::Particle	Thing.hpp	/^  Particle(std::string path, sf::Vector2f position/
+Particle::Particle	Thing.hpp	/^  Particle(Animation& anim, sf::Vector2f position)/
+Pd	long-path.png	17432
+Player	Player.hpp	25
+Player::Player	Player.hpp	/^  Player(std::string path, sf::Vector2f position, /
+Player::Player	Player.hpp	/^  Player(){};$/
+Player::_baseSpeed	Player.hpp	114
+Player::_changeImageBasedOnFacing	Player.cpp	/^void Player::_changeImageBasedOnFacing(){$/
+Player::_curHp	Player.hpp	111
+Player::_curWeapon	Player.hpp	100
+Player::_curWeaponIndex	Player.hpp	103
+Player::_invulnTime	Player.hpp	88
+Player::_movementAbility	Player.hpp	107
+Player::_primaryAbility	Player.hpp	106
+Player::_sprintAbility	Player.hpp	108
+Player::_unequipCurrentWeapon	Player.cpp	/^void Player::_unequipCurrentWeapon(){$/
+Player::_weapons	Player.hpp	97
+Player::damage	Player.cpp	/^void Player::damage(int amount){$/
+Player::die	Player.cpp	/^void Player::die(){$/
+Player::getCurrentHp	Player.cpp	/^int Player::getCurrentHp(){$/
+Player::giveWeapon	Player.cpp	/^void Player::giveWeapon(std::shared_ptr<Weapon> we/
+Player::handleInput	Player.cpp	/^void Player::handleInput(sf::Event event){$/
+Player::insertWeapon	Player.cpp	/^bool Player::insertWeapon(int weaponIndex, std::sh/
+Player::nextWeapon	Player.cpp	/^void Player::nextWeapon(){$/
+Player::previousWeapon	Player.cpp	/^void Player::previousWeapon(){$/
+Player::removeWeapon	Player.cpp	/^void Player::removeWeapon(int weaponIndex){$/
+Player::setMovementAbility	Player.cpp	/^void Player::setMovementAbility(std::shared_ptr<Ab/
+Player::setPrimaryAbility	Player.cpp	/^void Player::setPrimaryAbility(std::shared_ptr<Abi/
+Player::setSprintAbility	Player.cpp	/^void Player::setSprintAbility(std::shared_ptr<Abil/
+Player::stats	Player.hpp	29
+Player::std::array	Player.hpp	97
+Player::switchToWeapon	Player.cpp	/^void Player::switchToWeapon(std::shared_ptr<Weapon/
+Player::tick	Player.cpp	/^void Player::tick(){$/
+Playfield	Playfield.hpp	21
+Playfield::Playfield	Playfield.cpp	/^Playfield::Playfield(std::string playfieldPath){$/
+Playfield::Playfield	Playfield.hpp	/^  Playfield(){}$/
+Playfield::_backgroundPath	Playfield.hpp	65
+Playfield::_backgroundSprite	Playfield.hpp	62
+Playfield::_backgroundTexture	Playfield.hpp	59
+Playfield::_camera	Playfield.hpp	44
+Playfield::_cullThings	Playfield.cpp	/^void Playfield::_cullThings(){$/
+Playfield::_drawBackground	Playfield.cpp	/^void Playfield::_drawBackground(sf::RenderWindow& /
+Playfield::_drawOverlay	Playfield.cpp	/^void Playfield::_drawOverlay(sf::RenderWindow& win/
+Playfield::_getPossiblyCollidingThings	Playfield.cpp	/^std::vector<std::shared_ptr<Thing>> Playfield::_ge/
+Playfield::_isLoaded	Playfield.hpp	69
+Playfield::_loadBackground	Playfield.cpp	/^int Playfield::_loadBackground(){$/
+Playfield::_loadOverlay	Playfield.cpp	/^int Playfield::_loadOverlay(){$/
+Playfield::_overlayPath	Playfield.hpp	56
+Playfield::_overlaySprite	Playfield.hpp	53
+Playfield::_overlayTexture	Playfield.hpp	50
+Playfield::_things	Playfield.hpp	47
+Playfield::_thingsOnScreen	Playfield.hpp	36
+Playfield::addThing	Playfield.cpp	/^void Playfield::addThing(std::shared_ptr<Thing> th/
+Playfield::draw	Playfield.cpp	/^void Playfield::draw(sf::RenderWindow& window){$/
+Playfield::findMarker	Playfield.cpp	/^std::shared_ptr<ThingMarker> Playfield::findMarker/
+Playfield::getBounds	Playfield.cpp	/^sf::FloatRect Playfield::getBounds(){$/
+Playfield::handleInput	Playfield.cpp	/^void Playfield::handleInput(sf::Event event){$/
+Playfield::tick	Playfield.cpp	/^void Playfield::tick(){$/
+PumpShotgun	PumpShotgun.hpp	8
+PumpShotgun::PumpShotgun	PumpShotgun.hpp	/^  PumpShotgun(int maxAmmo, int reloadTime, int pel/
+PumpShotgun::_isPumped	PumpShotgun.hpp	15
+PumpShotgun::_isPumping	PumpShotgun.hpp	16
+PumpShotgun::_numPellets	PumpShotgun.hpp	14
+PumpShotgun::_pelletDamage	PumpShotgun.hpp	12
+PumpShotgun::_pelletVelocity	PumpShotgun.hpp	13
+PumpShotgun::_pumpDelay	PumpShotgun.hpp	10
+PumpShotgun::_pumpTimer	PumpShotgun.hpp	11
+P†	background1.png	32410
+PÎ›™≈˝z	_tree_02.zip	4146
+Q	_tree_02.zip	203
+QA_	house-final-5.png	30
+Q9K	background1.png	19108
+QxÀ0	_tree_02.zip	8304
+Qéo	house-final-3.png	42
+Qßlj99≠	house-final-3.png	42
+Q©QU	background1.png	39056
+Q±	_tree_02.zip	9491
+Q∂á	_tree_03.zip	163
+Q∫	long-path.png	17529
+R	background1.png	1749
+R	background1.png	8058
+R	background1.png	35807
+R	background1.png	41513
+R	house-final-3.png	42
+R	house-final-4.png	5
+RENDER_H	Render.hpp	2
+REVOLVER_H	Revolver.hpp	2
+Revolver	Revolver.hpp	8
+Revolver::Revolver	Revolver.hpp	/^  Revolver(int maxAmmo, int reloadTime, int shotDa/
+Revolver::_cockDelay	Revolver.hpp	11
+Revolver::_cockTimer	Revolver.hpp	12
+Revolver::_isCocking	Revolver.hpp	10
+Revolver::_shotDamage	Revolver.hpp	13
+Revolver::_shotVelocity	Revolver.hpp	14
+Rm∆ÿ0áP§ﬂΩº	background1.png	6025
+Rocket	Bullet.hpp	82
+Rocket::Rocket	Bullet.hpp	/^  Rocket(bool isFriendly, sf::Vector2f position, i/
+Rocket::Rocket	Bullet.hpp	/^  Rocket(){}$/
+Rocket::_acceleration	Bullet.hpp	87
+Rocket::_blastRadius	Bullet.hpp	86
+Rocket::_direction	Bullet.hpp	84
+Rocket::_speed	Bullet.hpp	85
+Rocket::handleCollision	Bullet.cpp	/^void Rocket::handleCollision(std::weak_ptr<Thing> /
+Rocket::tick	Bullet.cpp	/^void Rocket::tick(){$/
+RtZS	long-path.png	14247
+Rì	background1.png	17012
+R£	long-path.png	66
+R√∫Om	_tree_02.zip	180
+R√‡ f	house-final-3-scaled.png	/^¢◊±ÏÌΩè-Dh¡rdY&UUïûÁ=•i⁄®H!2Có‰ÅÎJW√xc§Üe/
+S	background1.png	5979
+S	background1.png	16343
+S	background1.png	20215
+S	background1.png	36836
+S	background1.png	42696
+S	house-final-2.png	13
+S	rubble-vertical.png	24
+S	_tree_02.zip	9491
+S`	long-path.png	17608
+S	player-down.png	8
+S4	_tree_02.zip	7175
+SCREEN_GUTTER	Render.hpp	9
+SCREEN_HEIGHT	Render.hpp	29
+SCREEN_WIDTH	Render.hpp	28
+SF‘9GJj	background1.png	15267
+SMG_H	Smg.hpp	2
+SNIPERRIFLE_H	SniperRifle.hpp	2
+STATS_H	Stats.hpp	2
+Sj	background1.png	5994
+Smg	Smg.hpp	10
+Smg::Smg	Smg.hpp	/^  Smg(int maxAmmo, int reloadTime, int fireDelay, /
+Smg::_fireDelay	Smg.hpp	12
+Smg::_shotDamage	Smg.hpp	13
+Smg::_shotVelocity	Smg.hpp	14
+SniperRifle	SniperRifle.hpp	8
+SniperRifle::SniperRifle	SniperRifle.hpp	/^  SniperRifle(int maxAmmo, int reloadTime, int sho/
+SniperRifle::_beenFired	SniperRifle.hpp	12
+SniperRifle::_hasReleasedLeftMouse	SniperRifle.hpp	10
+SniperRifle::_isZooming	SniperRifle.hpp	11
+SniperRifle::_shotDamage	SniperRifle.hpp	13
+SniperRifle::_shotVelocity	SniperRifle.hpp	14
+Sprint	Ability.hpp	122
+Sprint::Sprint	Ability.hpp	/^  Sprint(double speedFactor) : _speedFactor{speedF/
+Sprint::_activate	Ability.cpp	/^void Sprint::_activate(){$/
+Sprint::_deactivate	Ability.cpp	/^void Sprint::_deactivate(){$/
+Sprint::_speedFactor	Ability.hpp	126
+Stats	Stats.hpp	8
+Stats::abilityCooldownMultiplier	Stats.hpp	14
+Stats::firingDelayMultiplier	Stats.hpp	13
+Stats::globalDamageMultiplier	Stats.hpp	15
+Stats::maxHp	Stats.hpp	10
+Stats::operator+	Stats.cpp	/^Stats Stats::operator+(const Stats& other){$/
+Stats::operator+=	Stats.cpp	/^Stats Stats::operator+=(const Stats& other){$/
+Stats::operator-	Stats.cpp	/^Stats Stats::operator-(const Stats& other){$/
+Stats::operator-=	Stats.cpp	/^Stats Stats::operator-=(const Stats& other){$/
+Stats::reloadDelayMultiplier	Stats.hpp	12
+Stats::speedMultiplier	Stats.hpp	11
+S´Ø	tree_01a.png	70
+SØ	teleporter.png	5
+SÎ	background1.png	8496
+SÓS	overlay.png	81
+T	background1.png	15227
+Tæ	long-path.png	17615
+TzªÂ©	house-final-2.png	16
+T	background1.png	15983
+TELEPORTER_H	Teleporter.hpp	2
+THING_ENTRANCE_HPP	ThingEntrance.hpp	2
+THING_H	Thing.hpp	2
+TXè	background1.png	7735
+Teleporter	Teleporter.hpp	11
+Teleporter::Teleporter	Teleporter.hpp	/^  Teleporter(Animation& anim, sf::Vector2f positio/
+Teleporter::Teleporter	Teleporter.hpp	/^  Teleporter(std::string path, sf::Vector2f positi/
+Teleporter::Teleporter	Teleporter.hpp	/^  Teleporter() : EnvironmentThing() {}$/
+Teleporter::_cooldownMax	Teleporter.hpp	14
+Teleporter::_cooldownTimer	Teleporter.hpp	15
+Teleporter::_enabled	Teleporter.hpp	18
+Teleporter::_otherTeleporter	Teleporter.hpp	21
+Teleporter::_whenCollidingWith	Teleporter.cpp	/^void Teleporter::_whenCollidingWith(std::weak_ptr</
+Teleporter::setOtherTeleporter	Teleporter.cpp	/^void Teleporter::setOtherTeleporter(std::shared_pt/
+Teleporter::tick	Teleporter.cpp	/^void Teleporter::tick(){$/
+TfiiYo	house-final-2.png	5
+Thing	Thing.hpp	16
+Thing::Thing	Thing.hpp	/^  Thing(Animation& anim, sf::Vector2f position, sf/
+Thing::Thing	Thing.hpp	/^  Thing(std::string path, sf::Vector2f position, s/
+Thing::Thing	Thing.hpp	/^  Thing(Animation& anim, sf::Vector2f position) : /
+Thing::Thing	Thing.hpp	/^  Thing(std::string path, sf::Vector2f position) :/
+Thing::Thing	Thing.hpp	/^  Thing(std::string path) : _path{path}, _position/
+Thing::Thing	Thing.hpp	/^  Thing(){};$/
+Thing::_cullMe	Thing.hpp	52
+Thing::_currentAnimation	Thing.hpp	58
+Thing::_facing	Thing.hpp	43
+Thing::_hitboxAtZeroZero	Thing.hpp	61
+Thing::_hitboxAtZeroZero	Thing.hpp	131
+Thing::_hitboxAtZeroZero	Thing.hpp	136
+Thing::_hitboxAtZeroZero	Thing.hpp	137
+Thing::_isAnimating	Thing.hpp	28
+Thing::_isLoaded	Thing.hpp	25
+Thing::_load	Thing.cpp	/^int Thing::_load(){$/
+Thing::_name	Thing.hpp	19
+Thing::_originalSprite	Thing.hpp	37
+Thing::_path	Thing.hpp	22
+Thing::_position	Thing.hpp	40
+Thing::_position	Thing.hpp	126
+Thing::_position	Thing.hpp	131
+Thing::_position	Thing.hpp	132
+Thing::_position	Thing.hpp	136
+Thing::_position	Thing.hpp	137
+Thing::_rotation	Thing.hpp	49
+Thing::_sprite	Thing.hpp	34
+Thing::_texture	Thing.hpp	31
+Thing::_velocity	Thing.hpp	46
+Thing::cull	Thing.cpp	/^void Thing::cull(){$/
+Thing::draw	Thing.cpp	/^void Thing::draw(sf::RenderWindow& window){$/
+Thing::getBounds	Thing.cpp	/^sf::FloatRect Thing::getBounds(){$/
+Thing::getHitboxWorldCenter	Thing.cpp	/^sf::Vector2f Thing::getHitboxWorldCenter(){$/
+Thing::getPosition	Thing.cpp	/^sf::Vector2f Thing::getPosition(){$/
+Thing::getScreenPosition	Thing.cpp	/^sf::Vector2f Thing::getScreenPosition(){$/
+Thing::getWorldCenter	Thing.cpp	/^sf::Vector2f Thing::getWorldCenter(){$/
+Thing::getWorldRotation	Thing.cpp	/^float Thing::getWorldRotation(){$/
+Thing::handleCollision	Thing.cpp	/^void Thing::handleCollision(std::weak_ptr<Thing> o/
+Thing::handleInput	Thing.cpp	/^void Thing::handleInput(sf::Event event){$/
+Thing::isCulled	Thing.cpp	/^bool Thing::isCulled(){$/
+Thing::preventOverlapping	Thing.cpp	/^void Thing::preventOverlapping(std::weak_ptr<Thing/
+Thing::setColor	Thing.cpp	/^void Thing::setColor(sf::Color c){$/
+Thing::setFacing	Thing.cpp	/^void Thing::setFacing(sf::Vector2f facing){$/
+Thing::setRotation	Thing.cpp	/^void Thing::setRotation(double rotation){$/
+Thing::setVelocity	Thing.cpp	/^void Thing::setVelocity(sf::Vector2f v){$/
+Thing::setWorldPosition	Thing.cpp	/^void Thing::setWorldPosition(sf::Vector2f newPos){/
+Thing::setXVelocity	Thing.cpp	/^void Thing::setXVelocity(float dx){$/
+Thing::setYVelocity	Thing.cpp	/^void Thing::setYVelocity(float dy){$/
+Thing::tick	Thing.cpp	/^void Thing::tick(){$/
+ThingEntrance	ThingEntrance.hpp	23
+ThingEntrance::ThingEntrance	ThingEntrance.hpp	/^  ThingEntrance(sf::Vector2f position, sf::Vector2/
+ThingEntrance::_destinationMarkerId	ThingEntrance.hpp	48
+ThingEntrance::_dimensions	ThingEntrance.hpp	42
+ThingEntrance::_playfieldFile	ThingEntrance.hpp	45
+ThingEntrance::draw	ThingEntrance.cpp	/^void ThingEntrance::draw(sf::RenderWindow& window)/
+ThingEntrance::getBounds	ThingEntrance.cpp	/^sf::FloatRect ThingEntrance::getBounds(){$/
+ThingEntrance::handleCollision	ThingEntrance.cpp	/^void ThingEntrance::handleCollision(std::weak_ptr</
+ThingMarker	ThingEntrance.hpp	8
+ThingMarker::ThingMarker	ThingEntrance.hpp	/^  ThingMarker(sf::Vector2f position, std::string i/
+ThingMarker::_id	ThingEntrance.hpp	19
+ThingMarker::getId	ThingEntrance.cpp	/^std::string ThingMarker::getId(){$/
+ToggledAbility	Ability.hpp	81
+ToggledAbility::_activate	Ability.hpp	/^  virtual void _activate(){};$/
+ToggledAbility::_deactivate	Ability.hpp	/^  virtual void _deactivate(){};$/
+ToggledAbility::_isActive	Ability.hpp	92
+ToggledAbility::_whileActive	Ability.hpp	/^  virtual void _whileActive(){};$/
+ToggledAbility::press	Ability.cpp	/^void ToggledAbility::press(){$/
+ToggledAbility::release	Ability.cpp	/^void ToggledAbility::release(){$/
+ToggledAbility::tick	Ability.cpp	/^void ToggledAbility::tick(){$/
+Tò	background1.png	5977
+T¢¬ÊX‘	_tree_02.zip	8813
+T’úe˘L›Ê»‰©	_tree_02.zip	4183
+U	background1.png	40626
+U	house-final-3.png	669
+U$¶Pôcﬂ	background1.png	36541
+U3P	_tree_02.zip	4993
+UD 4àH‚Ñ	house-final-1.png	193
+UIDATx	orb-attacking.png	4
+UI_H	Ui.hpp	2
+UO	WeaponWidget.o	2450
+UO	WeaponWidget.o	2453
+UU•–	_tree_02.zip	3515
+U_t	tree.png	66
+UaEb	tree_01b.png	325
+U≤	background1.png	1722
+UŒÒNw	_tree_02.zip	9508
+U› ¢	_tree_02.zip	9510
+U˚ñúO™	background1.png	40597
+V	Animation.o	98
+V	background1.png	2368
+V	background1.png	19255
+V	background1.png	36865
+V$	background1.png	6990
+V$	EnemyEye.o	1574
+VH°X1∆Mƒ	_tree_02.zip	8304
+VúädäîS˙7b’≠	tree_01a.png	4
+V±	_tree_02.zip	4157
+V·	background1.png	42692
+W	background1.png	36865
+W	EnemyLegion.o	1462
+W	_tree_02.zip	8771
+W•hj˛º≠	background1.png	42694
+WEAPONMOD_H	WeaponMod.hpp	2
+WEAPONSTAT_H	WeaponStat.hpp	2
+WEAPONWIDGET_H	WeaponWidget.hpp	2
+WEAPON_H	Weapon.hpp	2
+WEAPON_ICON_HEIGHT	Render.hpp	13
+WEAPON_ICON_SPACING	Render.hpp	11
+WEAPON_ICON_WIDTH	Render.hpp	12
+Weapon	Weapon.hpp	62
+Weapon::Weapon	Weapon.hpp	/^  Weapon(int maxAmmo, int reloadTime) : _maxAmmo{m/
+Weapon::_applyGlobalBonuses	Weapon.cpp	/^void Weapon::_applyGlobalBonuses(){$/
+Weapon::_curAmmo	Weapon.hpp	78
+Weapon::_finishReload	Weapon.cpp	/^void Weapon::_finishReload(){$/
+Weapon::_isActive	Weapon.hpp	79
+Weapon::_maxAmmo	Weapon.hpp	77
+Weapon::_modTree	Weapon.hpp	65
+Weapon::_reloadTime	Weapon.hpp	76
+Weapon::_reloadTime	Weapon.hpp	117
+Weapon::_removeGlobalBonuses	Weapon.cpp	/^void Weapon::_removeGlobalBonuses(){$/
+Weapon::fillWithMods	Weapon.cpp	/^void Weapon::fillWithMods(){$/
+Weapon::getAvailableMods	Weapon.cpp	/^std::vector<std::shared_ptr<WeaponMod>>& Weapon::g/
+Weapon::getModsOfQuality	Weapon.cpp	/^std::vector<std::shared_ptr<WeaponMod>>& Weapon::g/
+Weapon::globalStatBonuses	Weapon.hpp	82
+Weapon::onEquip	Weapon.cpp	/^void Weapon::onEquip(){$/
+Weapon::onStow	Weapon.cpp	/^void Weapon::onStow(){$/
+Weapon::onUnequip	Weapon.cpp	/^void Weapon::onUnequip(){$/
+Weapon::onUnstow	Weapon.cpp	/^void Weapon::onUnstow(){$/
+Weapon::pressPrimaryFire	Weapon.cpp	/^void Weapon::pressPrimaryFire(sf::Vector2f target)/
+Weapon::pressSecondaryFire	Weapon.cpp	/^void Weapon::pressSecondaryFire(sf::Vector2f targe/
+Weapon::releasePrimaryFire	Weapon.cpp	/^void Weapon::releasePrimaryFire(sf::Vector2f targe/
+Weapon::releaseSecondaryFire	Weapon.cpp	/^void Weapon::releaseSecondaryFire(sf::Vector2f tar/
+Weapon::weaponState	Weapon.hpp	115
+WeaponMod	WeaponMod.hpp	13
+WeaponMod::WeaponMod	WeaponMod.hpp	/^  WeaponMod(std::string name, std::shared_ptr<Weap/
+WeaponMod::_isAcquired	WeaponMod.hpp	41
+WeaponMod::_name	WeaponMod.hpp	40
+WeaponMod::_weapon	WeaponMod.hpp	42
+WeaponMod::acquire	WeaponMod.cpp	/^bool WeaponMod::acquire(){$/
+WeaponMod::getName	WeaponMod.cpp	/^std::string WeaponMod::getName(){$/
+WeaponMod::handleInput	WeaponMod.hpp	/^  virtual void handleInput(sf::Event event){};$/
+WeaponMod::isAcquired	WeaponMod.cpp	/^bool WeaponMod::isAcquired(){$/
+WeaponMod::remove	WeaponMod.cpp	/^void WeaponMod::remove(){$/
+WeaponMod::tick	WeaponMod.hpp	/^  virtual void tick(){}$/
+WeaponState	Weapon.hpp	27
+WeaponState::WS_FIRING_PRIMARY	Weapon.hpp	27
+WeaponState::WS_FIRING_SECONDARY	Weapon.hpp	27
+WeaponState::WS_IDLE	Weapon.hpp	27
+WeaponState::WS_STOWED	Weapon.hpp	27
+WeaponWidget	WeaponWidget.hpp	36
+WeaponWidget::WeaponWidget	WeaponWidget.hpp	/^  WeaponWidget(){}$/
+WeaponWidget::WeaponWidget	WeaponWidget.hpp	/^  WeaponWidget(std::shared_ptr<Weapon> weapon, sf:/
+WeaponWidget::_hideModTree	WeaponWidget.cpp	/^void WeaponWidget::_hideModTree(){$/
+WeaponWidget::_isShowingModTree	WeaponWidget.hpp	49
+WeaponWidget::_modTreeWidget	WeaponWidget.hpp	39
+WeaponWidget::_modWidgets	WeaponWidget.hpp	42
+WeaponWidget::_onMouseOff	WeaponWidget.cpp	/^void WeaponWidget::_onMouseOff(){  $/
+WeaponWidget::_onMouseOver	WeaponWidget.cpp	/^void WeaponWidget::_onMouseOver(){$/
+WeaponWidget::_rebuildModWidgets	WeaponWidget.cpp	/^void WeaponWidget::_rebuildModWidgets(){$/
+WeaponWidget::_showModTree	WeaponWidget.cpp	/^void WeaponWidget::_showModTree(){$/
+WeaponWidget::_showStowedImage	WeaponWidget.hpp	52
+WeaponWidget::_weapon	WeaponWidget.hpp	55
+WeaponWidget::draw	WeaponWidget.cpp	/^void WeaponWidget::draw(sf::RenderWindow& window){/
+WeaponWidget::handleInput	WeaponWidget.cpp	/^void WeaponWidget::handleInput(sf::Event event){  /
+WeaponWidget::setWeapon	WeaponWidget.cpp	/^void WeaponWidget::setWeapon(std::shared_ptr<Weapo/
+Widget	Ui.hpp	16
+Widget::Widget	Ui.hpp	/^  Widget(std::string path, sf::Vector2f position) /
+Widget::Widget	Ui.hpp	/^  Widget(std::string path) : Thing(path) {};$/
+Widget::Widget	Ui.hpp	/^  Widget(){};$/
+Widget::_mouseOver	Ui.hpp	18
+Widget::_onKeyPress	Ui.hpp	/^  virtual void _onKeyPress(sf::Event event){}$/
+Widget::_onKeyRelease	Ui.hpp	/^  virtual void _onKeyRelease(sf::Event event){}$/
+Widget::_onLeftClickPress	Ui.hpp	/^  virtual void _onLeftClickPress(){}$/
+Widget::_onLeftClickRelease	Ui.hpp	/^  virtual void _onLeftClickRelease(){}$/
+Widget::_onMouseOff	Ui.hpp	/^  virtual void _onMouseOff(){}$/
+Widget::_onMouseOver	Ui.hpp	/^  virtual void _onMouseOver(){}$/
+Widget::_onRightClickPress	Ui.hpp	/^  virtual void _onRightClickPress(){}$/
+Widget::_onRightClickRelease	Ui.hpp	/^  virtual void _onRightClickRelease(){}$/
+Widget::draw	Ui.cpp	/^void Widget::draw(sf::RenderWindow& window){$/
+Widget::handleInput	Ui.cpp	/^void Widget::handleInput(sf::Event event){$/
+Widget::isMouseOver	Ui.cpp	/^bool Widget::isMouseOver(){$/
+Widget::tick	Ui.cpp	/^void Widget::tick(){$/
+Wk1‚	background1.png	16347
+Wí	background1.png	2249
+Wø	_tree_02.zip	8267
+W›	house-final-2.png	4
+X	background1.png	35803
+X	house-final-1.png	4
+X	long-path.png	53
+X	_tree_02.zip	6719
+X	Ui.o	1450
+Xo#Æˇ	_tree_02.zip	191
+Xäc§Ñ—g2à	background1.png	20504
+X≠	background1.png	15246
+XÁ	_tree_04.zip	9
+Y	long-path.png	14246
+Y	tree_01a.png	6
+YK	background1.png	16189
+Y1BÙ	background1.png	1404
+YS	long-path.png	18272
+Y_mháû	long-path.png	14247
+Ys	background1.png	7366
+Y´øg	tree_01a.png	70
+Yˇøz	_tree_02.zip	9102
+Z	background1.png	1404
+Z	background1.png	2288
+Z	long-path.png	17465
+Z	house-final-2.png	16
+ZÔ	long-path.png	5
+ZQj	blood4.png	6
+Zf¡_˝P	background1.png	11606
+Zã5Ñ“	background1.png	20530
+Z≤	_tree_01.zip	5
+ZˇNXq	tree_01a.png	58
+_	house-final-2.png	141
+_	player-up.png	5
+_Uwπ	_tree_03.zip	12032
+_√	_tree_02.zip	232
+_˜È˚	_tree_02.zip	4189
+a	background1.png	39043
+a	house-final-1.png	4
+a	_tree_02.zip	1735
+aÇ´≥˜BÂ¶	background1.png	39058
+a0í∫L	background1.png	42729
+aA	Camera.o	686
+aA	Camera.o	694
+aA	Camera.o	697
+aA	Camera.o	701
+aE	background1.png	5994
+af€6ºæﬁp	background1.png	7811
+aá	long-path.png	17583
+aêW5Ií	long-path.png	17618
+a»xf	player-left.png	5
+aÎ∂	long-path.png	17391
+b	background1.png	19252
+b	tree_01a.png	4
+b4y≥ÚóÎó¯•	_tree_02.zip	9586
+bUA	_tree_02.zip	7076
+bb	background1.png	36878
+btÊ	_tree_04.zip	9
+bÑ¸Åv	background1.png	16347
+bßuM	blood4.png	6
+b¬fí∞Í	overlay.png	4
+b¬æ	background1.png	39076
+bﬂ	background1.png	11477
+bÎ	background1.png	16252
+c	background1.png	7425
+c	background1.png	11482
+c	EnemyLegion.o	1172
+c	EnemyLegion.o	1350
+c	_tree_02.zip	4183
+cBÅ“’kªÍ	_tree_02.zip	212
+cGo	background1.png	6027
+cV–	long-path.png	17493
+camera	Camera.cpp	5
+cursor	Cursor.cpp	3
+c	_tree_01.zip	14
+cµm	rubble-vertical.png	8
+cœ≥∏	house-final-2.png	441
+cÔí	teleporter.png	4
+dpu	long-path.png	17531
+dL“x	background1.png	15228
+dQ†Q∑	background1.png	28227
+dVévqÖ	tree.png	72
+distanceBetween	Render.cpp	/^double distanceBetween(sf::Vector2f a, sf::Vector2/
+draw	Ui.hpp	/^void HorizontalBar<T>::draw(sf::RenderWindow& wind/
+dx	background1.png	5977
+dü	house-final-5.png	8
+d≈⁄œ	_tree_02.zip	8304
+d“‰ÌÔˇSﬂz˛îÈ4iƒ	orb-attacking.png	5
+d⁄W	background1.png	7735
+e	background1.png	6990
+e	background1.png	19193
+e	background1.png	40471
+e	EnemyLegion.o	1205
+eä˘E¯X$ùgîﬂ	background1.png	40471
+eôx	long-path.png	17618
+e¨¬˘	background1.png	41517
+f	background1.png	1001
+f	background1.png	40683
+f‚5L	background1.png	4
+f0À	background1.png	36862
+f3÷§	lake-bottom.png	5
+f4KQÇ0	_tree_02.zip	8770
+f4ˇ	_tree_02.zip	4108
+flÈ	background1.png	16342
+frameTick	main.cpp	/^void frameTick(){$/
+f€	_tree_02.zip	/^˚∫·‹õäÚ\/ﬁ∑AØ+Æoz˛∫cæ˛¯á˝nn¶∂öˆñá≠];<∑ÙP’¢ãù∫”/
+f›vƒ	background1.png	37216
+g	long-path.png	17493
+g	_tree_02.zip	180
+g	_tree_02.zip	9101
+g8	background1.png	19199
+g5	_tree_02.zip	7076
+g_†	_tree_02.zip	210
+getUnitVectorBetween	Render.cpp	/^sf::Vector2f getUnitVectorBetween(sf::Vector2f src/
+getUnitVectorOf	Render.cpp	/^sf::Vector2f getUnitVectorOf(sf::Vector2f vec){$/
+getVectorAngleDegrees	Render.cpp	/^double getVectorAngleDegrees(sf::Vector2f vec){$/
+getVectorAngleRadians	Render.cpp	/^double getVectorAngleRadians(sf::Vector2f vec){$/
+getVectorBetween	Render.cpp	/^sf::Vector2f getVectorBetween(sf::Vector2f src, sf/
+getVectorLength	Render.cpp	/^double getVectorLength(sf::Vector2f vec){$/
+gsq∫¿u	long-path.png	14280
+gÜT	_tree_04.zip	4632
+g≈	_tree_02.zip	8823
+g”	_tree_02.zip	9501
+gÛ$	background1.png	36478
+h	background1.png	15227
+h	background1.png	20216
+h	long-path.png	18061
+h‹	background1.png	1750
+h2	background1.png	8149
+h6è	background1.png	15539
+hZ	background1.png	11500
+handleInput	main.cpp	/^void handleInput(sf::Event event){$/
+healthBar	main.cpp	26
+hÉÍoT	background1.png	11660
+hîœ0z8	long-path.png	14246
+hßâ∆ö	background1.png	32217
+i	background1.png	19236
+i	blood3.png	4
+iÈy	long-path.png	14270
+iXúOˇ	_tree_02.zip	4743
+initialiseGameState	main.cpp	/^void initialiseGameState(){$/
+isOnScreen	Render.hpp	/^bool isOnScreen(WorldThing& t){$/
+iÁ	house-final-3.png	669
+j	Animation.o	80
+j	background1.png	41507
+j	EnemyLegion.o	1418
+j	sfml-test	4014
+j	_tree_02.zip	4526
+jiT	house-final-2.png	196
+j¥T	long-path.png	17604
+j’a9n`	long-path.png	17574
+k	background1.png	1346
+k	background1.png	11477
+k	house-final-2.png	13
+k	house-final-4.png	5
+k	long-path.png	18077
+k	_tree_02.zip	177
+k	_tree_02.zip	8771
+k	WeaponWidget.o	2381
+kI	background1.png	16415
+kJORÖ	_tree_04.zip	4633
+kf	background1.png	5978
+kŒ	background1.png	32355
+l	background1.png	32411
+l	tree.png	11
+lHC	background1.png	15214
+lxh	_tree_02.zip	199
+lztﬂœNﬁ	_tree_02.zip	4132
+lèC£oΩaI	_tree_04.zip	9
+lîàp	_tree_02.zip	7366
+lú	background1.png	36900
+l’‚	_tree_02.zip	7107
+m	background1.png	36835
+m	EnemyDemon.o	820
+m	long-path.png	18254
+mÛ≠µSd	background1.png	15227
+m6∑wŸn¥IPX	house-final-2.png	53
+mE	background1.png	15246
+mE`YÃ	long-path.png	17619
+m≈† 	background1.png	28226
+n	background1.png	42694
+n7	background1.png	8056
+nx	Camera.o	705
+ní	background1.png	32217
+nû	background1.png	21451
+nß	background1.png	40620
+n∏	rock.png	5
+o	build.sh	1
+oP	_tree_02.zip	4754
+o1öÛ≤n»’¡ß	background1.png	41473
+oz˛∫c	_tree_02.zip	4489
+oáÙS	background1.png	36901
+oêå	long-path.png	18057
+oÕ‹	background1.png	733
+oÎ†ÍK	background1.png	19288
+oˇ	background1.png	28249
+p	BreakableThing.o	360
+p	long-path.png	18226
+pMKI›À	background1.png	2370
+player	Thing.cpp	3
+playfield	Playfield.cpp	9
+pressPrimaryFire	SniperRifle.hpp	/^void SniperRifle<BulletType>::pressPrimaryFire(sf:/
+pressSecondaryFire	SniperRifle.hpp	/^void SniperRifle<BulletType>::pressSecondaryFire(s/
+póEay	_tree_02.zip	7126
+q	background1.png	40585
+q	_tree_02.zip	7175
+q	_tree_02.zip	9491
+q1Bq	background1.png	32369
+q3s⁄ÓI∞	overlay.png	91
+qFUî¥MG◊iò	long-path.png	17574
+qH	Animation.o	91
+qdZD©	background1.png	8069
+qvWoÏ≠	background1.png	20264
+qx	long-path.png	44
+qìÓ˙	_tree_02.zip	4123
+qúg±xV#´	background1.png	6039
+qÆ	house-final-2.png	198
+qﬁü…	background1.png	15497
+q„n	_tree_02.zip	9493
+r	background1.png	2368
+r	EnemyDemon.o	850
+r2 hB	background1.png	15232
+radiansToDegrees	Render.cpp	/^double radiansToDegrees(double rads){$/
+randDouble	Render.cpp	/^double randDouble(){$/
+randSignedDouble	Render.cpp	/^double randSignedDouble(){$/
+releasePrimaryFire	Revolver.hpp	/^void Revolver<BulletType>::releasePrimaryFire(sf::/
+releasePrimaryFire	SniperRifle.hpp	/^void SniperRifle<BulletType>::releasePrimaryFire(s/
+s	Animation.o	35
+s	background1.png	5994
+s	background1.png	16333
+s	ThingEntrance.o	28
+s	WeaponWidget.o	2242
+s	background1.png	40788
+sM§Wœë◊ÎegD	background1.png	2391
+std	Makefile	4
+s•s	background1.png	37043
+s€•QZ	background1.png	19260
+s‚B·Ï®6	tree_01a.png	4
+t	long-path.png	17529
+t	long-path.png	20337
+t	_tree_02.zip	4108
+t9‚ÊvãÁH∆q	long-path.png	18254
+tWcù¶jè÷z	background1.png	36865
+testing	build.sh	1
+tick	Minigun.hpp	/^void Minigun<BulletType>::tick(){$/
+tick	PumpShotgun.hpp	/^void PumpShotgun<BulletType>::tick(){$/
+tick	Revolver.hpp	/^void Revolver<BulletType>::tick(){$/
+tick	Smg.hpp	/^void Smg<BulletType>::tick(){$/
+tick	SniperRifle.hpp	/^void SniperRifle<BulletType>::tick(){$/
+tick	Ui.hpp	/^void HorizontalBar<T>::tick(){$/
+tæÎÿn	_tree_02.zip	4155
+t r	long-path.png	18255
+tŒaúG	background1.png	39059
+u	background1.png	5978
+uq˛	background1.png	19284
+u4˘	background1.png	7809
+uC”t‘Ì@Øß2G◊T	long-path.png	18226
+uµ	background1.png	22024
+uÊaW4E	_tree_02.zip	7056
+uË	long-path.png	17585
+uˆnZ˙€ƒv	_tree_02.zip	5415
+v	background1.png	40471
+v	background1.png	42712
+v	_tree_02.zip	9494
+v	_tree_02.zip	9514
+v	house-final-4.png	6
+vBoEu	background1.png	11470
+vC˙	long-path.png	20336
+vfm∑	background1.png	11480
+vg™	background1.png	8496
+v÷t72NZŒb„Y	background1.png	28254
+v„	house-final-5.png	4
+w	EnemyDemon.o	20
+w	long-path.png	17619
+w	sfml-test	4106
+w	sfml-test	4992
+w	_tree_02.zip	4116
+wJ	rock.png	9
+weaponIcon	main.cpp	27
+wf	_tree_02.zip	4123
+wè	_tree_02.zip	6629
+wª	_tree_02.zip	4996
+w˚rÜHH	_tree_02.zip	7878
+x	house-final-3.png	11
+x	house-rotated.png	7
+x	long-path.png	18272
+x™	long-path.png	67
+x$R»8Ì±∆”ZC€	long-path.png	53
+xJËy‘	long-path.png	17603
+xZú	_tree_04.zip	10
+xf	overlay.png	90
+xzﬂ∏	background1.png	16345
+x≤L	_tree_03.zip	685
+xπT	background1.png	17016
+yB5ç©c™ù	_tree_02.zip	9510
+yJëƒ1	long-path.png	14272
+y4	_tree_02.zip	4527
+yé5	_tree_02.zip	232
+y†	background1.png	36902
+y†◊±A	_tree_02.zip	6719
+z	background1.png	6897
+z	background1.png	15283
+z	EnemyLegion.o	1405
+z	house-final-1.png	128
+z	long-path.png	14240
+z	long-path.png	20344
+zaﬂv¥⁄l1	background1.png	36865
+zì	house-final-5.png	25
+~	rubble-vertical.png	4
+~	_tree_02.zip	9501
+~	well.png	5
+~	background1.png	16928
+~	house-final-3.png	671
+~Ï ºT‹–D	background1.png	8148
+~5	background1.png	37016
+~Ix	background1.png	7809
+~M	_tree_02.zip	6629
+~S	background1.png	20508
+~uáÒOtÕ˛5ÛŒ	background1.png	1882
+~uï	_tree_02.zip	7301
+~áõ	background1.png	15227
+~‡øTj4	long-path.png	17391
+~Úﬁﬂb§çÑı	_tree_02.zip	8812
+Ñ¯	background1.png	5
+öÁL≤4Õæ—≥M	_tree_02.zip	7364
+¶æ	background1.png	19319
+≠Ö	background1.png	20481
+µ	background1.png	6872
+ƒ	_tree_01.zip	5
+◊˜›…ŸΩ4_	background1.png	11800
+ÈE÷	house-final-1.png	125
+Ú	long-path.png	17531

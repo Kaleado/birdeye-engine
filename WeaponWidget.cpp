@@ -15,7 +15,7 @@ void WeaponWidget::setWeapon(std::shared_ptr<Weapon> weapon){
   _rebuildModWidgets();
 }
 
-void WeaponWidget::handleInput(sf::Event event){  
+void WeaponWidget::handleInput(sf::Event event){
   Widget::handleInput(event);
   //Hide the mod tree widget.
   if(_isShowingModTree && !isMouseOver() && !_modTreeWidget.isMouseOver()){
@@ -47,7 +47,7 @@ void WeaponWidget::_rebuildModWidgets(){
 }
 
 void WeaponWidget::draw(sf::RenderWindow& window){
-  //Show the modtree if we need to.  
+  //Show the modtree if we need to.
   if(_isShowingModTree){
     _rebuildModWidgets();
     std::cout << "Showing";
@@ -56,7 +56,7 @@ void WeaponWidget::draw(sf::RenderWindow& window){
       w->draw(window);
     }
   }
-  
+
   //Also show the stowed/unstowed image.
   _sprite.setOrigin({WEAPON_ICON_WIDTH/2, WEAPON_ICON_HEIGHT/2});//Center of the image.
   if((!_weapon || _weapon->weaponState == WS_STOWED) && _showStowedImage == false){
@@ -79,7 +79,7 @@ void WeaponWidget::_onMouseOver(){
   _showModTree();
 }
 
-void WeaponWidget::_onMouseOff(){  
+void WeaponWidget::_onMouseOff(){
 }
 
 void WeaponWidget::_hideModTree(){

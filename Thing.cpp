@@ -58,7 +58,7 @@ void Thing::draw(sf::RenderWindow& window){
       _isLoaded = false;
     }
   }
-  else if(!_isLoaded){
+  else if(!_isLoaded && _path != ""){
     if(_load()){
       std::cerr << "Could not load image at path '" << _path << "'\n";
       return;
@@ -82,12 +82,13 @@ void Thing::preventOverlapping(std::weak_ptr<Thing> otherThing, double strength)
   centerVector = {centerVector.x / length, centerVector.y / length};
   //Two cases: horizontally, vertically.
   //Vertically.
-  if(getBounds().top <= otherPos2.y || getBounds().top >= otherPos2.y + otherBounds.height){
+  if(thisCenter.y <= otherPos2.y || thisCenter.y >= otherPos2.y + otherBounds.height){
     centerVector.x = 0;
   }
-  else if(getBounds().left <= otherPos2.x || getBounds().left >= otherPos2.x + otherBounds.width){
+  else if(thisCenter.x <= otherPos2.x || thisCenter.x >= otherPos2.x + otherBounds.width){
     centerVector.y = 0;
   }
+  if(centerVector.y != 0 && centerVector.x != 0){std::cerr << "FUCK FUCK FUCK\n";}
   //We then add this vector to the enemy's current velocity.
   while(getBounds().intersects(otherBounds)){
     _position += centerVector;
@@ -175,7 +176,7 @@ void AmmoCasing::draw(sf::RenderWindow& window){
       _isLoaded = false;
     }
   }
-  else if(!_isLoaded){
+  else if(!_isLoaded && _path != ""){
     if(_load()){
       std::cerr << "Could not load image at path '" << _path << "'\n";
       return;

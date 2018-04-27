@@ -3,6 +3,7 @@
 //Loads the animation's frames.
 int Animation::_load(){
   for(int s = 0; s < _paths.size(); ++s){
+    if(_paths[s] == ""){continue;}
     if(!_textures[s].loadFromFile(_paths[s])){
       _isLoaded = false;
       return 1;

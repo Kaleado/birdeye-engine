@@ -1,7 +1,6 @@
 #include "Player.hpp"
 #include "Weapon.hpp"
 
-
 void Player::die(){
   std::cout << "You died.";
   cull();

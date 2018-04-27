@@ -7,13 +7,8 @@
 
 /**
   A class representing a bullet fired by a gun, _OR AN ATTACK
-  ANIMATION_. Use this for melee attacks as well. Important point -
-  this represents an UNALIGNED BULLET, that will damage FRIEND AND FOE
-  ALIKE. To make bullets for player guns, subclass this into a
-  friendly bullet (see FriendlyBullet for an example). I realise this
-  is probably needlessly complicated but it was a graceful way to
-  minimising code repetition.
- */
+  ANIMATION_. Use this for melee attacks as well.
+*/
 class Bullet : public Thing {
 protected:
   //!Damage dealt by the bullet when it comes into contact with something.

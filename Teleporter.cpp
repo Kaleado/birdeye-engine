@@ -5,12 +5,8 @@ void Teleporter::_whenCollidingWith(std::weak_ptr<Thing> other){
     return;
   }
   auto otherPtr = other.lock();
-  //std::shared_ptr<Bullet> asBullet = std::dynamic_pointer_cast<Bullet>(otherPtr);
-  otherPtr->setWorldPosition(_otherTeleporter->getPosition());
-
-  //_cooldownTimer = _cooldownMax;
+  otherPtr->setWorldPosition(_otherTeleporter->getWorldPosition());
   _otherTeleporter->_cooldownTimer = _otherTeleporter->_cooldownMax;
-  //_enabled = false;
   _otherTeleporter->_enabled = false;
 }
 

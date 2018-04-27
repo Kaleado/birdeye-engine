@@ -73,7 +73,7 @@ void PumpShotgun<BulletType>::tick(){
   //Initiate pumping.
   if(weaponState == WS_FIRING_SECONDARY && !_isPumped){
     //Add a particle (the expelled casing).
-    auto playerPos = player->getPosition();
+    auto playerPos = player->getWorldPosition();
     std::shared_ptr<AmmoCasing> casing = std::make_shared<AmmoCasing>("shotgun-particle.png", playerPos, 2.0, 0, randDouble() * -2, 0.5, 0.9, FRAMERATE*3);
     playfield->addThing(casing);
 

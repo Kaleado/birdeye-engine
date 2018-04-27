@@ -131,7 +131,7 @@ void Thing::handleCollision(std::weak_ptr<Thing> other){
   //Don't handle any collisions.
 }
 
-sf::Vector2f Thing::getPosition(){
+sf::Vector2f Thing::getWorldPosition(){
   return _position;
 }
 sf::FloatRect Thing::getBounds(){

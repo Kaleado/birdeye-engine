@@ -37,7 +37,7 @@ void SniperRifle<BulletType>::tick(){
   case WS_FIRING_PRIMARY:
     if(cooldown <= 0 && _hasReleasedLeftMouse){
       auto target = cursorPos;
-      auto playerPos = player->getPosition();
+      auto playerPos = player->getWorldPosition();
       auto velocityVector = getUnitVectorBetween(playerPos, target);
       velocityVector.x *= _shotVelocity;
       velocityVector.y *= _shotVelocity;
@@ -49,7 +49,7 @@ void SniperRifle<BulletType>::tick(){
       playfield->addThing(casing);
 
       double deviation = 5;
-      auto facingDegrees = getVectorAngleDegrees(getVectorBetween(player->getPosition(),
+      auto facingDegrees = getVectorAngleDegrees(getVectorBetween(player->getWorldPosition(),
                                                                   cursor->getWorldPosition()));
       auto dir = facingDegrees + 180 + (randDouble()*2 - 1) * deviation;
       //cursor->kick(dir, 80);
@@ -68,15 +68,15 @@ void SniperRifle<BulletType>::tick(){
   }
 
   if(_isZooming){
-    auto focusPoint = getVectorBetween(player->getPosition(), cursorPos);
+    auto focusPoint = getVectorBetween(player->getWorldPosition(), cursorPos);
     focusPoint.x /= 2;
     focusPoint.y /= 2;
-    focusPoint.x += player->getPosition().x;
-    focusPoint.y += player->getPosition().y;
+    focusPoint.x += player->getWorldPosition().x;
+    focusPoint.y += player->getWorldPosition().y;
     camera.setFocusPosition(focusPoint);
   }
   else{
-    camera.setFocusPosition(player->getPosition());
+    camera.setFocusPosition(player->getWorldPosition());
   }
 
 }

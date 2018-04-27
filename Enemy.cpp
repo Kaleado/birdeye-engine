@@ -16,7 +16,7 @@ double Enemy::_getDistanceFromPlayer(){
   if(player->isCulled()){
     return std::numeric_limits<double>::infinity();
   }
-  auto playerPos = player->getPosition();
+  auto playerPos = player->getWorldPosition();
   double dx = _position.x - playerPos.x;
   double dy = _position.y - playerPos.y;
   return std::sqrt(dx*dx + dy*dy);

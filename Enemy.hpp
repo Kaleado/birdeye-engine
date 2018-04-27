@@ -121,7 +121,7 @@ protected:
   //!Adds a delay between attacking.
   int _attackTimer;
 
-  //!Paths to images to be displayed when the Enemyis facing in different directions.
+  //!Paths to images to be displayed when the Enemy is facing in different directions.
   std::array<std::string, FACING_MAX> _facingPaths;
 };
 

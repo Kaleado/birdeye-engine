@@ -114,7 +114,7 @@ public:
   void setVelocity(sf::Vector2f v);
 
   //!Gets the _world_ position of the thing - NOT THE SCREEN POSITION.
-  sf::Vector2f getPosition();
+  sf::Vector2f getWorldPosition();
 
   //!Gets the position of the thing ON THE SCREEN (not the world position).
   sf::Vector2f getScreenPosition();

@@ -2,9 +2,6 @@
 #include <vector>
 #include <thread>
 #include <SFML/Graphics.hpp>
-#include "Render.hpp"
-#include "Thing.hpp"
-#include "Player.hpp"
 #include "Playfield.hpp"
 #include "Enemy.hpp"
 #include "Cursor.hpp"
@@ -85,7 +82,7 @@ void initialiseGameState(){
 //!This function draws everything on the screen and calls tick() for everything that needs to handle events every frame.
 void frameTick(){
   window.clear(sf::Color::Black);
-  camera.setFocusPosition(player->getPosition());
+  camera.setFocusPosition(player->getWorldPosition());
   playfield->tick();
   playfield->draw(window);
   healthBar.draw(window);

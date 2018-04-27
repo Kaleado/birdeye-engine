@@ -2,7 +2,6 @@
 #define BULLET_H
 
 #include <iostream>
-#include "Thing.hpp"
 #include "Enemy.hpp"
 
 /**

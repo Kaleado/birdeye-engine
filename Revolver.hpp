@@ -38,13 +38,13 @@ void Revolver<BulletType>::tick(){
     //double deviation = 360;
     double deviation = 5;
     //auto dir = static_cast<double>(std::rand())/RAND_MAX * deviation;
-    auto facingDegrees = getVectorAngleDegrees(getVectorBetween(player->getPosition(),
+    auto facingDegrees = getVectorAngleDegrees(getVectorBetween(player->getWorldPosition(),
                                                                 cursor->getWorldPosition()));
     auto dir = facingDegrees + 180 + (randDouble()*2 - 1) * deviation;
     //cursor->kick(dir, 37.5);
     camera.kick(dir, 37.5);
     auto target = cursor->getWorldPosition();
-    auto pos = player->getPosition();
+    auto pos = player->getWorldPosition();
     std::shared_ptr<Bullet> bullet = std::make_shared<Bullet>(true, "bullet-final.png", pos, _shotDamage, sf::Vector2f{0,0}, 180);
     //bullet->setColor(sf::Color(0, 0, 255));
     float opp = target.y - pos.y;

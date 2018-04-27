@@ -32,7 +32,7 @@ void Smg<BulletType>::tick(){
 
   if(weaponState == WS_FIRING_PRIMARY && --cooldown <= 0){
     //Add a particle (the expelled casing).
-    auto playerPos = player->getPosition();
+    auto playerPos = player->getWorldPosition();
     std::shared_ptr<AmmoCasing> casing = std::make_shared<AmmoCasing>("pistol-particle.png", playerPos, 0.5, 0, randDouble() * -5, 0.5, 0.9, FRAMERATE*3);
     playfield->addThing(casing);
 
@@ -43,7 +43,7 @@ void Smg<BulletType>::tick(){
     //cursor->kick(dir, 6);
     camera.kick(dir, 9);
     auto target = cursor->getWorldPosition();
-    auto pos = player->getPosition();
+    auto pos = player->getWorldPosition();
     //std::shared_ptr<Bullet> bullet = std::make_shared<FriendlyBullet>("bullet-final.png", pos, _shotDamage, sf::Vector2f{0,0}, 180);
     float opp = target.y - pos.y;
     float adj = target.x - pos.x;

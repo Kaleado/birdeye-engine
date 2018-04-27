@@ -7,7 +7,7 @@ class BreakableThing : public Enemy, public std::enable_shared_from_this<Breakab
 protected:
   //!This will cause particles to fly everywhere.
   void _whenKilled();
-  
+
   //!Executed when something collides with the thing.
   virtual void _whenCollidingWith(std::weak_ptr<Thing> other);
 

@@ -19,8 +19,7 @@ void EnemyDemon::_whenAttacking(){
 }
 
 void EnemyDemon::_whenAggro(){
-
-  _facing = getUnitVectorBetween(_position, player->getPosition());
+  _facing = getUnitVectorBetween(_position, player->getWorldPosition());
   _setImageBasedOnFacing();
   double dist = _getDistanceFromPlayer();
   double attackRange = 30;
@@ -47,7 +46,7 @@ void EnemyDemon::_whenAggro(){
     return;
   }
 
-  auto target = player->getPosition();
+  auto target = player->getWorldPosition();
   auto unitVector = getUnitVectorBetween(_position, target);
 
   if(_initiateLeap){

@@ -159,6 +159,8 @@ class EphemeralAnimation : public Particle {
 protected:
 public:
   virtual void tick();
+  virtual void draw(sf::RenderWindow& window);
+  EphemeralAnimation(Animation& anim, sf::Vector2f position) : Particle(anim, position) {};
 };
 
 //!Represents an ammo casing particle expelled by a gun.

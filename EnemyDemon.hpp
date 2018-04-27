@@ -15,7 +15,8 @@ public:
                                                                      "enemy-left.png", "enemy-right.png",
                                                                      "enemy-upleft.png", "enemy-upright.png",
                                                                      "enemy-downleft.png", "enemy-downright.png"},
-                                                                     position, maxHp, speed) { };
+                                                                     position, maxHp, speed,
+                                                                     sf::FloatRect{7.0, 31.0, 26.0, 14.0}) { };
   EnemyDemon(){ };
 
 protected:

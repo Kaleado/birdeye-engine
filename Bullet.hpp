@@ -25,6 +25,9 @@ protected:
   //!Whether the bullet will harm the player or if it will harm enemies.
   bool _isFriendly;
 public:
+  //!Returns the bounds of the bullet.
+  sf::FloatRect getBounds();
+
   //!Executed every frame, but you should know this by now.
   virtual void tick();
 

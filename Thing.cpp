@@ -185,3 +185,14 @@ void AmmoCasing::draw(sf::RenderWindow& window){
   _sprite.setPosition(displayedPosition);
   window.draw(_sprite);
 }
+
+void EphemeralAnimation::tick(){
+  if(_isAnimating == false){
+    cull();
+    return;
+  }
+}
+
+void EphemeralAnimation::draw(sf::RenderWindow& window){
+  Thing::draw(window);
+}

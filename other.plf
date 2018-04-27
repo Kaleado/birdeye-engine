@@ -6,10 +6,10 @@ DefaultPlayer 432 330
 Marker 432 330 entry
 
 # Top border trees
-EnvironmentThing tree_01a.png -100 -100 false false
-EnvironmentThing tree_01b.png 100 -100 false false
-EnvironmentThing tree_01a.png 300 -100 false false
-EnvironmentThing tree_01b.png 648 -100 false false
+EnvironmentThing tree_01a.png -100 -100 125 277 35 28 false false
+EnvironmentThing tree_01b.png 100 -100 93 206 91 72 false false
+EnvironmentThing tree_01a.png 300 -100 125 277 35 28 false false
+EnvironmentThing tree_01b.png 648 -100 93 206 91 72 false false
 
 # Environmental things.
 EnvironmentThing house-final-4.png 30 300 0 172 236 90 false false

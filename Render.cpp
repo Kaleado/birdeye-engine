@@ -13,6 +13,10 @@ double randDouble(){
   return static_cast<double>(std::rand())/RAND_MAX;
 }
 
+double randSignedDouble(){
+  return randDouble()*2 - 1;
+}
+
 double radiansToDegrees(double rads){
   return rads / 3.14159265358979 * 180;
 }

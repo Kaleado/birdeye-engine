@@ -16,7 +16,7 @@ double Enemy::_getDistanceFromPlayer(){
   if(player->isCulled()){
     return std::numeric_limits<double>::infinity();
   }
-  auto playerPos = player->getPosition();
+  auto playerPos = player->getWorldPosition();
   double dx = _position.x - playerPos.x;
   double dy = _position.y - playerPos.y;
   return std::sqrt(dx*dx + dy*dy);
@@ -119,7 +119,7 @@ void Enemy::tick(){
 void Enemy::damage(int amount){
   if(amount > 0){
     auto anim = Animation{{"blood1.png", "blood2.png", "blood3.png", "blood4.png"}, false, FRAMERATE/2};
-    auto bloodAnimation = std::make_shared<Thing>(anim, _position);
+    auto bloodAnimation = std::make_shared<EphemeralAnimation>(anim, _position);
     bloodAnimation->setRotation(randDouble() * 360);
     playfield->addThing(bloodAnimation);
   }

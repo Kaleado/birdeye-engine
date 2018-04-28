@@ -14,6 +14,11 @@ sf::Vector2f Thing::getWorldCenter(){
   return {_position.x + getBounds().width/2, _position.y + getBounds().height/2};
 }
 
+sf::Vector2f Thing::getHitboxWorldCenter(){
+  auto b = getBounds();
+  return {b.left + b.width/2, b.top + b.height/2};
+}
+
 sf::Vector2f Thing::getScreenPosition(){
   return sf::Vector2f{_position.x -  camera.getPosition().x, _position.y -  camera.getPosition().y};
 }
@@ -53,7 +58,7 @@ void Thing::draw(sf::RenderWindow& window){
       _isLoaded = false;
     }
   }
-  else if(!_isLoaded){
+  else if(!_isLoaded && _path != ""){
     if(_load()){
       std::cerr << "Could not load image at path '" << _path << "'\n";
       return;
@@ -68,20 +73,19 @@ void Thing::preventOverlapping(std::weak_ptr<Thing> otherThing, double strength)
   auto otherBounds = otherThing.lock()->getBounds();
   //We get the unit vector between the two centers of the enemies -
   //this will point away from the center of one of the enemies.
-  auto otherPos  = otherThing.lock()->getWorldCenter();
-  auto otherPos2 = otherThing.lock()->getPosition();
-  auto thisCenter = getWorldCenter();
-  double pushFactor = strength; //The strength of the 'push' out of an enemy there is.
+  auto otherPos  = otherThing.lock()->getHitboxWorldCenter();
+  sf::Vector2f otherPos2 = {otherThing.lock()->getBounds().left, otherThing.lock()->getBounds().top};
+  auto thisCenter = getHitboxWorldCenter();
   sf::Vector2f centerVector = { thisCenter.x - otherPos.x,
                                 thisCenter.y - otherPos.y};
   float length = std::sqrt(centerVector.x*centerVector.x + centerVector.y*centerVector.y);
   centerVector = {centerVector.x / length, centerVector.y / length};
   //Two cases: horizontally, vertically.
   //Vertically.
-  if(_position.y <= otherPos2.y || _position.y >= otherPos2.y + otherBounds.height){
+  if(thisCenter.y <= otherPos2.y || thisCenter.y >= otherPos2.y + otherBounds.height){
     centerVector.x = 0;
   }
-  else if(_position.x <= otherPos2.x || _position.x >= otherPos2.x + otherBounds.width){
+  else if(thisCenter.x <= otherPos2.x || thisCenter.x >= otherPos2.x + otherBounds.width){
     centerVector.y = 0;
   }
   //We then add this vector to the enemy's current velocity.
@@ -127,11 +131,13 @@ void Thing::handleCollision(std::weak_ptr<Thing> other){
   //Don't handle any collisions.
 }
 
-sf::Vector2f Thing::getPosition(){
+sf::Vector2f Thing::getWorldPosition(){
   return _position;
 }
 sf::FloatRect Thing::getBounds(){
-  return _sprite.getGlobalBounds();
+  sf::FloatRect r = sf::FloatRect{_hitboxAtZeroZero.left + getScreenPosition().x, _hitboxAtZeroZero.top + getScreenPosition().y, _hitboxAtZeroZero.width, _hitboxAtZeroZero.height};
+  //std::cout << r.left << " " << r.top << " " << r.width << " " << r.height << "\n";
+  return r;
 }
 
 float Thing::getWorldRotation(){
@@ -169,7 +175,7 @@ void AmmoCasing::draw(sf::RenderWindow& window){
       _isLoaded = false;
     }
   }
-  else if(!_isLoaded){
+  else if(!_isLoaded && _path != ""){
     if(_load()){
       std::cerr << "Could not load image at path '" << _path << "'\n";
       return;
@@ -178,4 +184,15 @@ void AmmoCasing::draw(sf::RenderWindow& window){
   auto displayedPosition = sf::Vector2f{getScreenPosition().x, getScreenPosition().y + _z};
   _sprite.setPosition(displayedPosition);
   window.draw(_sprite);
+}
+
+void EphemeralAnimation::tick(){
+  if(_isAnimating == false){
+    cull();
+    return;
+  }
+}
+
+void EphemeralAnimation::draw(sf::RenderWindow& window){
+  Thing::draw(window);
 }

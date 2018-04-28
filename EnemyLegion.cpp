@@ -97,12 +97,12 @@ void EnemyLegionSlave::_whenAttacking(){
 }
 
 void EnemyLegionSlave::_whenAggro(){
-  _facing = getUnitVectorBetween(_position, player->getPosition());
+  _facing = getUnitVectorBetween(_position, player->getWorldPosition());
   _setImageBasedOnFacing();
   double dist = _getDistanceFromPlayer();
   double attackRange = 30;
   if(dist > attackRange){
-    auto target = player->getPosition();
+    auto target = player->getWorldPosition();
 
     auto unitVector = getUnitVectorBetween(_position, target);
 
@@ -126,7 +126,7 @@ void EnemyLegionSlave::_whenIdle(){
 
 void EnemyLegionSlave::_whenTick(){
   if(enemyState == ES_FLEE){
-    auto target = player->getPosition();
+    auto target = player->getWorldPosition();
 
     auto unitVector = getUnitVectorBetween(_position, target);
 

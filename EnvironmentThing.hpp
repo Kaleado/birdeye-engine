@@ -38,17 +38,36 @@ public:
   //!is implemented here.
   void handleCollision(std::weak_ptr<Thing> other);
 
+  EnvironmentThing(Animation& anim, sf::Vector2f position, bool canShootThrough, bool canWalkThrough, sf::FloatRect hitboxAtZeroZero) : Thing(anim, position) {
+    _canShootThrough = canShootThrough;
+    _canWalkThrough = canWalkThrough;
+    _hitboxAtZeroZero = hitboxAtZeroZero;
+  }
+  EnvironmentThing(std::string path, sf::Vector2f position, bool canShootThrough, bool canWalkThrough, sf::FloatRect hitboxAtZeroZero) : Thing(path, position) {
+    _canShootThrough = canShootThrough;
+    _canWalkThrough = canWalkThrough;
+    _hitboxAtZeroZero = hitboxAtZeroZero;
+  }
+  EnvironmentThing(std::string path, bool canShootThrough, bool canWalkThrough, sf::FloatRect hitboxAtZeroZero) : Thing(path) {
+    _canShootThrough = canShootThrough;
+    _canWalkThrough = canWalkThrough;
+    _hitboxAtZeroZero = hitboxAtZeroZero;
+  }
+
   EnvironmentThing(Animation& anim, sf::Vector2f position, bool canShootThrough, bool canWalkThrough) : Thing(anim, position) {
     _canShootThrough = canShootThrough;
     _canWalkThrough = canWalkThrough;
+    _hitboxAtZeroZero = {0,0,0,0};
   }
   EnvironmentThing(std::string path, sf::Vector2f position, bool canShootThrough, bool canWalkThrough) : Thing(path, position) {
     _canShootThrough = canShootThrough;
     _canWalkThrough = canWalkThrough;
+    _hitboxAtZeroZero = {0,0,0,0};
   }
   EnvironmentThing(std::string path, bool canShootThrough, bool canWalkThrough) : Thing(path) {
     _canShootThrough = canShootThrough;
     _canWalkThrough = canWalkThrough;
+    _hitboxAtZeroZero = {0,0,0,0};
   }
   EnvironmentThing() : Thing() {}
 };

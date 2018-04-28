@@ -32,7 +32,7 @@ void ChanneledAbility::tick(){
     _whileActive();
     if(--_channelCountdown <= 0){
       _cooldownCountdown = _cooldownLength;
-      abilityState = AS_COOLDOWN;      
+      abilityState = AS_COOLDOWN;
     }
   }
   else if(abilityState == AS_COOLDOWN){

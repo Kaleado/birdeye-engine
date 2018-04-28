@@ -23,7 +23,7 @@ void EnemyEye::_whenAttacking(){
 }
 
 void EnemyEye::_whenAggro(){
-  _facing = getUnitVectorBetween(_position, player->getPosition());
+  _facing = getUnitVectorBetween(_position, player->getWorldPosition());
   _setImageBasedOnFacing();
   double dist = _getDistanceFromPlayer();
   double attackRange = 500;

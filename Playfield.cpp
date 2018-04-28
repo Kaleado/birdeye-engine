@@ -23,7 +23,7 @@ Playfield::Playfield(std::string playfieldPath){
     lineStrm >> command;
     std::cout << "(" << command << ")\n";
 
-    //\\//\\//\\// COMMANDS //\\//\\//\\//a
+    //\\//\\//\\// COMMANDS //\\//\\//\\//
 
     //Specifying the background file.
     if(command == "#"){
@@ -42,10 +42,11 @@ Playfield::Playfield(std::string playfieldPath){
     }
     else if(command == "EnvironmentThing"){
       std::string thingPath;
-      int x, y;
+      int x, y, hitboxX, hitboxY, hitboxW, hitboxH;
       bool shootThrough, walkThrough;
-      lineStrm >> thingPath >> x >> y >> std::boolalpha >> shootThrough >> walkThrough;
-      addThing(std::make_shared<EnvironmentThing>(thingPath, sf::Vector2f{x, y}, shootThrough, walkThrough));
+      lineStrm >> thingPath >> x >> y >> hitboxX >> hitboxY >> hitboxW >> hitboxH >> std::boolalpha >> shootThrough >> walkThrough;
+      sf::FloatRect hb = sf::FloatRect{hitboxX, hitboxY, hitboxW, hitboxH};
+      addThing(std::make_shared<EnvironmentThing>(thingPath, sf::Vector2f{x, y}, shootThrough, walkThrough, hb));
     }
     else if(command == "BreakableThing"){
       std::string thingPath;
@@ -212,6 +213,10 @@ void Playfield::tick(){
       first->handleCollision(player);
     }
   }
+  auto sortByYPos = [](std::shared_ptr<Thing> thing1, std::shared_ptr<Thing> thing2){
+    return thing1->getBounds().top < thing2->getBounds().top;
+  };
+  std::sort(_things.begin(), _things.end(), sortByYPos);
 }
 
 void Playfield::_cullThings(){

@@ -5,7 +5,8 @@
 
 class EnemyEye : public Enemy {
 public:
-  EnemyEye(sf::Vector2f position, int maxHp, double speed) : Enemy("orb.png", position, maxHp, speed) { };  
+  EnemyEye(sf::Vector2f position, int maxHp, double speed) : Enemy("orb.png", position, maxHp, speed,
+                                                                   sf::FloatRect{0.0, 72.0, 64.0, 28.0}) { };
 protected:
   int _attackCooldown=0;
   //int _attackTimer;

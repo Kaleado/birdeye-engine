@@ -36,6 +36,9 @@ double distanceBetween(sf::Vector2f a, sf::Vector2f b);
 //!Returns a random number between 0 and 1.
 double randDouble();
 
+//!Returns a random number between -1 and 1.
+double randSignedDouble();
+
 //!Returns the angle in degrees.
 double radiansToDegrees(double rads);
 

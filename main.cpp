@@ -2,9 +2,6 @@
 #include <vector>
 #include <thread>
 #include <SFML/Graphics.hpp>
-#include "Render.hpp"
-#include "Thing.hpp"
-#include "Player.hpp"
 #include "Playfield.hpp"
 #include "Enemy.hpp"
 #include "Cursor.hpp"
@@ -42,7 +39,7 @@ void handleInput(sf::Event event){
 void initialiseGameState(){
   camera = Camera(sf::Vector2f{-100, -100});
   cursor = std::make_shared<Cursor>("cursor.png");
-  player = std::make_shared<Player>("player-down.png", sf::Vector2f{0, 0}, 6.0);
+  player = std::make_shared<Player>("player-down.png", sf::Vector2f{0, 0}, 6.0, sf::FloatRect{7.0, 31.0, 26.0, 14.0});
   player->setSprintAbility(std::make_shared<Sprint>(1.333));
   playfield = std::make_shared<Playfield>("other.plf");
 
@@ -85,7 +82,7 @@ void initialiseGameState(){
 //!This function draws everything on the screen and calls tick() for everything that needs to handle events every frame.
 void frameTick(){
   window.clear(sf::Color::Black);
-  camera.setFocusPosition(player->getPosition());
+  camera.setFocusPosition(player->getWorldPosition());
   playfield->tick();
   playfield->draw(window);
   healthBar.draw(window);

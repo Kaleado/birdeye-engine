@@ -1,15 +1,21 @@
 #include "Bullet.hpp"
 
+sf::FloatRect Bullet::getBounds(){
+  return _sprite.getGlobalBounds();
+}
+
 void Bullet::handleCollision(std::weak_ptr<Thing> other){
   std::shared_ptr<Enemy> asEnemy = std::dynamic_pointer_cast<Enemy>(other.lock());
   if(asEnemy && _isFriendly){
     asEnemy->damage(_damage);
     cull();
+    return;
   }
   std::shared_ptr<Player> asPlayer = std::dynamic_pointer_cast<Player>(other.lock());
   if(asPlayer && !_isFriendly){
     asPlayer->damage(_damage);
     cull();
+    return;
   }
 }
 

@@ -37,7 +37,7 @@ class WeaponWidget : public Widget {
 protected:
   //!Represents the mod tree that pops up when you mouse-over the weapon icon.
   Widget _modTreeWidget;
-  
+
   //!This list will contain widgets for each mod in the mod tree.
   std::vector<std::shared_ptr<ModWidget>> _modWidgets;
 
@@ -57,8 +57,8 @@ protected:
   //!These are overriden to give the desired behaviour to the weapon widget.
   //!Show the mod tree widget.
   void _onMouseOver();
-  
-  //!Hide the mod tree widget.  
+
+  //!Hide the mod tree widget.
   void _onMouseOff();
 
   //!Re-fetch all the mods from the weapon and update the UI to display them.
@@ -72,7 +72,7 @@ public:
 
   //!Show the modtree widget if we need to. Also show the stowed/unstowed image.
   void draw(sf::RenderWindow& window);
-  
+
   WeaponWidget(){}
   WeaponWidget(std::shared_ptr<Weapon> weapon, sf::Vector2f position) : Widget{"", position} {
     _weapon = weapon;

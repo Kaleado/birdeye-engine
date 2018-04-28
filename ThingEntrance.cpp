@@ -27,6 +27,6 @@ void ThingEntrance::handleCollision(std::weak_ptr<Thing> other){
     playfield->addThing(player);
     //Update position here.
     auto marker = playfield->findMarker(_destinationMarkerId);
-    player->setWorldPosition(marker->getPosition());
+    player->setWorldPosition(marker->getWorldPosition());
   }
 }

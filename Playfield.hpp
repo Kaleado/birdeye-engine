@@ -94,7 +94,6 @@ public:
   void kickCamera(double angleDegrees, double strength);
 
   Playfield(){}
-  //Playfield(std::string backgroundPath) : _backgroundPath{backgroundPath} {}
 
   //!This constructor loads a playfield from a file.
   Playfield(std::string playfieldPath);

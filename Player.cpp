@@ -1,7 +1,6 @@
 #include "Player.hpp"
 #include "Weapon.hpp"
 
-
 void Player::die(){
   std::cout << "You died.";
   cull();
@@ -165,7 +164,6 @@ void Player::giveWeapon(std::shared_ptr<Weapon> weapon){
       _weapons[i] = weapon;
       _curWeapon = weapon;
       _curWeaponIndex = i;
-      std::cout << "ye";
       return;
     }
   }

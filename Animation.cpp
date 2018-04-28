@@ -3,6 +3,7 @@
 //Loads the animation's frames.
 int Animation::_load(){
   for(int s = 0; s < _paths.size(); ++s){
+    if(_paths[s] == ""){continue;}
     if(!_textures[s].loadFromFile(_paths[s])){
       _isLoaded = false;
       return 1;
@@ -29,14 +30,14 @@ bool Animation::getNextFrame(sf::Sprite& sprite){
   }
   if(!_isLoaded){
     _load();
-  }  
+  }
   static int frameCounter = 0;
   //We proceed to the next frame based on the framerate.
   if(frameCounter++ < FRAMERATE/_frameRate){
     sprite = _frames[_curFrame];
     return true;
   }
-  frameCounter = 0;  
+  frameCounter = 0;
   sprite = _frames[_curFrame];
   _curFrame++;
   return true;

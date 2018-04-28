@@ -2,18 +2,12 @@
 #define BULLET_H
 
 #include <iostream>
-#include "Thing.hpp"
 #include "Enemy.hpp"
 
 /**
   A class representing a bullet fired by a gun, _OR AN ATTACK
-  ANIMATION_. Use this for melee attacks as well. Important point -
-  this represents an UNALIGNED BULLET, that will damage FRIEND AND FOE
-  ALIKE. To make bullets for player guns, subclass this into a
-  friendly bullet (see FriendlyBullet for an example). I realise this
-  is probably needlessly complicated but it was a graceful way to
-  minimising code repetition.
- */
+  ANIMATION_. Use this for melee attacks as well.
+*/
 class Bullet : public Thing {
 protected:
   //!Damage dealt by the bullet when it comes into contact with something.
@@ -25,6 +19,9 @@ protected:
   //!Whether the bullet will harm the player or if it will harm enemies.
   bool _isFriendly;
 public:
+  //!Returns the bounds of the bullet.
+  sf::FloatRect getBounds();
+
   //!Executed every frame, but you should know this by now.
   virtual void tick();
 
@@ -36,17 +33,8 @@ public:
   virtual void handleCollision(std::weak_ptr<Thing> other);
 
   //Sorry for all these constructors.
-  Bullet(bool isFriendly, std::string path, sf::Vector2f position, int damage) : Thing(path, position) {
-    _isFriendly = isFriendly;
-    _damage = damage;
-  };
-  Bullet(bool isFriendly, Animation& anim, sf::Vector2f position, int damage) : Thing("", position) {
-    _isFriendly = isFriendly;
-    _currentAnimation = anim;
-    _isAnimating = true;
-    _damage = damage;
-  };
   Bullet(bool isFriendly, std::string path, sf::Vector2f position, int damage, sf::Vector2f velocity, int lifetime=FRAMERATE/3) : Thing(path, position) {
+    _name = "Bullet";
     _isFriendly = isFriendly;
     _damage = damage;
     _velocity = velocity;
@@ -54,6 +42,7 @@ public:
     _facing = getUnitVectorOf(_velocity);
   };
   Bullet(bool isFriendly, Animation& anim, sf::Vector2f position, int damage, sf::Vector2f velocity, int lifetime=FRAMERATE/3) : Thing("", position) {
+    _name = "Bullet";
     _isFriendly = isFriendly;
     _currentAnimation = anim;
     _isAnimating = true;
@@ -65,6 +54,7 @@ public:
   //!This is the constructor most weapons will use.
   Bullet(bool isFriendly, sf::Vector2f position, int damage,
          sf::Vector2f velocity, int lifetime) :  Bullet(isFriendly, "bullet-final.png", position, damage, velocity, lifetime) {
+    _name = "Bullet";
     _facing = getUnitVectorOf(_velocity);
   }
   Bullet(){};
@@ -83,6 +73,7 @@ public:
   //!This is the constructor most weapons will use.
   Rocket(bool isFriendly, sf::Vector2f position, int damage,
          sf::Vector2f velocity, int lifetime) :  Bullet(isFriendly, "rocket-final.png", position, damage, velocity, lifetime) {
+    _name = "Rocket";
     _blastRadius = 15.0;
     _acceleration = 1.0;
     _direction = getUnitVectorOf(velocity);

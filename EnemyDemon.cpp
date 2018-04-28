@@ -19,8 +19,7 @@ void EnemyDemon::_whenAttacking(){
 }
 
 void EnemyDemon::_whenAggro(){
-
-  _facing = getUnitVectorBetween(_position, player->getPosition());
+  _facing = getUnitVectorBetween(_position, player->getWorldPosition());
   _setImageBasedOnFacing();
   double dist = _getDistanceFromPlayer();
   double attackRange = 30;
@@ -47,7 +46,7 @@ void EnemyDemon::_whenAggro(){
     return;
   }
 
-  auto target = player->getPosition();
+  auto target = player->getWorldPosition();
   auto unitVector = getUnitVectorBetween(_position, target);
 
   if(_initiateLeap){
@@ -71,7 +70,7 @@ void EnemyDemon::_whenAggro(){
 }
 
 void EnemyDemon::_whenIdle(){
-  static int tick = FRAMERATE*1.5;
+  static int tick = FRAMERATE*7.5;
   static sf::Vector2f home = _position;
   static bool returnHome = false;
   static bool runOnce = false;
@@ -87,7 +86,7 @@ void EnemyDemon::_whenIdle(){
 
   if(--tick <= 0){
     returnHome = !returnHome;
-    tick = FRAMERATE*1.5;
+    tick = FRAMERATE*7.5;
     runOnce = false;
   }
 

@@ -62,6 +62,13 @@ public:
   //!Executed when the creature dies.
   virtual void die();
 
+  Enemy(std::string path, sf::Vector2f position, int maxHp, double speed, sf::FloatRect hitboxAtZeroZero) : Enemy{path, position, maxHp, speed} {
+    _hitboxAtZeroZero = hitboxAtZeroZero;
+  };
+  Enemy(std::array<std::string, FACING_MAX> facingPaths, sf::Vector2f position, int maxHp, double speed, sf::FloatRect hitboxAtZeroZero) : Enemy{facingPaths, position, maxHp, speed} {
+    _hitboxAtZeroZero = hitboxAtZeroZero;
+  };
+
   Enemy(std::string path, sf::Vector2f position, int maxHp, double speed) : Thing(path, position) {
     _maxHp = maxHp;
     _hp = _maxHp;
@@ -114,7 +121,7 @@ protected:
   //!Adds a delay between attacking.
   int _attackTimer;
 
-  //!Paths to images to be displayed when the Enemyis facing in different directions.
+  //!Paths to images to be displayed when the Enemy is facing in different directions.
   std::array<std::string, FACING_MAX> _facingPaths;
 };
 

@@ -49,10 +49,10 @@ void Smg<BulletType>::tick(){
     float adj = target.x - pos.x;
     float hyp = std::sqrt(opp*opp + adj*adj);
 
-    float vx = (adj/hyp)*_shotVelocity;
-    float vy = (opp/hyp)*_shotVelocity;
+    float vx = (adj/hyp)*_shotVelocity + randDouble() * 5;
+    float vy = (opp/hyp)*_shotVelocity + randDouble() * 5;
 
-    std::shared_ptr<Bullet> bullet = std::make_shared<BulletType>(true, pos, _shotDamage, sf::Vector2f{vx,vy}, 180);
+    std::shared_ptr<Bullet> bullet = std::make_shared<BulletType>(true, pos, _shotDamage, sf::Vector2f{vx,vy}, FRAMERATE*0.33);
 
     playfield->addThing(bullet);
     cooldown = _fireDelay;

@@ -70,7 +70,7 @@ void EnemyDemon::_whenAggro(){
 }
 
 void EnemyDemon::_whenIdle(){
-  static int tick = FRAMERATE*1.5;
+  static int tick = FRAMERATE*7.5;
   static sf::Vector2f home = _position;
   static bool returnHome = false;
   static bool runOnce = false;
@@ -86,7 +86,7 @@ void EnemyDemon::_whenIdle(){
 
   if(--tick <= 0){
     returnHome = !returnHome;
-    tick = FRAMERATE*1.5;
+    tick = FRAMERATE*7.5;
     runOnce = false;
   }
 

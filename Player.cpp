@@ -61,7 +61,7 @@ void Player::_changeImageBasedOnFacing(){
   if(_path != newPath){
     _path = newPath;
     _isLoaded = false;
-  }  
+  }
 }
 
 void Player::handleInput(sf::Event event){
@@ -174,7 +174,7 @@ void Player::tick(){
     --_invulnTime;
   }
   double drag = 0.5;
-  _velocity = {_velocity.x*drag, _velocity.y*drag };
+  _velocity = {static_cast<float>(_velocity.x*drag), static_cast<float>(_velocity.y*drag)};
   _curWeapon->tick();
   if(_primaryAbility){_primaryAbility->tick();}
   if(_movementAbility){_movementAbility->tick();}

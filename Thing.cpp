@@ -181,7 +181,7 @@ void AmmoCasing::draw(sf::RenderWindow& window){
       return;
     }
   }
-  auto displayedPosition = sf::Vector2f{getScreenPosition().x, getScreenPosition().y + _z};
+  auto displayedPosition = sf::Vector2f{static_cast<float>(getScreenPosition().x), static_cast<float>(getScreenPosition().y + _z)};
   _sprite.setPosition(displayedPosition);
   window.draw(_sprite);
 }

@@ -37,9 +37,9 @@ void handleInput(sf::Event event){
 
 //!This function initialises all game-logic related state.
 void initialiseGameState(){
-  camera = Camera(sf::Vector2f{-100, -100});
+  camera = Camera(sf::Vector2f{-100.0, -100.0});
   cursor = std::make_shared<Cursor>("cursor.png");
-  player = std::make_shared<Player>("player-down.png", sf::Vector2f{0, 0}, 6.0, sf::FloatRect{7.0, 31.0, 26.0, 14.0});
+  player = std::make_shared<Player>("player-down.png", sf::Vector2f{0.0, 0.0}, 6.0, sf::FloatRect{7.0, 31.0, 26.0, 14.0});
   player->setSprintAbility(std::make_shared<Sprint>(1.333));
   playfield = std::make_shared<Playfield>("other.plf");
 
@@ -55,20 +55,20 @@ void initialiseGameState(){
   minigun->fillWithMods();
 
   weaponIcon[0] = WeaponWidget{smg,
-                               {window.getSize().x/2 + SCREEN_GUTTER/2 - WEAPON_ICON_SPACING*2 - WEAPON_ICON_WIDTH*2,
-                                window.getSize().y - WEAPON_ICON_HEIGHT - SCREEN_GUTTER}};
+                               {static_cast<float>(window.getSize().x/2 + SCREEN_GUTTER/2 - WEAPON_ICON_SPACING*2 - WEAPON_ICON_WIDTH*2),
+                                static_cast<float>(window.getSize().y - WEAPON_ICON_HEIGHT - SCREEN_GUTTER)}};
   weaponIcon[1] = WeaponWidget{revolver,
-                               {window.getSize().x/2 + SCREEN_GUTTER/2 - WEAPON_ICON_SPACING - WEAPON_ICON_WIDTH,
-                                window.getSize().y - WEAPON_ICON_HEIGHT - SCREEN_GUTTER}};
+                               {static_cast<float>(window.getSize().x/2 + SCREEN_GUTTER/2 - WEAPON_ICON_SPACING - WEAPON_ICON_WIDTH),
+                                static_cast<float>(window.getSize().y - WEAPON_ICON_HEIGHT - SCREEN_GUTTER)}};
   weaponIcon[2] = WeaponWidget{shotgun,
-                               {window.getSize().x/2 + SCREEN_GUTTER/2,
-                                window.getSize().y - WEAPON_ICON_HEIGHT - SCREEN_GUTTER}};
+                               {static_cast<float>(window.getSize().x/2 + SCREEN_GUTTER/2),
+                                static_cast<float>(window.getSize().y - WEAPON_ICON_HEIGHT - SCREEN_GUTTER)}};
   weaponIcon[3] = WeaponWidget{rifle,
-                               {window.getSize().x/2 + SCREEN_GUTTER/2 + WEAPON_ICON_SPACING + WEAPON_ICON_WIDTH,
-                                window.getSize().y - WEAPON_ICON_HEIGHT - SCREEN_GUTTER}};
+                               {static_cast<float>(window.getSize().x/2 + SCREEN_GUTTER/2 + WEAPON_ICON_SPACING + WEAPON_ICON_WIDTH),
+                                static_cast<float>(window.getSize().y - WEAPON_ICON_HEIGHT - SCREEN_GUTTER)}};
   weaponIcon[4] = WeaponWidget{minigun,
-                               {window.getSize().x/2 + SCREEN_GUTTER/2 + WEAPON_ICON_SPACING*2 + WEAPON_ICON_WIDTH*2,
-                                window.getSize().y - WEAPON_ICON_HEIGHT - SCREEN_GUTTER}};
+                               {static_cast<float>(window.getSize().x/2 + SCREEN_GUTTER/2 + WEAPON_ICON_SPACING*2 + WEAPON_ICON_WIDTH*2),
+                                static_cast<float>(window.getSize().y - WEAPON_ICON_HEIGHT - SCREEN_GUTTER)}};
   player->giveWeapon(smg);
   player->giveWeapon(revolver);
   player->giveWeapon(shotgun);
@@ -76,7 +76,7 @@ void initialiseGameState(){
   player->giveWeapon(minigun);
 
   playfield->addThing(player);
-  healthBar = HorizontalBar<int>{[&player](){return player->getCurrentHp();}, [&player](){return player->stats.maxHp;}, {10, 10}, sf::Color::Red, 100, 15};
+  healthBar = HorizontalBar<int>{[](){return player->getCurrentHp();}, [](){return player->stats.maxHp;}, {10, 10}, sf::Color::Red, 100, 15};
 }
 
 //!This function draws everything on the screen and calls tick() for everything that needs to handle events every frame.

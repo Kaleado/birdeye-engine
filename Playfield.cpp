@@ -45,34 +45,34 @@ Playfield::Playfield(std::string playfieldPath){
       int x, y, hitboxX, hitboxY, hitboxW, hitboxH;
       bool shootThrough, walkThrough;
       lineStrm >> thingPath >> x >> y >> hitboxX >> hitboxY >> hitboxW >> hitboxH >> std::boolalpha >> shootThrough >> walkThrough;
-      sf::FloatRect hb = sf::FloatRect{hitboxX, hitboxY, hitboxW, hitboxH};
-      addThing(std::make_shared<EnvironmentThing>(thingPath, sf::Vector2f{x, y}, shootThrough, walkThrough, hb));
+      sf::FloatRect hb = sf::FloatRect{static_cast<float>(hitboxX), static_cast<float>(hitboxY), static_cast<float>(hitboxW), static_cast<float>(hitboxH)};
+      addThing(std::make_shared<EnvironmentThing>(thingPath, sf::Vector2f{static_cast<float>(x), static_cast<float>(y)}, shootThrough, walkThrough, hb));
     }
     else if(command == "BreakableThing"){
       std::string thingPath;
       int x, y;
       int hp;
       lineStrm >> thingPath >> x >> y >> hp;
-      addThing(std::make_shared<BreakableThing>(thingPath, sf::Vector2f{x, y}, hp));
+      addThing(std::make_shared<BreakableThing>(thingPath, sf::Vector2f{static_cast<float>(x), static_cast<float>(y)}, hp));
     }
     else if(command == "EnemyDemon"){
       int x, y, maxHp;
       double speed;
       lineStrm >> x >> y >> maxHp >> speed;
-      addThing(std::make_shared<EnemyDemon>(sf::Vector2f{x, y}, maxHp, speed));
+      addThing(std::make_shared<EnemyDemon>(sf::Vector2f{static_cast<float>(x), static_cast<float>(y)}, maxHp, speed));
     }
     else if(command == "EnemyEye"){
       int x, y, maxHp;
       double speed;
       lineStrm >> x >> y >> maxHp >> speed;
-      addThing(std::make_shared<EnemyEye>(sf::Vector2f{x, y}, maxHp, speed));
+      addThing(std::make_shared<EnemyEye>(sf::Vector2f{static_cast<float>(x), static_cast<float>(y)}, maxHp, speed));
     }
     else if(command == "EnemyLegion"){
       int x, y, maxHp;
       double speed;
       lineStrm >> x >> y >> maxHp >> speed;
       std::array<std::shared_ptr<EnemyLegionSlave>, LEGION_SIZE> slaves;
-      addThing(std::make_shared<EnemyLegion>(sf::Vector2f{x, y}, maxHp, speed, &slaves));
+      addThing(std::make_shared<EnemyLegion>(sf::Vector2f{static_cast<float>(x), static_cast<float>(y)}, maxHp, speed, &slaves));
       for(auto it = (slaves).begin(); it != (slaves).end(); ++it){
         addThing(*it);
       }
@@ -83,8 +83,8 @@ Playfield::Playfield(std::string playfieldPath){
       int x2, y2;
       std::string path2;
       lineStrm >> x1 >> y1 >> path1 >> x2 >> y2 >> path2;
-      auto tp1 = std::make_shared<Teleporter>(path1, sf::Vector2f{x1, y1});
-      auto tp2 = std::make_shared<Teleporter>(path2, sf::Vector2f{x2, y2});
+      auto tp1 = std::make_shared<Teleporter>(path1, sf::Vector2f{static_cast<float>(x1), static_cast<float>(y1)});
+      auto tp2 = std::make_shared<Teleporter>(path2, sf::Vector2f{static_cast<float>(x2), static_cast<float>(y2)});
       tp1->setOtherTeleporter(tp2);
       tp2->setOtherTeleporter(tp1);
       addThing(tp1);
@@ -94,14 +94,16 @@ Playfield::Playfield(std::string playfieldPath){
       int x, y, w, h;
       std::string levelPath, destMarker;
       lineStrm >> x >> y >> w >> h >> levelPath >> destMarker;
-      auto ent = std::make_shared<ThingEntrance>(sf::Vector2f{x, y}, sf::Vector2f{w, h}, levelPath, destMarker);
+      auto ent = std::make_shared<ThingEntrance>(
+                                                 sf::Vector2f{static_cast<float>(x), static_cast<float>(y)},
+                                                 sf::Vector2f{static_cast<float>(w), static_cast<float>(h)}, levelPath, destMarker);
       addThing(ent);
     }
     else if(command == "Marker"){
       int x, y;
       std::string markerId;
       lineStrm >> x >> y >> markerId;
-      auto ent = std::make_shared<ThingMarker>(sf::Vector2f{x, y}, markerId);
+      auto ent = std::make_shared<ThingMarker>(sf::Vector2f{static_cast<float>(x), static_cast<float>(y)}, markerId);
       addThing(ent);
     }
 

@@ -52,16 +52,16 @@ void EnemyDemon::_whenAggro(){
   if(_initiateLeap){
     if(--_leapDelayTimer <= 0){
       _initiateLeap = false;
-      _velocity = {unitVector.x * leapSpeed, unitVector.y * leapSpeed};
+      _velocity = {static_cast<float>(unitVector.x * leapSpeed), static_cast<float>(unitVector.y * leapSpeed)};
       _leaping = true;
     }
   }
   else if((_canLeap && dist > leapRange) || (!_canLeap && dist > attackRange)){
-    _velocity = {unitVector.x * _speed, unitVector.y * _speed};
+    _velocity = {static_cast<float>(unitVector.x * _speed), static_cast<float>(unitVector.y * _speed)};
   }
   else if(_canLeap && dist < leapRange){
     _initiateLeap = true;
-    _velocity = {0, 0};
+    _velocity = {0.0, 0.0};
   }
   else if(dist < attackRange){
     enemyState = ES_ATTACKING;
@@ -76,7 +76,7 @@ void EnemyDemon::_whenIdle(){
   static bool runOnce = false;
 
   if(!returnHome && !runOnce){
-    _velocity = {randDouble() * 2 - 1, randDouble() * 2 - 1};
+    _velocity = {static_cast<float>(randDouble() * 2 - 1), static_cast<float>(randDouble() * 2 - 1)};
     runOnce = true;
   }
   else if(returnHome && !runOnce){

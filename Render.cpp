@@ -36,7 +36,7 @@ double getVectorLength(sf::Vector2f vec){
 sf::Vector2f getUnitVectorOf(sf::Vector2f vec){
   double len = getVectorLength(vec);
   if(len == 0){return {0,0};}
-  return sf::Vector2f{vec.x / len, vec.y / len};
+  return sf::Vector2f{static_cast<float>(vec.x / len), static_cast<float>(vec.y / len)};
 }
 
 sf::Vector2f getVectorBetween(sf::Vector2f src, sf::Vector2f dst){

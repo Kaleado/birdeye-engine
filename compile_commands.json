@@ -1,0 +1,117 @@
+[
+    {
+        "command": "c++ -c -g -std=c++14 -pthread -o EnvironmentThing.o /home/kaleado/Programming/top-down-shooter/top-down-shooter/EnvironmentThing.cpp",
+        "directory": "/home/kaleado/Programming/top-down-shooter/top-down-shooter",
+        "file": "/home/kaleado/Programming/top-down-shooter/top-down-shooter/EnvironmentThing.cpp"
+    },
+    {
+        "command": "c++ -c -g -std=c++14 -pthread -o Render.o /home/kaleado/Programming/top-down-shooter/top-down-shooter/Render.cpp",
+        "directory": "/home/kaleado/Programming/top-down-shooter/top-down-shooter",
+        "file": "/home/kaleado/Programming/top-down-shooter/top-down-shooter/Render.cpp"
+    },
+    {
+        "command": "c++ -c -g -std=c++14 -pthread -o Thing.o /home/kaleado/Programming/top-down-shooter/top-down-shooter/Thing.cpp",
+        "directory": "/home/kaleado/Programming/top-down-shooter/top-down-shooter",
+        "file": "/home/kaleado/Programming/top-down-shooter/top-down-shooter/Thing.cpp"
+    },
+    {
+        "command": "c++ -c -g -std=c++14 -pthread -o Player.o /home/kaleado/Programming/top-down-shooter/top-down-shooter/Player.cpp",
+        "directory": "/home/kaleado/Programming/top-down-shooter/top-down-shooter",
+        "file": "/home/kaleado/Programming/top-down-shooter/top-down-shooter/Player.cpp"
+    },
+    {
+        "command": "c++ -c -g -std=c++14 -pthread -o Bullet.o /home/kaleado/Programming/top-down-shooter/top-down-shooter/Bullet.cpp",
+        "directory": "/home/kaleado/Programming/top-down-shooter/top-down-shooter",
+        "file": "/home/kaleado/Programming/top-down-shooter/top-down-shooter/Bullet.cpp"
+    },
+    {
+        "command": "c++ -c -g -std=c++14 -pthread -o Weapon.o /home/kaleado/Programming/top-down-shooter/top-down-shooter/Weapon.cpp",
+        "directory": "/home/kaleado/Programming/top-down-shooter/top-down-shooter",
+        "file": "/home/kaleado/Programming/top-down-shooter/top-down-shooter/Weapon.cpp"
+    },
+    {
+        "command": "c++ -c -g -std=c++14 -pthread -o Playfield.o /home/kaleado/Programming/top-down-shooter/top-down-shooter/Playfield.cpp",
+        "directory": "/home/kaleado/Programming/top-down-shooter/top-down-shooter",
+        "file": "/home/kaleado/Programming/top-down-shooter/top-down-shooter/Playfield.cpp"
+    },
+    {
+        "command": "c++ -c -g -std=c++14 -pthread -o Enemy.o /home/kaleado/Programming/top-down-shooter/top-down-shooter/Enemy.cpp",
+        "directory": "/home/kaleado/Programming/top-down-shooter/top-down-shooter",
+        "file": "/home/kaleado/Programming/top-down-shooter/top-down-shooter/Enemy.cpp"
+    },
+    {
+        "command": "c++ -c -g -std=c++14 -pthread -o main.o /home/kaleado/Programming/top-down-shooter/top-down-shooter/main.cpp",
+        "directory": "/home/kaleado/Programming/top-down-shooter/top-down-shooter",
+        "file": "/home/kaleado/Programming/top-down-shooter/top-down-shooter/main.cpp"
+    },
+    {
+        "command": "c++ -c -g -std=c++14 -pthread -o Animation.o /home/kaleado/Programming/top-down-shooter/top-down-shooter/Animation.cpp",
+        "directory": "/home/kaleado/Programming/top-down-shooter/top-down-shooter",
+        "file": "/home/kaleado/Programming/top-down-shooter/top-down-shooter/Animation.cpp"
+    },
+    {
+        "command": "c++ -c -g -std=c++14 -pthread -o Ability.o /home/kaleado/Programming/top-down-shooter/top-down-shooter/Ability.cpp",
+        "directory": "/home/kaleado/Programming/top-down-shooter/top-down-shooter",
+        "file": "/home/kaleado/Programming/top-down-shooter/top-down-shooter/Ability.cpp"
+    },
+    {
+        "command": "c++ -c -g -std=c++14 -pthread -o Cursor.o /home/kaleado/Programming/top-down-shooter/top-down-shooter/Cursor.cpp",
+        "directory": "/home/kaleado/Programming/top-down-shooter/top-down-shooter",
+        "file": "/home/kaleado/Programming/top-down-shooter/top-down-shooter/Cursor.cpp"
+    },
+    {
+        "command": "c++ -c -g -std=c++14 -pthread -o Camera.o /home/kaleado/Programming/top-down-shooter/top-down-shooter/Camera.cpp",
+        "directory": "/home/kaleado/Programming/top-down-shooter/top-down-shooter",
+        "file": "/home/kaleado/Programming/top-down-shooter/top-down-shooter/Camera.cpp"
+    },
+    {
+        "command": "c++ -c -g -std=c++14 -pthread -o Ui.o /home/kaleado/Programming/top-down-shooter/top-down-shooter/Ui.cpp",
+        "directory": "/home/kaleado/Programming/top-down-shooter/top-down-shooter",
+        "file": "/home/kaleado/Programming/top-down-shooter/top-down-shooter/Ui.cpp"
+    },
+    {
+        "command": "c++ -c -g -std=c++14 -pthread -o Stats.o /home/kaleado/Programming/top-down-shooter/top-down-shooter/Stats.cpp",
+        "directory": "/home/kaleado/Programming/top-down-shooter/top-down-shooter",
+        "file": "/home/kaleado/Programming/top-down-shooter/top-down-shooter/Stats.cpp"
+    },
+    {
+        "command": "c++ -c -g -std=c++14 -pthread -o WeaponMod.o /home/kaleado/Programming/top-down-shooter/top-down-shooter/WeaponMod.cpp",
+        "directory": "/home/kaleado/Programming/top-down-shooter/top-down-shooter",
+        "file": "/home/kaleado/Programming/top-down-shooter/top-down-shooter/WeaponMod.cpp"
+    },
+    {
+        "command": "c++ -c -g -std=c++14 -pthread -o WeaponWidget.o /home/kaleado/Programming/top-down-shooter/top-down-shooter/WeaponWidget.cpp",
+        "directory": "/home/kaleado/Programming/top-down-shooter/top-down-shooter",
+        "file": "/home/kaleado/Programming/top-down-shooter/top-down-shooter/WeaponWidget.cpp"
+    },
+    {
+        "command": "c++ -c -g -std=c++14 -pthread -o EnemyDemon.o /home/kaleado/Programming/top-down-shooter/top-down-shooter/EnemyDemon.cpp",
+        "directory": "/home/kaleado/Programming/top-down-shooter/top-down-shooter",
+        "file": "/home/kaleado/Programming/top-down-shooter/top-down-shooter/EnemyDemon.cpp"
+    },
+    {
+        "command": "c++ -c -g -std=c++14 -pthread -o EnemyEye.o /home/kaleado/Programming/top-down-shooter/top-down-shooter/EnemyEye.cpp",
+        "directory": "/home/kaleado/Programming/top-down-shooter/top-down-shooter",
+        "file": "/home/kaleado/Programming/top-down-shooter/top-down-shooter/EnemyEye.cpp"
+    },
+    {
+        "command": "c++ -c -g -std=c++14 -pthread -o Teleporter.o /home/kaleado/Programming/top-down-shooter/top-down-shooter/Teleporter.cpp",
+        "directory": "/home/kaleado/Programming/top-down-shooter/top-down-shooter",
+        "file": "/home/kaleado/Programming/top-down-shooter/top-down-shooter/Teleporter.cpp"
+    },
+    {
+        "command": "c++ -c -g -std=c++14 -pthread -o BreakableThing.o /home/kaleado/Programming/top-down-shooter/top-down-shooter/BreakableThing.cpp",
+        "directory": "/home/kaleado/Programming/top-down-shooter/top-down-shooter",
+        "file": "/home/kaleado/Programming/top-down-shooter/top-down-shooter/BreakableThing.cpp"
+    },
+    {
+        "command": "c++ -c -g -std=c++14 -pthread -o EnemyLegion.o /home/kaleado/Programming/top-down-shooter/top-down-shooter/EnemyLegion.cpp",
+        "directory": "/home/kaleado/Programming/top-down-shooter/top-down-shooter",
+        "file": "/home/kaleado/Programming/top-down-shooter/top-down-shooter/EnemyLegion.cpp"
+    },
+    {
+        "command": "c++ -c -g -std=c++14 -pthread -o ThingEntrance.o /home/kaleado/Programming/top-down-shooter/top-down-shooter/ThingEntrance.cpp",
+        "directory": "/home/kaleado/Programming/top-down-shooter/top-down-shooter",
+        "file": "/home/kaleado/Programming/top-down-shooter/top-down-shooter/ThingEntrance.cpp"
+    }
+]

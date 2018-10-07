@@ -22,6 +22,6 @@ depend: .depend
 	$(CXX) $(CPPFLAGS) -MM $^>>./.depend;
 
 clean:
-	rm *.o sfml-test
+	rm *.o ../sfml-test
 
 include .depend

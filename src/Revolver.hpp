@@ -45,7 +45,7 @@ void Revolver<BulletType>::tick(){
     camera.kick(dir, 37.5);
     auto target = cursor->getWorldPosition();
     auto pos = player->getWorldPosition();
-    std::shared_ptr<Bullet> bullet = std::make_shared<Bullet>(true, "bullet-final.png", pos, _shotDamage, sf::Vector2f{0,0}, 180);
+    std::shared_ptr<Bullet> bullet = std::make_shared<Bullet>(true, "res/bullet-final.png", pos, _shotDamage, sf::Vector2f{0,0}, 180);
     //bullet->setColor(sf::Color(0, 0, 255));
     float opp = target.y - pos.y;
     float adj = target.x - pos.x;

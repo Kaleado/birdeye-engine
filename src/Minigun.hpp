@@ -44,7 +44,7 @@ void Minigun<BulletType>::tick(){
     _fireDelay = std::max(_fireDelay - _fireDelayDecreaseRate, _minFireDelay);
     //Add a particle (the expelled casing).
     auto playerPos = player->getWorldPosition();
-    std::shared_ptr<AmmoCasing> casing = std::make_shared<AmmoCasing>("pistol-particle.png", playerPos, 0.5, 0, randDouble() * -5, 0.5, 0.9, FRAMERATE*0.5);
+    std::shared_ptr<AmmoCasing> casing = std::make_shared<AmmoCasing>("res/pistol-particle.png", playerPos, 0.5, 0, randDouble() * -5, 0.5, 0.9, FRAMERATE*0.5);
     playfield->addThing(casing);
 
     //Fire the bullet.
@@ -55,7 +55,7 @@ void Minigun<BulletType>::tick(){
     camera.kick(dir, 9);
     auto target = cursor->getWorldPosition();
     auto pos = player->getWorldPosition();
-    //std::shared_ptr<Bullet> bullet = std::make_shared<FriendlyBullet>("bullet-final.png", pos, _shotDamage, sf::Vector2f{0,0}, 180);
+    //std::shared_ptr<Bullet> bullet = std::make_shared<FriendlyBullet>("res/bullet-final.png", pos, _shotDamage, sf::Vector2f{0,0}, 180);
     float opp = target.y - pos.y;
     float adj = target.x - pos.x;
     float hyp = std::sqrt(opp*opp + adj*adj);

@@ -13,6 +13,7 @@ all: sfml-test
 
 sfml-test: $(OBJS)
 	$(CXX) $(LDLIBS) $(OBJS) -o sfml-test $(LDLIBS)
+	mv sfml-test ../
 
 depend: .depend
 

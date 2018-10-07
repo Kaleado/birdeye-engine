@@ -11,10 +11,10 @@ class EnemyDemon : public Enemy {
 public:
   EnemyDemon(sf::Vector2f position, int maxHp, double speed) : Enemy(
                                                                      std::array<std::string, FACING_MAX>{
-                                                                     "enemy-up.png", "enemy-down.png",
-                                                                     "enemy-left.png", "enemy-right.png",
-                                                                     "enemy-upleft.png", "enemy-upright.png",
-                                                                     "enemy-downleft.png", "enemy-downright.png"},
+                                                                     "res/enemy-up.png", "res/enemy-down.png",
+                                                                     "res/enemy-left.png", "res/enemy-right.png",
+                                                                     "res/enemy-upleft.png", "res/enemy-upright.png",
+                                                                     "res/enemy-downleft.png", "res/enemy-downright.png"},
                                                                      position, maxHp, speed,
                                                                      sf::FloatRect{7.0, 31.0, 26.0, 14.0}) { };
   EnemyDemon(){ };

@@ -28,35 +28,35 @@ void Player::_changeImageBasedOnFacing(){
   //Change sprite based on the eight directions.
   if(-22.5 < facingDegrees && facingDegrees < 22.5){
     //Right
-    newPath = "player-right.png";
+    newPath = "res/player-right.png";
   }
   else if(22.5 < facingDegrees && facingDegrees < 67.5){
     //Down-right
-    newPath = "player-downright.png";
+    newPath = "res/player-downright.png";
   }
   else if(67.5 < facingDegrees && facingDegrees < 112.5){
     //Down
-    newPath = "player-down.png";
+    newPath = "res/player-down.png";
   }
   else if(112.5 < facingDegrees && facingDegrees < 157.5){
     //Down-left
-    newPath = "player-downleft.png";
+    newPath = "res/player-downleft.png";
   }
   else if(-67.5 < facingDegrees && facingDegrees < -22.5){
     //Up-right
-    newPath = "player-upright.png";
+    newPath = "res/player-upright.png";
   }
   else if(-112.5 < facingDegrees && facingDegrees < -67.5){
     //Up
-    newPath = "player-up.png";
+    newPath = "res/player-up.png";
   }
   else if(-157.5 < facingDegrees && facingDegrees < -112.5){
     //Up-left
-    newPath = "player-upleft.png";
+    newPath = "res/player-upleft.png";
   }
   else {
     //Left
-    newPath = "player-left.png";
+    newPath = "res/player-left.png";
   }
   if(_path != newPath){
     _path = newPath;

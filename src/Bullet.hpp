@@ -53,7 +53,7 @@ public:
   };
   //!This is the constructor most weapons will use.
   Bullet(bool isFriendly, sf::Vector2f position, int damage,
-         sf::Vector2f velocity, int lifetime) :  Bullet(isFriendly, "bullet-final.png", position, damage, velocity, lifetime) {
+         sf::Vector2f velocity, int lifetime) :  Bullet(isFriendly, "res/bullet-final.png", position, damage, velocity, lifetime) {
     _name = "Bullet";
     _facing = getUnitVectorOf(_velocity);
   }
@@ -72,7 +72,7 @@ public:
   virtual void handleCollision(std::weak_ptr<Thing> other);
   //!This is the constructor most weapons will use.
   Rocket(bool isFriendly, sf::Vector2f position, int damage,
-         sf::Vector2f velocity, int lifetime) :  Bullet(isFriendly, "rocket-final.png", position, damage, velocity, lifetime) {
+         sf::Vector2f velocity, int lifetime) :  Bullet(isFriendly, "res/rocket-final.png", position, damage, velocity, lifetime) {
     _name = "Rocket";
     _blastRadius = 15.0;
     _acceleration = 1.0;

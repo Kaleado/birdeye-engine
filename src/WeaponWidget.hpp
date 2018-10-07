@@ -76,7 +76,7 @@ public:
   WeaponWidget(){}
   WeaponWidget(std::shared_ptr<Weapon> weapon, sf::Vector2f position) : Widget{"", position} {
     _weapon = weapon;
-    _modTreeWidget = Widget{"modmenu.png", {_position.x - WEAPON_ICON_WIDTH/2, _position.y - MOD_MENU_HEIGHT - WEAPON_ICON_HEIGHT/2}};
+    _modTreeWidget = Widget{"res/modmenu.png", {_position.x - WEAPON_ICON_WIDTH/2, _position.y - MOD_MENU_HEIGHT - WEAPON_ICON_HEIGHT/2}};
   }
 };
 

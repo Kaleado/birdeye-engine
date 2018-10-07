@@ -33,7 +33,7 @@ void Rocket::handleCollision(std::weak_ptr<Thing> other){
   float explosionRadius = 32;
   std::shared_ptr<Enemy> asEnemy = std::dynamic_pointer_cast<Enemy>(other.lock());
 
-  std::shared_ptr<Bullet> explosion = std::make_shared<Bullet>(_isFriendly, "explosion.png", sf::Vector2f{_position.x - explosionRadius, _position.y - explosionRadius}, _damage, sf::Vector2f(0,0), FRAMERATE/2);
+  std::shared_ptr<Bullet> explosion = std::make_shared<Bullet>(_isFriendly, "res/explosion.png", sf::Vector2f{_position.x - explosionRadius, _position.y - explosionRadius}, _damage, sf::Vector2f(0,0), FRAMERATE/2);
   if(_isFriendly && asEnemy){
     playfield->addThing(explosion);
     cull();

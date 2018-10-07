@@ -39,7 +39,7 @@ void WeaponWidget::_rebuildModWidgets(){
     //calculate where the icon should appear.
     float xPos = _position.x - WEAPON_ICON_WIDTH/2 + MOD_MENU_MOD_WIDGET_WIDTH*i + MOD_MENU_ICON_SPACING * (i+1);
     float yPos = _position.y - WEAPON_ICON_HEIGHT/2 - MOD_MENU_HEIGHT + MOD_MENU_COMMON_RELATIVE_Y_POS;
-    auto newWidget = std::make_shared<ModWidget>("mod-icon.png", sf::Vector2f{xPos, yPos}, m, _weapon);
+    auto newWidget = std::make_shared<ModWidget>("res/mod-icon.png", sf::Vector2f{xPos, yPos}, m, _weapon);
     _modWidgets.push_back(newWidget);
     ++i;
   }
@@ -62,13 +62,13 @@ void WeaponWidget::draw(sf::RenderWindow& window){
   if((!_weapon || _weapon->weaponState == WS_STOWED) && _showStowedImage == false){
     //Show the stowed image.
     _showStowedImage = true;
-    _path = "weapon-image.png";//Replace with the weapon's actual image later.
+    _path = "res/weapon-image.png";//Replace with the weapon's actual image later.
     _isLoaded = false;
   }
   else if(_weapon && _weapon->weaponState != WS_STOWED && _showStowedImage == true) {
     //Show the unstowed image.
     _showStowedImage = false;
-    _path = "weapon-image-selected.png";//Replace with the weapon's actual image later.
+    _path = "res/weapon-image-selected.png";//Replace with the weapon's actual image later.
     _isLoaded = false;
   }
   Widget::draw(window);

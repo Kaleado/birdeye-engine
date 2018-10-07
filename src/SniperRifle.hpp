@@ -45,7 +45,7 @@ void SniperRifle<BulletType>::tick(){
                                                                     velocityVector, FRAMERATE*5);
       playfield->addThing(bullet);
       //Add a particle (the expelled casing).
-      std::shared_ptr<AmmoCasing> casing = std::make_shared<AmmoCasing>("pistol-particle.png", playerPos, 0.5, 0, randDouble() * -5, 0.5, 0.9, FRAMERATE*3);
+      std::shared_ptr<AmmoCasing> casing = std::make_shared<AmmoCasing>("res/pistol-particle.png", playerPos, 0.5, 0, randDouble() * -5, 0.5, 0.9, FRAMERATE*3);
       playfield->addThing(casing);
 
       double deviation = 5;

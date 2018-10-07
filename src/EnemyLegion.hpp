@@ -64,7 +64,7 @@ protected:
 class EnemyLegionSlave : public Enemy {
   friend EnemyLegion;
 public:
-  EnemyLegionSlave(sf::Vector2f position, int maxHp, double speed) : Enemy("legion-slave.png", position, maxHp,
+  EnemyLegionSlave(sf::Vector2f position, int maxHp, double speed) : Enemy("res/legion-slave.png", position, maxHp,
                                                                            speed,
                                                                            sf::FloatRect{0.0, 18.0, 32.0, 14.0}) {
   };

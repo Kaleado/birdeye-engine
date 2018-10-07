@@ -51,7 +51,7 @@ public:
   void reset();
   void lock();
   void unlock();
-  ModTree(){}
+  ModTree() = default;
   ModTree(std::map<ModQuality, std::vector<std::shared_ptr<WeaponMod>>> mods) : _mods{mods}{}
 };
 
@@ -76,7 +76,7 @@ protected:
   int _reloadTime;//!Number of frames to reload the gun.
   int _maxAmmo;
   int _curAmmo;
-  bool _isActive;
+  bool _isActive=false;
 public:
   //!Stat bonuses. Check Stats.hpp if this doesn't make sense.
   Stats globalStatBonuses = {0, 0.0, 0.0, 0.0, 0.0, 0.0};
@@ -113,8 +113,9 @@ public:
   virtual void fillWithMods();
 
   WeaponState weaponState=WS_STOWED;
-  
-  Weapon(int maxAmmo, int reloadTime) : _maxAmmo{maxAmmo}, _reloadTime{reloadTime} {}
+
+  Weapon() = default;
+  Weapon(int maxAmmo, int reloadTime) : _maxAmmo{maxAmmo}, _reloadTime{reloadTime}, _curAmmo{maxAmmo} {}
 };
 
 #endif

@@ -2,7 +2,8 @@ main.o: main.cpp Playfield.hpp Thing.hpp Render.hpp Animation.hpp \
  Camera.hpp Enemy.hpp Player.hpp Ability.hpp Cursor.hpp Stats.hpp \
  Bullet.hpp EnvironmentThing.hpp Ui.hpp Weapon.hpp WeaponWidget.hpp \
  ModTree.hpp WeaponMod.hpp Smg.hpp Revolver.hpp PumpShotgun.hpp \
- SniperRifle.hpp Minigun.hpp EnemyDemon.hpp EnemyEye.hpp EnemyLegion.hpp
+ SniperRifle.hpp Minigun.hpp ScriptedWeapon.hpp LuaBridge/LuaBridge.h \
+ EnemyDemon.hpp EnemyEye.hpp EnemyLegion.hpp
 EnvironmentThing.o: EnvironmentThing.cpp EnvironmentThing.hpp Player.hpp \
  Ability.hpp Thing.hpp Render.hpp Animation.hpp Camera.hpp Cursor.hpp \
  Stats.hpp Enemy.hpp Bullet.hpp Playfield.hpp
@@ -60,3 +61,7 @@ EnemyLegion.o: EnemyLegion.cpp EnemyLegion.hpp Enemy.hpp Thing.hpp \
 ThingEntrance.o: ThingEntrance.cpp ThingEntrance.hpp Thing.hpp Render.hpp \
  Animation.hpp Camera.hpp Playfield.hpp Enemy.hpp Player.hpp Ability.hpp \
  Cursor.hpp Stats.hpp Bullet.hpp EnvironmentThing.hpp
+ScriptedWeapon.o: ScriptedWeapon.cpp ScriptedWeapon.hpp \
+ LuaBridge/LuaBridge.h Weapon.hpp Render.hpp Player.hpp Ability.hpp \
+ Thing.hpp Animation.hpp Camera.hpp Cursor.hpp Stats.hpp Playfield.hpp \
+ Enemy.hpp Bullet.hpp EnvironmentThing.hpp

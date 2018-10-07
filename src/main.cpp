@@ -14,6 +14,7 @@
 #include "PumpShotgun.hpp"
 #include "SniperRifle.hpp"
 #include "Minigun.hpp"
+#include "ScriptedWeapon.hpp"
 
 #include "EnemyDemon.hpp"
 #include "EnemyEye.hpp"
@@ -50,8 +51,11 @@ void initialiseGameState(){
   shotgun->fillWithMods();
   auto rifle = std::make_shared<SniperRifle<Bullet>>(1, 1, 150, 30);
   rifle->fillWithMods();
-  auto minigun = std::make_shared<Minigun<Bullet>>(1, 1, 30, 2, 2, 40, 20, 0.5);
+//  auto minigun = std::make_shared<Minigun<Bullet>>(1, 1, 30, 2, 2, 40, 20, 0.5);
+//  minigun->fillWithMods();
+  auto minigun = std::make_shared<ScriptedWeapon>("res/scripts/dummy.lua");
   minigun->fillWithMods();
+
 
   weaponIcon[0] = WeaponWidget{smg,
                                {static_cast<float>(window.getSize().x/2 + SCREEN_GUTTER/2 - WEAPON_ICON_SPACING*2 - WEAPON_ICON_WIDTH*2),

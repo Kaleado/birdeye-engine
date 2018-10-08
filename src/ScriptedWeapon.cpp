@@ -26,9 +26,9 @@ void ScriptedWeapon::pressPrimaryFire(sf::Vector2f target){
             .endNamespace();
 
     luabridge::getGlobalNamespace(_l)
-        .beginNamespace("myPos")
-            .addVariable("x", &x, false)
-            .addVariable("y", &y, false)
+        .beginNamespace("targetVector")
+            .addVariable("x", &tx, false)
+            .addVariable("y", &ty, false)
             .endNamespace();
 
     luabridge::LuaRef dummy = luabridge::getGlobal(_l, "pressPrimaryFire");

@@ -38,3 +38,4 @@ generate-and-upload-docs
 html
 latex
 Doxyfile
+.idea

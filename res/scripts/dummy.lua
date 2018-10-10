@@ -6,49 +6,63 @@
 -- To change this template use File | Settings | File Templates.
 --
 
-myPos = nil
-targetVector = nil
+numShot = 0
+weaponState = "WS_STOWED"
+cooldown = 0
 
 function pressPrimaryFire()
-    print("Press primary fire from "..myPos.x.." "..myPos.y.." to "..targetVector.x.." "..targetVector.y)
-    return
+    weaponState = "WS_FIRING_PRIMARY"
 end
 
 function releasePrimaryFire()
-    print("Release primary fire.")
-    return
+    weaponState = "WS_IDLE"
 end
 
 function pressSecondaryFire()
-    print("Press secondary fire.")
+    weaponState = "WS_FIRING_SECONDARY"
     return
 end
 
 function releaseSecondaryFire()
-    print("Release secondary fire.")
+    weaponState = "WS_IDLE"
     return
 end
 
 function tick()
-    return
+    if(weaponState == "WS_FIRING_PRIMARY") then
+        if(cooldown <= 0) then
+            print("Number of bullets shot = "..numShot)
+            local dx = game.cursorX - game.playerX;
+            local dy = game.cursorY - game.playerY;
+            local distance  = math.sqrt(dx*dx + dy*dy)
+            local deviation = distance/10;
+            local vx = game.cursorX - 4 - game.playerX - math.random(-deviation, deviation)
+            local vy = game.cursorY - 4 - game.playerY - math.random(-deviation, deviation)
+            local len = math.sqrt(vx*vx + vy*vy)
+            local speed = 18
+            numShot = numShot + 1
+            game.addBullet(true, game.playerX, game.playerY, 10, speed*vx/len, speed*vy/len, 1.5, "")
+            cooldown = 0.03*60
+        else
+            cooldown = cooldown - 1
+        end
+    end
 end
 
 function onEquip()
-    print("Equip.")
     return
 end
 
 function onUnequip()
-    print("Unequip.")
     return
 end
 
 function onStow()
-    print("Stow.")
+    weaponState = "WS_STOWED"
     return
 end
 
 function onUnstow()
-    print("Unstowed.")
+    weaponState = "WS_IDLE"
     return
 end

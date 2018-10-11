@@ -23,10 +23,12 @@ private:
     void _initScript();
     static float _apiGetPlayerX();
     static float _apiGetPlayerY();
+    static float _apiGetPlayerRotation();
     static float _apiGetCursorX();
     static float _apiGetCursorY();
     static void _apiAddBullet(bool isFriendly, float x, float y,
-        int damage, float vx, float vy, float lifetime, std::string path);
+                              int damage, float vx, float vy, float lifetime, std::string path);
+    static void _apiCameraKick(float dir, float vel);
 
 public:
     //!Handles when the player presses/releases the primary/secondary fire buttons.

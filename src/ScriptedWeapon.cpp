@@ -14,6 +14,10 @@ float ScriptedWeapon::_apiGetPlayerY(){
     return player->getWorldPosition().y;
 }
 
+float ScriptedWeapon::_apiGetPlayerRotation(){
+    return player->getWorldRotation();
+}
+
 float ScriptedWeapon::_apiGetCursorX(){
     return cursor->getWorldPosition().x;
 }
@@ -29,9 +33,11 @@ void ScriptedWeapon::_initScript() {
             .beginClass<ScriptedWeapon>("game")
             .addStaticProperty("playerX", &ScriptedWeapon::_apiGetPlayerX)
             .addStaticProperty("playerY", &ScriptedWeapon::_apiGetPlayerY)
+            .addStaticProperty("playerRotation", &ScriptedWeapon::_apiGetPlayerRotation)
             .addStaticProperty("cursorX", &ScriptedWeapon::_apiGetCursorX)
             .addStaticProperty("cursorY", &ScriptedWeapon::_apiGetCursorY)
             .addStaticFunction("addBullet", &ScriptedWeapon::_apiAddBullet)
+            .addStaticFunction("cameraKick", &ScriptedWeapon::_apiCameraKick)
             .endClass();
     luaL_dofile(_l, _script.c_str());
 }
@@ -43,6 +49,10 @@ void ScriptedWeapon::_apiAddBullet(bool isFriendly,
     std::cout << "hello\n";
     std::shared_ptr<Bullet> bullet = std::make_shared<Bullet>(isFriendly, sf::Vector2f{x, y}, damage, sf::Vector2f{vx,vy}, FRAMERATE*lifetime);
     playfield->addThing(bullet);
+}
+
+void ScriptedWeapon::_apiCameraKick(float dir, float vel){
+    camera.kick(dir, vel);
 }
 
 //!Handles when the player presses/releases the primary/secondary fire buttons.

@@ -32,6 +32,8 @@ function tick()
     if(weaponState == "WS_FIRING_PRIMARY") then
         if(cooldown <= 0) then
             print("Number of bullets shot = "..numShot)
+            local dir = game.playerRotation + 180
+            game.cameraKick(dir, 13.0)
             local dx = game.cursorX - game.playerX;
             local dy = game.cursorY - game.playerY;
             local distance  = math.sqrt(dx*dx + dy*dy)
@@ -41,8 +43,8 @@ function tick()
             local len = math.sqrt(vx*vx + vy*vy)
             local speed = 18
             numShot = numShot + 1
-            game.addBullet(true, game.playerX, game.playerY, 10, speed*vx/len, speed*vy/len, 1.5, "")
-            cooldown = 0.03*60
+            game.addBullet(true, game.playerX, game.playerY, 1000, speed*vx/len, speed*vy/len, 1.5, "")
+            cooldown = 0.07*60
         else
             cooldown = cooldown - 1
         end

@@ -6,7 +6,6 @@
 -- To change this template use File | Settings | File Templates.
 --
 
-isCocking = false
 cockDelay = 10
 cockTimer = 0
 shotDamage = 120

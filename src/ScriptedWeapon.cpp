@@ -10,7 +10,7 @@ void ScriptedWeapon::_initScript() {
     _l = luaL_newstate();
     luaL_openlibs(_l);
     luabridge::getGlobalNamespace(_l)
-            .beginClass<ScriptedWeapon>("game")
+        .beginClass<ScriptedWeapon>("game")
             .addStaticProperty("playerX", &ScriptedWeapon::_apiGetPlayerX)
             .addStaticProperty("playerY", &ScriptedWeapon::_apiGetPlayerY)
             .addStaticProperty("playerRotation", &ScriptedWeapon::_apiGetPlayerRotation)
@@ -19,8 +19,7 @@ void ScriptedWeapon::_initScript() {
             .addStaticFunction("addBullet", &ScriptedWeapon::_apiAddBullet)
             .addStaticFunction("createAmmoCasing", &ScriptedWeapon::_apiCreateAmmoCasing)
             .addStaticFunction("cameraKick", &ScriptedWeapon::_apiCameraKick)
-                    //.addData("frameRate", &FRAMERATE, false)
-            .endClass();
+        .endClass();
     luaL_dofile(_l, _script.c_str());
 }
 

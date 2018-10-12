@@ -9,7 +9,6 @@
 #include "WeaponWidget.hpp"
 #include "EnvironmentThing.hpp"
 
-#include "Smg.hpp"
 #include "Revolver.hpp"
 #include "PumpShotgun.hpp"
 #include "SniperRifle.hpp"
@@ -43,17 +42,16 @@ void initialiseGameState(){
   player->setSprintAbility(std::make_shared<Sprint>(1.333));
   playfield = std::make_shared<Playfield>("res/levels/other.plf");
 
-  auto smg = std::make_shared<Smg<Bullet>>(1, 1, 5, 40, 20);
+  auto smg = std::make_shared<ScriptedWeapon>("res/scripts/weapon_smg.lua");
   smg->fillWithMods();
-  auto revolver = std::make_shared<Revolver<Bullet>>(1, 1, 90, 30);
+//  auto revolver = std::make_shared<Revolver<Bullet>>(1, 1, 90, 30);
+  auto revolver = std::make_shared<ScriptedWeapon>("res/scripts/weapon_revolver.lua");
   revolver->fillWithMods();
   auto shotgun = std::make_shared<PumpShotgun<Bullet>>(1, 1, 80, 50);
   shotgun->fillWithMods();
   auto rifle = std::make_shared<SniperRifle<Bullet>>(1, 1, 150, 30);
   rifle->fillWithMods();
-//  auto minigun = std::make_shared<Minigun<Bullet>>(1, 1, 30, 2, 2, 40, 20, 0.5);
-//  minigun->fillWithMods();
-  auto minigun = std::make_shared<ScriptedWeapon>("res/scripts/dummy.lua");
+  auto minigun = std::make_shared<Minigun<Bullet>>(1, 1, 30, 2, 2, 40, 20, 0.5);
   minigun->fillWithMods();
 
 

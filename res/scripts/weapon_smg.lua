@@ -6,7 +6,6 @@
 -- To change this template use File | Settings | File Templates.
 --
 
-numShot = 0
 weaponState = "WS_STOWED"
 cooldown = 0
 
@@ -31,7 +30,6 @@ end
 function tick()
     if(weaponState == "WS_FIRING_PRIMARY") then
         if(cooldown <= 0) then
-            print("Number of bullets shot = "..numShot)
             local dir = game.playerRotation + 180
             game.cameraKick(dir, 13.0)
             local dx = game.cursorX - game.playerX;
@@ -42,7 +40,6 @@ function tick()
             local vy = game.cursorY - 4 - game.playerY - math.random(-deviation, deviation)
             local len = math.sqrt(vx*vx + vy*vy)
             local speed = 18
-            numShot = numShot + 1
             game.addBullet(true, game.playerX, game.playerY, 40, speed*vx/len, speed*vy/len, 1.5, "")
             game.createAmmoCasing("res/pistol-particle.png", game.playerX, game.playerY, 0.5, 0, math.random(-5, 0), 0.5, 0.9, 60*3)
             cooldown = 0.07*60

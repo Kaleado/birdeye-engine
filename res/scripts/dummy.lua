@@ -43,7 +43,8 @@ function tick()
             local len = math.sqrt(vx*vx + vy*vy)
             local speed = 18
             numShot = numShot + 1
-            game.addBullet(true, game.playerX, game.playerY, 1000, speed*vx/len, speed*vy/len, 1.5, "")
+            game.addBullet(true, game.playerX, game.playerY, 40, speed*vx/len, speed*vy/len, 1.5, "")
+            game.createAmmoCasing("res/pistol-particle.png", game.playerX, game.playerY, 0.5, 0, math.random(-5, 0), 0.5, 0.9, 60*3)
             cooldown = 0.07*60
         else
             cooldown = cooldown - 1

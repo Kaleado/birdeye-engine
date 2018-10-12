@@ -28,6 +28,8 @@ private:
     static float _apiGetCursorY();
     static void _apiAddBullet(bool isFriendly, float x, float y,
                               int damage, float vx, float vy, float lifetime, std::string path);
+    static void _apiCreateAmmoCasing(std::string path, float x, float y, float dx,
+                                     float z, float dz, float az, double bounciness);
     static void _apiCameraKick(float dir, float vel);
 
 public:

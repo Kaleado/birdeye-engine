@@ -6,6 +6,24 @@
 
 #include "ScriptedWeapon.hpp"
 
+void ScriptedWeapon::_initScript() {
+    _l = luaL_newstate();
+    luaL_openlibs(_l);
+    luabridge::getGlobalNamespace(_l)
+            .beginClass<ScriptedWeapon>("game")
+            .addStaticProperty("playerX", &ScriptedWeapon::_apiGetPlayerX)
+            .addStaticProperty("playerY", &ScriptedWeapon::_apiGetPlayerY)
+            .addStaticProperty("playerRotation", &ScriptedWeapon::_apiGetPlayerRotation)
+            .addStaticProperty("cursorX", &ScriptedWeapon::_apiGetCursorX)
+            .addStaticProperty("cursorY", &ScriptedWeapon::_apiGetCursorY)
+            .addStaticFunction("addBullet", &ScriptedWeapon::_apiAddBullet)
+            .addStaticFunction("createAmmoCasing", &ScriptedWeapon::_apiCreateAmmoCasing)
+            .addStaticFunction("cameraKick", &ScriptedWeapon::_apiCameraKick)
+                    //.addData("frameRate", &FRAMERATE, false)
+            .endClass();
+    luaL_dofile(_l, _script.c_str());
+}
+
 float ScriptedWeapon::_apiGetPlayerX(){
     return player->getWorldPosition().x;
 }
@@ -26,28 +44,16 @@ float ScriptedWeapon::_apiGetCursorY(){
     return cursor->getWorldPosition().y;
 }
 
-void ScriptedWeapon::_initScript() {
-    _l = luaL_newstate();
-    luaL_openlibs(_l);
-    luabridge::getGlobalNamespace(_l)
-            .beginClass<ScriptedWeapon>("game")
-            .addStaticProperty("playerX", &ScriptedWeapon::_apiGetPlayerX)
-            .addStaticProperty("playerY", &ScriptedWeapon::_apiGetPlayerY)
-            .addStaticProperty("playerRotation", &ScriptedWeapon::_apiGetPlayerRotation)
-            .addStaticProperty("cursorX", &ScriptedWeapon::_apiGetCursorX)
-            .addStaticProperty("cursorY", &ScriptedWeapon::_apiGetCursorY)
-            .addStaticFunction("addBullet", &ScriptedWeapon::_apiAddBullet)
-            .addStaticFunction("cameraKick", &ScriptedWeapon::_apiCameraKick)
-            .endClass();
-    luaL_dofile(_l, _script.c_str());
+void ScriptedWeapon::_apiCreateAmmoCasing(std::string path, float x, float y, float dx,
+        float z, float dz, float az, double bounciness){
+    std::shared_ptr<AmmoCasing> casing = std::make_shared<AmmoCasing>(path, sf::Vector2f{x,y}, dx,
+            z, dz, az, bounciness, FRAMERATE*3);
+    playfield->addThing(casing);
 }
 
-
-void ScriptedWeapon::_apiAddBullet(bool isFriendly,
-        float x, float y, int damage,
+void ScriptedWeapon::_apiAddBullet(bool isFriendly, float x, float y, int damage,
         float vx, float vy, float lifetime, std::string path){
-    std::cout << "hello\n";
-    std::shared_ptr<Bullet> bullet = std::make_shared<Bullet>(isFriendly, sf::Vector2f{x, y}, damage, sf::Vector2f{vx,vy}, FRAMERATE*lifetime);
+    std::shared_ptr<Bullet> bullet = std::make_shared<Bullet>(isFriendly, sf::Vector2f{x,y}, damage, sf::Vector2f{vx,vy}, FRAMERATE*lifetime);
     playfield->addThing(bullet);
 }
 

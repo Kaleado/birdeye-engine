@@ -9,7 +9,6 @@
 #include "WeaponWidget.hpp"
 #include "EnvironmentThing.hpp"
 
-#include "SniperRifle.hpp"
 #include "Minigun.hpp"
 #include "ScriptedWeapon.hpp"
 
@@ -49,7 +48,8 @@ void initialiseGameState(){
     //auto rifle = std::make_shared<SniperRifle<Bullet>>(1, 1, 150, 30);
     auto rifle = std::make_shared<ScriptedWeapon>("res/scripts/weapon_sniper_rifle.lua");
     rifle->fillWithMods();
-    auto minigun = std::make_shared<Minigun<Bullet>>(1, 1, 30, 2, 2, 40, 20, 0.5);
+//    auto minigun = std::make_shared<Minigun<Bullet>>(1, 1, 30, 2, 2, 40, 20, 0.5);
+    auto minigun = std::make_shared<ScriptedWeapon>("res/scripts/weapon_minigun.lua");
     minigun->fillWithMods();
 
 

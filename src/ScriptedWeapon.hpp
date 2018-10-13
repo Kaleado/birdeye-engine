@@ -31,6 +31,7 @@ private:
     static void _apiCreateAmmoCasing(std::string path, float x, float y, float dx,
                                      float z, float dz, float az, double bounciness);
     static void _apiCameraKick(float dir, float vel);
+    static void _apiCameraSetFocus(float x, float y);
 
 public:
     //!Handles when the player presses/releases the primary/secondary fire buttons.

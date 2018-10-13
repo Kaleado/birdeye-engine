@@ -46,7 +46,8 @@ void initialiseGameState(){
     revolver->fillWithMods();
     auto shotgun = std::make_shared<ScriptedWeapon>("res/scripts/weapon_pump_shotgun.lua");
     shotgun->fillWithMods();
-    auto rifle = std::make_shared<SniperRifle<Bullet>>(1, 1, 150, 30);
+    //auto rifle = std::make_shared<SniperRifle<Bullet>>(1, 1, 150, 30);
+    auto rifle = std::make_shared<ScriptedWeapon>("res/scripts/weapon_sniper_rifle.lua");
     rifle->fillWithMods();
     auto minigun = std::make_shared<Minigun<Bullet>>(1, 1, 30, 2, 2, 40, 20, 0.5);
     minigun->fillWithMods();

@@ -19,8 +19,13 @@ void ScriptedWeapon::_initScript() {
             .addStaticFunction("addBullet", &ScriptedWeapon::_apiAddBullet)
             .addStaticFunction("createAmmoCasing", &ScriptedWeapon::_apiCreateAmmoCasing)
             .addStaticFunction("cameraKick", &ScriptedWeapon::_apiCameraKick)
+            .addStaticFunction("cameraSetFocus", &ScriptedWeapon::_apiCameraSetFocus)
         .endClass();
     luaL_dofile(_l, _script.c_str());
+}
+
+void ScriptedWeapon::_apiCameraSetFocus(float x, float y){
+    camera.setFocusPosition(sf::Vector2f{x, y});
 }
 
 float ScriptedWeapon::_apiGetPlayerX(){

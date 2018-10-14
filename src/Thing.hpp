@@ -180,23 +180,23 @@ public:
     virtual void draw(sf::RenderWindow& window);
     AmmoCasing(std::string path, sf::Vector2f position, double dx,
                double z, double dz, double az, double bounciness, int lifetime) : Particle(path, position) {
-      _name = "AmmoCasing";
-      _velocity.x = dx;
-      _z = z;
-      _dz = dz;
-      _az = az;
-      _bounciness = bounciness;
-      _lifetime = lifetime;
+        _name = "AmmoCasing";
+        _velocity.x = dx;
+        _z = z;
+        _dz = dz;
+        _az = az;
+        _bounciness = bounciness;
+        _lifetime = lifetime;
     };
     AmmoCasing(Animation& anim, sf::Vector2f position, double dx,
                double z, double dz, double az, double bounciness, int lifetime) : Particle(anim, position) {
-      _name = "AmmoCasing";
-      _velocity.x = dx;
-      _z = z;
-      _dz = dz;
-      _az = az;
-      _bounciness = bounciness;
-      _lifetime = lifetime;
+        _name = "AmmoCasing";
+        _velocity.x = dx;
+        _z = z;
+        _dz = dz;
+        _az = az;
+        _bounciness = bounciness;
+        _lifetime = lifetime;
     };
 };
 

@@ -118,10 +118,25 @@ void Enemy::tick(){
 
 void Enemy::damage(int amount){
   if(amount > 0){
-    auto anim = Animation{{"res/blood1.png", "res/blood2.png", "res/blood3.png", "res/blood4.png"}, false, FRAMERATE/2};
-    auto bloodAnimation = std::make_shared<EphemeralAnimation>(anim, _position);
-    bloodAnimation->setRotation(randDouble() * 360);
-    playfield->addThing(bloodAnimation);
+//    auto anim = Animation{{"res/blood1.png", "res/blood2.png", "res/blood3.png", "res/blood4.png"}, false, FRAMERATE/2};
+//    auto bloodAnimation = std::make_shared<EphemeralAnimation>(anim, _position);
+//    bloodAnimation->setRotation(randDouble() * 360);
+      int numParticles = 10;
+      for(int i = 0; i < numParticles; ++i){
+          auto pos = getWorldPosition();
+          pos.x += randDouble()*15;
+          pos.y += randDouble()*15;
+          std::shared_ptr<AmmoCasing> bloodAnimation;
+          if(randDouble() > 0.5){
+            bloodAnimation = std::make_shared<AmmoCasing>("res/blood-1.png", pos,
+                                                               randDouble()*40 - 20, 15, 0, 3, 0.0, FRAMERATE/2);
+          }
+          else {
+            bloodAnimation = std::make_shared<AmmoCasing>("res/blood-2.png", pos,
+                                                               randDouble()*40 - 20, 15, 0, 3, 0.0, FRAMERATE/2);
+          }
+          playfield->addThing(bloodAnimation);
+      }
   }
   if(enemyState == ES_IDLE){
     enemyState = ES_AGGRO;

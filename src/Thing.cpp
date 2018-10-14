@@ -6,6 +6,12 @@ void Thing::setFacing(sf::Vector2f facing){
   _facing = facing;
 }
 
+
+sf::Vector2f Thing::getFacing(){
+  return _facing;
+}
+
+
 void Thing::setRotation(double rotation){
   _rotation = rotation;
 }

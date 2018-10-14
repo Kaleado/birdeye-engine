@@ -36,7 +36,7 @@ function tick()
     if(weaponState == "WS_FIRING_PRIMARY") then
         if(cooldown <= 0) then
             local deviation = 5
-            local dir = game.playerRotation + 180 + math.random(-deviation, deviation)
+            local dir = game.playerFacing + 180 + math.random(-deviation, deviation)
             game.cameraKick(dir, 80)
             local vx = game.cursorX - game.playerX - 4
             local vy = game.cursorY - game.playerY - 4

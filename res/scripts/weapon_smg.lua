@@ -30,7 +30,7 @@ end
 function tick()
     if(weaponState == "WS_FIRING_PRIMARY") then
         if(cooldown <= 0) then
-            local dir = game.playerRotation + 180
+            local dir = game.playerFacing + 180
             game.cameraKick(dir, 13.0)
             local dx = game.cursorX - game.playerX;
             local dy = game.cursorY - game.playerY;

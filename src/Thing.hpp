@@ -90,6 +90,10 @@ public:
     //!Sets the thing's facing.
     void setFacing(sf::Vector2f facing);
 
+    //!Gets the thing's facing.
+    sf::Vector2f getFacing();
+
+
     //!Sets the thing's rotation.
     void setRotation(double rotation);
 

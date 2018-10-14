@@ -14,6 +14,7 @@ void ScriptedWeapon::_initScript() {
             .addStaticProperty("playerX", &ScriptedWeapon::_apiGetPlayerX)
             .addStaticProperty("playerY", &ScriptedWeapon::_apiGetPlayerY)
             .addStaticProperty("playerRotation", &ScriptedWeapon::_apiGetPlayerRotation)
+            .addStaticProperty("playerFacing", &ScriptedWeapon::_apiGetPlayerFacing)
             .addStaticProperty("cursorX", &ScriptedWeapon::_apiGetCursorX)
             .addStaticProperty("cursorY", &ScriptedWeapon::_apiGetCursorY)
             .addStaticFunction("addBullet", &ScriptedWeapon::_apiAddBullet)
@@ -38,6 +39,10 @@ float ScriptedWeapon::_apiGetPlayerY(){
 
 float ScriptedWeapon::_apiGetPlayerRotation(){
     return player->getWorldRotation();
+}
+
+float ScriptedWeapon::_apiGetPlayerFacing(){
+    return getVectorAngleDegrees(player->getFacing());
 }
 
 float ScriptedWeapon::_apiGetCursorX(){

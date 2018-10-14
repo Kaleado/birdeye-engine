@@ -39,7 +39,7 @@ function tick()
     if(weaponState == "WS_FIRING_PRIMARY") then
         if(cooldown <= 0) then
             fireDelay = math.max(minFireDelay, fireDelay - fireDelayDecreaseRate)
-            local dir = game.playerRotation + 180
+            local dir = game.playerFacing + 180
             game.cameraKick(dir, 9.0)
             local dx = game.cursorX - game.playerX;
             local dy = game.cursorY - game.playerY;

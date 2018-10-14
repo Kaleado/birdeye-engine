@@ -44,7 +44,7 @@ function tick()
     elseif(weaponState == "WS_FIRING_PRIMARY" and isPumped) then
         local deviation = 8
         local spread = 3
-        local dir = game.playerRotation + 180 + math.random(-deviation, deviation)
+        local dir = game.playerFacing + 180 + math.random(-deviation, deviation)
         game.cameraKick(dir, 90)
         for x = 0, numPellets, 1
         do

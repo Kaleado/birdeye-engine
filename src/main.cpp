@@ -10,6 +10,7 @@
 #include "EnvironmentThing.hpp"
 
 #include "ScriptedWeapon.hpp"
+#include "ScriptedEnemy.hpp"
 
 #include "EnemyDemon.hpp"
 #include "EnemyEye.hpp"
@@ -73,6 +74,17 @@ void initialiseGameState(){
     player->giveWeapon(minigun);
 
     playfield->addThing(player);
+
+    auto demon = std::make_shared<ScriptedEnemy>(std::array<std::string, FACING_MAX>{
+                                                         "res/enemy-up.png", "res/enemy-down.png",
+                                                         "res/enemy-left.png", "res/enemy-right.png",
+                                                         "res/enemy-upleft.png", "res/enemy-upright.png",
+                                                         "res/enemy-downleft.png", "res/enemy-downright.png"},
+                                                 sf::Vector2f{500.0f, 500.0f}, 1000,
+                                                 sf::FloatRect{7.0, 7.0, 26.0, 32.0}, "res/scripts/enemy_demon.lua");
+    playfield->addThing(demon);
+    std::cout << demon.get();
+
     healthBar = HorizontalBar<int>{[](){return player->getCurrentHp();}, [](){return player->stats.maxHp;}, {10, 10}, sf::Color::Red, 100, 15};
 }
 

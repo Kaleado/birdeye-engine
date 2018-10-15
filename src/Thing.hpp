@@ -1,3 +1,7 @@
+#include <utility>
+
+#include <utility>
+
 #ifndef THING_H
 #define THING_H
 
@@ -118,10 +122,10 @@ public:
     void setVelocity(sf::Vector2f v);
 
     //!Gets the _world_ position of the thing - NOT THE SCREEN POSITION.
-    sf::Vector2f getWorldPosition();
+    sf::Vector2f getWorldPosition() const;
 
     //!Gets the position of the thing ON THE SCREEN (not the world position).
-    sf::Vector2f getScreenPosition();
+    sf::Vector2f getScreenPosition() const;
 
     //!Sets the _in-world_ position of the thing.
     void setWorldPosition(sf::Vector2f newPos);
@@ -132,14 +136,14 @@ public:
       _isAnimating = true;
     };
     //! hitboxAtZeroZero is where the hitbox would be at position (0,0).
-    Thing(std::string path, sf::Vector2f position, sf::FloatRect hitboxAtZeroZero) : _path{path}, _position{position}, _hitboxAtZeroZero{hitboxAtZeroZero} { };
+    Thing(std::string path, sf::Vector2f position, sf::FloatRect hitboxAtZeroZero) : _path{std::move(path)}, _position{position}, _hitboxAtZeroZero{hitboxAtZeroZero} { };
     Thing(Animation& anim, sf::Vector2f position) : _path{""}, _position{position}, _hitboxAtZeroZero{0,0,0,0} {
       _currentAnimation = anim;
       _isAnimating = true;
     };
-    Thing(std::string path, sf::Vector2f position) : _path{path}, _position{position}, _hitboxAtZeroZero{0,0,0,0} {};
-    Thing(std::string path) : _path{path}, _position{0,0}, _hitboxAtZeroZero{0,0,0,0} {};
-    Thing(){};
+    Thing(std::string path, sf::Vector2f position) : _path{std::move(path)}, _position{position}, _hitboxAtZeroZero{0,0,0,0} {};
+    explicit Thing(std::string path) : _path{std::move(path)}, _position{0,0}, _hitboxAtZeroZero{0,0,0,0} {};
+    Thing() = default;;
 };
 
 /**

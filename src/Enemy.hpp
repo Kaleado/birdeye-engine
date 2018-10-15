@@ -35,94 +35,104 @@ enum EnemyState { ES_IDLE, ES_AGGRO, ES_DEAD, ES_ATTACKING, ES_FLEE };
  */
 class Enemy : public Thing {
 public:
-  //!Get maximum HP.
-  int getMaxHp();
+    //!Get maximum HP.
+    int getMaxHp();
 
-  //!Get current HP.
-  int getHp();
+    //!Get current HP.
+    int getHp();
 
-  //!Returns the center of the sprite (in world coordinates)
-  sf::Vector2f getWorldCenter();
+    //!Returns the center of the sprite (in world coordinates)
+    sf::Vector2f getWorldCenter();
 
-  //!The enemy's current state (described above).
-  EnemyState enemyState = ES_IDLE;
+    //!The enemy's current state (described above).
+    EnemyState enemyState = ES_IDLE;
 
-  //!This function is executed every frame, and serves as the main AI
-  //!function for the enemy. Calls _whenIdle(), _whenAggro(), etc.
-  //!Don't override this if you can use _whenTick() instead!
-  virtual void tick();
+    //!This function is executed every frame, and serves as the main AI
+    //!function for the enemy. Calls _whenIdle(), _whenAggro(), etc.
+    //!Don't override this if you can use _whenTick() instead!
+    virtual void tick();
 
-  //!Deals damage to the enemy.
-  virtual void damage(int amount);
+    //!Deals damage to the enemy.
+    virtual void damage(int amount);
 
-  //!Responds to (but does not check for) collisions every frame. Other
-  //!contains a pointer to the Thing that was collided with.
-  virtual void handleCollision(std::weak_ptr<Thing> other);
+    //!Responds to (but does not check for) collisions every frame. Other
+    //!contains a pointer to the Thing that was collided with.
+    virtual void handleCollision(std::weak_ptr<Thing> other);
 
-  //!Executed when the creature dies.
-  virtual void die();
+    //!Executed when the creature dies.
+    virtual void die();
 
-  Enemy(std::string path, sf::Vector2f position, int maxHp, double speed, sf::FloatRect hitboxAtZeroZero) : Enemy{path, position, maxHp, speed} {
-    _hitboxAtZeroZero = hitboxAtZeroZero;
-  };
-  Enemy(std::array<std::string, FACING_MAX> facingPaths, sf::Vector2f position, int maxHp, double speed, sf::FloatRect hitboxAtZeroZero) : Enemy{facingPaths, position, maxHp, speed} {
-    _hitboxAtZeroZero = hitboxAtZeroZero;
-  };
+    Enemy(std::string path, sf::Vector2f position, int maxHp, sf::FloatRect hitboxAtZeroZero) : Enemy{path, position, maxHp, 0.0} {
+        _hitboxAtZeroZero = hitboxAtZeroZero;
+    };
+    Enemy(std::string path, sf::Vector2f position, int maxHp, double speed, sf::FloatRect hitboxAtZeroZero) : Enemy{path, position, maxHp, speed} {
+        _hitboxAtZeroZero = hitboxAtZeroZero;
+    };
+    Enemy(std::array<std::string, FACING_MAX> facingPaths, sf::Vector2f position, int maxHp, double speed, sf::FloatRect hitboxAtZeroZero) : Enemy{facingPaths, position, maxHp, speed} {
+        _hitboxAtZeroZero = hitboxAtZeroZero;
+    };
 
-  Enemy(std::string path, sf::Vector2f position, int maxHp, double speed) : Thing(path, position) {
-    _maxHp = maxHp;
-    _hp = _maxHp;
-    _speed = speed;
-    for(auto i = 0; i < FACING_MAX; ++i){
-      _facingPaths[i] = path;
-    }
-  };
-  Enemy(std::array<std::string, FACING_MAX> facingPaths, sf::Vector2f position, int maxHp, double speed) : Thing(facingPaths[0], position) {
-    _maxHp = maxHp;
-    _hp = _maxHp;
-    _speed = speed;
-    _facingPaths = facingPaths;
-  };
-  Enemy(){};
+    Enemy(std::string path, sf::Vector2f position, int maxHp, double speed) : Thing(path, position) {
+        _maxHp = maxHp;
+        _hp = _maxHp;
+        _speed = speed;
+        for(auto i = 0; i < FACING_MAX; ++i){
+            _facingPaths[i] = path;
+        }
+    };
+    Enemy(std::array<std::string, FACING_MAX> facingPaths, sf::Vector2f position, int maxHp, double speed) : Thing(facingPaths[0], position) {
+        _maxHp = maxHp;
+        _hp = _maxHp;
+        _speed = speed;
+        _facingPaths = facingPaths;
+    };
+    Enemy(std::array<std::string, FACING_MAX> facingPaths, sf::Vector2f position,
+            int maxHp, sf::FloatRect hitBoxAtZeroZero) : Thing(facingPaths[0], position) {
+        _maxHp = maxHp;
+        _hp = _maxHp;
+        _facingPaths = facingPaths;
+        _hitboxAtZeroZero = hitBoxAtZeroZero;
+    };
+    Enemy() = default;
 
 protected:
-  //!Changes the creature's sprite based on the direction they're facing.
-  void _setImageBasedOnFacing();
+    //!Changes the creature's sprite based on the direction they're facing.
+    void _setImageBasedOnFacing();
 
-  //These methods should be overriden for different enemies.
+    //These methods should be overridden for different enemies.
 
-  //!Executed every frame when the creature's state is ES_IDLE.
-  virtual void _whenIdle();
+    //!Executed every frame when the creature's state is ES_IDLE.
+    virtual void _whenIdle();
 
-  //!Executed every frame when the creature's state is ES_AGGRO.
-  virtual void _whenAggro();
+    //!Executed every frame when the creature's state is ES_AGGRO.
+    virtual void _whenAggro();
 
-  //!Executed every frame when the creature's state is ES_ATTACKING.
-  virtual void _whenAttacking();
+    //!Executed every frame when the creature's state is ES_ATTACKING.
+    virtual void _whenAttacking();
 
-  //!Executed when the creature collides with something - this is for enemy-specific logic.
-  virtual void _whenCollidingWith(std::weak_ptr<Thing> other);
+    //!Executed when the creature collides with something - this is for enemy-specific logic.
+    virtual void _whenCollidingWith(std::weak_ptr<Thing> other);
 
-  //!Executed every tick the creature is alive for.
-  virtual void _whenTick();
+    //!Executed every tick the creature is alive for.
+    virtual void _whenTick();
 
-  //!Executed when the creature dies.
-  virtual void _whenKilled();
+    //!Executed when the creature dies.
+    virtual void _whenKilled();
 
-  //!Does what it says on the tin.
-  double _getDistanceFromPlayer();
+    //!Executed when the creature takes damage.
+    virtual void _whenDamaged(int amt);
 
-  //!Enemy stats.
-  int _hp, _maxHp;
+    //!Does what it says on the tin.
+    double _getDistanceFromPlayer();
 
-  //!Pixels per frame the enemy can move at.
-  double _speed;
+    //!Enemy stats.
+    int _hp, _maxHp;
 
-  //!Adds a delay between attacking.
-  int _attackTimer;
+    //!Pixels per frame the enemy can move at.
+    double _speed;
 
-  //!Paths to images to be displayed when the Enemy is facing in different directions.
-  std::array<std::string, FACING_MAX> _facingPaths;
+    //!Paths to images to be displayed when the Enemy is facing in different directions.
+    std::array<std::string, FACING_MAX> _facingPaths;
 };
 
 #endif

@@ -25,7 +25,7 @@ sf::Vector2f Thing::getHitboxWorldCenter(){
   return {b.left + b.width/2, b.top + b.height/2};
 }
 
-sf::Vector2f Thing::getScreenPosition(){
+sf::Vector2f Thing::getScreenPosition() const {
   return sf::Vector2f{_position.x -  camera.getPosition().x, _position.y -  camera.getPosition().y};
 }
 
@@ -137,7 +137,7 @@ void Thing::handleCollision(std::weak_ptr<Thing> other){
   //Don't handle any collisions.
 }
 
-sf::Vector2f Thing::getWorldPosition(){
+sf::Vector2f Thing::getWorldPosition() const {
   return _position;
 }
 sf::FloatRect Thing::getBounds(){

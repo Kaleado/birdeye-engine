@@ -5,7 +5,7 @@ CXX=g++
 
 SRCS=main.cpp EnvironmentThing.cpp Render.cpp Thing.cpp Player.cpp Bullet.cpp Weapon.cpp Playfield.cpp Enemy.cpp \
 Animation.cpp Ability.cpp Cursor.cpp Camera.cpp Ui.cpp Stats.cpp WeaponMod.cpp WeaponWidget.cpp EnemyDemon.cpp \
-EnemyEye.cpp Teleporter.cpp BreakableThing.cpp EnemyLegion.cpp ThingEntrance.cpp ScriptedWeapon.cpp
+EnemyEye.cpp Teleporter.cpp BreakableThing.cpp EnemyLegion.cpp ThingEntrance.cpp ScriptedWeapon.cpp ScriptedEnemy.cpp
 
 OBJS=$(subst .cpp,.o,$(SRCS))
 

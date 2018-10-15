@@ -97,6 +97,10 @@ void Enemy::_whenKilled(){
   //Do nothing.
 }
 
+void Enemy::_whenDamaged(int amt){
+    //Do nothing.
+}
+
 void Enemy::_whenCollidingWith(std::weak_ptr<Thing> other){
   //Do nothing.
 }
@@ -117,6 +121,7 @@ void Enemy::tick(){
 }
 
 void Enemy::damage(int amount){
+    _whenDamaged(amount);
   if(amount > 0){
 //    auto anim = Animation{{"res/blood1.png", "res/blood2.png", "res/blood3.png", "res/blood4.png"}, false, FRAMERATE/2};
 //    auto bloodAnimation = std::make_shared<EphemeralAnimation>(anim, _position);

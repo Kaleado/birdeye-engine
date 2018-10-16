@@ -29,7 +29,7 @@ function whenTick()
     if(enemyState == "ES_IDLE") then
         if(not returnHome and not runOnce) then
             enemy.velocity = Vector(math.random(-1, 1), math.random(-1, 1))
-            runOnce = true)
+            runOnce = true
         elseif(returnHome and not runOnce) then
             local dx = home.x - enemy.position.x
             local dy = home.y - enemy.position.y
@@ -61,6 +61,7 @@ function whenTick()
         toPlayer.x = toPlayer.x * speed
         toPlayer.y = toPlayer.y * speed
         enemy.velocity = toPlayer
+
     end
 end
 

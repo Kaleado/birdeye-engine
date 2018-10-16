@@ -90,3 +90,5 @@ EnemyDemon 2140 760 1000 3.0
 EnemyDemon 2100 800 1000 3.0
 
 EnemyEye 3033 371 5000 3.0
+
+Entrance 500 500 32 32 res/levels/level.plf entry

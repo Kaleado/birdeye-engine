@@ -1,33 +1,19 @@
-Background background1.png
-Overlay overlay.png
+Background res/background1.png
+Overlay res/overlay.png
+DefaultPlayer 432 330
 
-# EnvironmentThing house-final-2.png 200 200 false false
-# EnvironmentThing house-final-1.png 150 150 false false
-# EnvironmentThing house-final-5.png 455 175 false false
-# EnvironmentThing house-final-4.png 500 205 false false
-# EnvironmentThing house-final-1.png 1560 405 false false
-# EnvironmentThing house-final-1.png 1750 150 false false
-# EnvironmentThing house-final-2.png 1605 345 false false
-# EnvironmentThing house-final-3-scaled.png 800 20 false false
-# EnvironmentThing house-final-4.png 1760 325 false false
-BreakableThing tree.png 2760 325 1000
-# EnemyDemon 450 450 500 10.0
-# EnemyDemon 460 450 500 10.0
-# EnemyDemon 470 450 500 10.0
-# EnemyDemon 480 450 500 10.0
-# EnemyDemon 490 450 500 10.0
-# EnemyDemon 520 450 500 10.0
-# EnemyDemon 530 450 500 10.0
-# EnemyEye 540 450 5000 10.0
-# EnemyEye 550 450 5000 10.0
-# EnemyEye 720 450 5000 10.0
-# EnemyEye 730 450 5000 10.0
-# EnemyEye 740 450 5000 10.0
-# EnemyEye 750 450 5000 10.0
-# EnemyEye 150 450 5000 10.0
-# EnemyEye 250 450 5000 10.0
-# EnemyEye 350 450 5000 10.0
-# EnemyEye 450 450 5000 10.0
+Marker 432 330 entry
+
+EnvironmentThing res/house-final-2.png 200 200 false false
+EnvironmentThing res/house-final-1.png 150 150 false false
+EnvironmentThing res/house-final-5.png 455 175 false false
+EnvironmentThing res/house-final-4.png 500 205 false false
+EnvironmentThing res/house-final-1.png 1560 405 false false
+EnvironmentThing res/house-final-1.png 1750 150 false false
+EnvironmentThing res/house-final-2.png 1605 345 false false
+EnvironmentThing res/house-final-3-scaled.png 800 20 false false
+EnvironmentThing res/house-final-4.png 1760 325 false false
+BreakableThing res/tree.png 2760 325 1000
 # EnemyLegion 1000 1000 100 8.0
-Teleporter 500 500 teleporter.png 700 500 teleporter.png
-Entrance 600 500 32 32 other.plf placeholder_marker
+Teleporter 500 500 res/teleporter.png 700 500 res/teleporter.png
+Entrance 100 100 32 32 res/levels/other.plf entry

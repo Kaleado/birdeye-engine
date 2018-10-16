@@ -143,7 +143,7 @@ public:
     };
     Thing(std::string path, sf::Vector2f position) : _path{std::move(path)}, _position{position}, _hitboxAtZeroZero{0,0,0,0} {};
     explicit Thing(std::string path) : _path{std::move(path)}, _position{0,0}, _hitboxAtZeroZero{0,0,0,0} {};
-    Thing() = default;;
+    Thing() = default;
 };
 
 /**
